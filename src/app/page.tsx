@@ -13,85 +13,139 @@ export default async function HomePage() {
     return acc;
   }, {} as Record<string, typeof published>);
 
-  const popular = published.filter(c => c.popular).slice(0, 8);
+  // Calculator.net 4-column layout mapping
+  const financialCats = ['finance', 'business', 'real-estate'];
+  const healthCats = ['health-fitness', 'sports', 'biology-agriculture'];
+  const mathCats = ['math', 'statistics'];
+  const otherCats = ['date-time', 'education', 'construction', 'automotive', 'cooking', 'technology', 'physics', 'chemistry', 'engineering'];
+
+  const getLinksForCategories = (cats: string[]) => {
+    return cats.flatMap(cat => byCategory[cat] || []).sort((a,b) => a.name.localeCompare(b.name));
+  };
+
+  const financialLinks = getLinksForCategories(financialCats);
+  const healthLinks = getLinksForCategories(healthCats);
+  const mathLinks = getLinksForCategories(mathCats);
+  const otherLinks = getLinksForCategories(otherCats);
 
   return (
-    <div className="space-y-16">
+    <div className="space-y-8 max-w-6xl mx-auto">
       {/* Hero Section */}
-      <section className="text-center py-12 md:py-20 px-4 sm:px-6">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
-          Every Calculator You Need,<br/>
-          <span className="text-primary">In One Place.</span>
-        </h1>
-        <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-10">
-          Free, fast, and highly accurate calculators for everyday math, finance, health, science, and more.
-        </p>
-        
-        <Search 
-          items={published.map(c => ({
-            slug: c.slug,
-            name: c.name,
-            short: c.short,
-            category: c.category,
-            aliases: c.aliases,
-            tags: c.tags
-          }))}
-        />
-      </section>
-
-      {/* Popular Calculators */}
-      {popular.length > 0 && (
-        <section>
-          <h2 className="text-2xl font-bold mb-6">Popular Calculators</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {popular.map(calc => (
-              <Link key={calc.id} href={`/${calc.slug}/`} className="card p-5 hover:border-primary hover:shadow-md transition-all group">
-                <h3 className="font-semibold text-lg text-slate-900 group-hover:text-primary mb-2">{calc.name}</h3>
-                <p className="text-sm text-slate-600 line-clamp-2">{calc.short}</p>
-              </Link>
-            ))}
+      <section className="text-center py-8">
+        <div className="bg-[#e7eef4] border border-[#a4c2e4] rounded p-6 mb-8 mx-auto max-w-3xl flex flex-col md:flex-row items-center justify-between shadow-sm">
+          <div className="mb-4 md:mb-0 text-left">
+             <h2 className="text-[#0e4e7e] text-2xl font-bold mb-2">Free Online Calculators</h2>
+             <p className="text-sm text-slate-700">Find the calculator you need quickly.</p>
           </div>
-        </section>
-      )}
-
-      {/* Browse by Category */}
-      <section>
-        <h2 className="text-2xl font-bold mb-6">Browse Categories</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.filter(cat => byCategory[cat.slug]?.length > 0).map(cat => (
-            <Link key={cat.slug} href={`/category/${cat.slug}/`} className="card p-6 hover:shadow-md transition-all flex flex-col h-full group">
-              <h3 className="text-xl font-bold text-slate-900 group-hover:text-primary mb-2">{cat.name}</h3>
-              <p className="text-sm text-slate-600 mb-4 flex-grow">{cat.desc}</p>
-              <span className="text-sm font-medium text-primary">
-                {byCategory[cat.slug]?.length || 0} calculators &rarr;
-              </span>
-            </Link>
-          ))}
+          <div className="w-full md:w-1/2">
+            <Search 
+              items={published.map(c => ({
+                slug: c.slug,
+                name: c.name,
+                short: c.short,
+                category: c.category,
+                aliases: c.aliases,
+                tags: c.tags
+              }))}
+            />
+          </div>
         </div>
       </section>
 
-      {/* All Calculators Directory */}
-      <section id="all">
-        <h2 className="text-3xl font-bold mb-8">All Calculators A-Z</h2>
-        <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
-          {categories.filter(cat => byCategory[cat.slug]?.length > 0).map(cat => (
-            <div key={cat.slug} className="mb-10 last:mb-0">
-              <h3 className="text-xl font-bold text-slate-800 border-b border-slate-200 pb-2 mb-4">
-                {cat.name}
-              </h3>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-3">
-                {byCategory[cat.slug].sort((a,b) => a.name.localeCompare(b.name)).map(calc => (
-                  <li key={calc.id}>
-                    <Link href={`/${calc.slug}/`} className="text-slate-600 hover:text-primary hover:underline text-sm md:text-base">
-                      {calc.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+      {/* 4-Column Layout like Calculator.net */}
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+        
+        {/* Column 1: Financial */}
+        <div>
+           <div className="flex justify-center mb-4 h-24 items-center">
+             <div className="w-20 h-20 bg-slate-200 rounded-full flex items-center justify-center overflow-hidden border-4 border-white shadow">
+                <span className="text-2xl">💰</span>
+             </div>
+           </div>
+           <h3 className="text-lg font-bold text-[#0e4e7e] border-b border-[#a4c2e4] pb-2 mb-3">Financial Calculators</h3>
+           <ul className="flex flex-col gap-1.5 text-sm">
+             {financialLinks.map(calc => (
+               <li key={calc.id}>
+                 <Link href={`/${calc.slug}/`} className="text-[#0e4e7e] hover:underline leading-tight block">
+                   {calc.name}
+                 </Link>
+               </li>
+             ))}
+           </ul>
         </div>
-      </section>
+
+        {/* Column 2: Fitness & Health */}
+        <div>
+           <div className="flex justify-center mb-4 h-24 items-center">
+             <div className="w-20 h-20 bg-slate-200 rounded-full flex items-center justify-center overflow-hidden border-4 border-white shadow">
+                <span className="text-2xl">🏃</span>
+             </div>
+           </div>
+           <h3 className="text-lg font-bold text-[#0e4e7e] border-b border-[#a4c2e4] pb-2 mb-3">Fitness & Health Calculators</h3>
+           <ul className="flex flex-col gap-1.5 text-sm">
+             {healthLinks.map(calc => (
+               <li key={calc.id}>
+                 <Link href={`/${calc.slug}/`} className="text-[#0e4e7e] hover:underline leading-tight block">
+                   {calc.name}
+                 </Link>
+               </li>
+             ))}
+           </ul>
+        </div>
+
+        {/* Column 3: Math */}
+        <div>
+           <div className="flex justify-center mb-4 h-24 items-center">
+             <div className="w-20 h-20 bg-slate-200 rounded-full flex items-center justify-center overflow-hidden border-4 border-white shadow">
+                <span className="text-2xl">🔢</span>
+             </div>
+           </div>
+           <h3 className="text-lg font-bold text-[#0e4e7e] border-b border-[#a4c2e4] pb-2 mb-3">Math Calculators</h3>
+           <ul className="flex flex-col gap-1.5 text-sm">
+             {mathLinks.map(calc => (
+               <li key={calc.id}>
+                 <Link href={`/${calc.slug}/`} className="text-[#0e4e7e] hover:underline leading-tight block">
+                   {calc.name}
+                 </Link>
+               </li>
+             ))}
+           </ul>
+        </div>
+
+        {/* Column 4: Other */}
+        <div>
+           <div className="flex justify-center mb-4 h-24 items-center">
+             <div className="w-20 h-20 bg-slate-200 rounded-full flex items-center justify-center overflow-hidden border-4 border-white shadow">
+                <span className="text-2xl">⚙️</span>
+             </div>
+           </div>
+           <h3 className="text-lg font-bold text-[#0e4e7e] border-b border-[#a4c2e4] pb-2 mb-3">Other Calculators</h3>
+           <ul className="flex flex-col gap-1.5 text-sm">
+             {otherLinks.map(calc => (
+               <li key={calc.id}>
+                 <Link href={`/${calc.slug}/`} className="text-[#0e4e7e] hover:underline leading-tight block">
+                   {calc.name}
+                 </Link>
+               </li>
+             ))}
+           </ul>
+        </div>
+
+      </div>
+
+      <div className="flex justify-center mt-12 mb-12">
+        <Link href="/categories/" className="bg-[#5a8647] hover:bg-[#4a6f3a] text-white px-6 py-2 rounded font-bold transition-colors">
+          All Calculators &rarr;
+        </Link>
+      </div>
+
+      {/* SEO Footer Text */}
+      <div className="bg-[#eeeeee] p-6 text-xs text-slate-600 rounded-lg text-justify leading-relaxed">
+        AllCalcTool.com's sole focus is to provide fast, comprehensive, convenient, free online calculators in a plethora of areas. Currently, we have over 150 calculators to help you "do the math" quickly in areas such as finance, fitness, health, math, and others, and we are still developing more. Our goal is to become the one-stop, go-to site for people who need to make quick calculations. Additionally, we believe the internet should be a source of free information. Therefore, all of our tools and services are completely free, with no registration required.
+        <br/><br/>
+        We coded and developed each calculator individually and put each one through strict, comprehensive testing. However, please inform us if you notice even the slightest error – your input is extremely valuable to us.
+      </div>
+
     </div>
   );
 }

@@ -1,0 +1,226 @@
+const fs = require('fs');
+const path = require('path');
+
+const pageTsxPath = path.join('src', 'app', '[slug]', 'page.tsx');
+let content = fs.readFileSync(pageTsxPath, 'utf8');
+
+const returnStart = content.indexOf('  return (');
+const returnEnd = content.lastIndexOf('  );\n}');
+
+const newReturn = `  return (
+    <div className="flex flex-col lg:flex-row gap-8 max-w-6xl mx-auto">
+      
+      {/* Left Main Content */}
+      <div className="flex-1 min-w-0">
+        {/* Breadcrumbs */}
+        <nav className="flex text-sm text-slate-500 mb-4" aria-label="Breadcrumb">
+          <ol className="inline-flex items-center space-x-1 md:space-x-3">
+            <li className="inline-flex items-center">
+              <Link href="/" className="hover:text-primary">Home</Link>
+            </li>
+            <li>
+              <div className="flex items-center">
+                <span className="mx-2">/</span>
+                <Link href={\`/category/\${def.category}/\`} className="hover:text-primary">
+                  {category?.name || def.category}
+                </Link>
+              </div>
+            </li>
+            <li aria-current="page">
+              <div className="flex items-center">
+                <span className="mx-2">/</span>
+                <span className="text-slate-800 font-medium">{def.name}</span>
+              </div>
+            </li>
+          </ol>
+        </nav>
+
+        <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">{def.name}</h1>
+        <p className="text-lg text-slate-600 mb-8">{def.short}</p>
+
+        {/* The Calculator Engine */}
+        <div className="mb-12">
+          <CalculatorEngine slug={def.slug} />
+        </div>
+
+        {/* Calculator Content */}
+        <article className="prose prose-slate max-w-none prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-headings:text-slate-900">
+          
+          {markdownContent ? (
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm, remarkMath]}
+              rehypePlugins={[rehypeKatex]}
+            >
+              {markdownContent}
+            </ReactMarkdown>
+          ) : (
+            <>
+              <section className="mb-10">
+                <h2>About this Calculator</h2>
+                {def.intro.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+                {def.formula && (
+                  <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 my-6 font-mono text-center">
+                    {def.formula}
+                  </div>
+                )}
+              </section>
+
+              {def.howTo && def.howTo.length > 0 && (
+                <section className="mb-10">
+                  <h2>How to Use</h2>
+                  <ol>
+                    {def.howTo.map((step, i) => (
+                      <li key={i}>{step}</li>
+                    ))}
+                  </ol>
+                </section>
+              )}
+
+              {def.example && (
+                <section className="mb-10">
+                  <h2>Example</h2>
+                  <p>{def.example}</p>
+                </section>
+              )}
+
+              {((def.assumptions && def.assumptions.length > 0) || (def.limitations && def.limitations.length > 0)) && (
+                <section className="mb-10 bg-amber-50 p-6 rounded-lg border border-amber-200">
+                  <h2 className="text-amber-900 mt-0">Assumptions & Limitations</h2>
+                  <ul className="text-amber-800 mb-0">
+                    {def.assumptions?.map((a, i) => <li key={\`a-\${i}\`}>{a}</li>)}
+                    {def.limitations?.map((l, i) => <li key={\`l-\${i}\`}>{l}</li>)}
+                  </ul>
+                </section>
+              )}
+
+              {def.faqs && def.faqs.length > 0 && (
+                <section className="mb-10">
+                  <h2>Frequently Asked Questions</h2>
+                  <div className="space-y-6">
+                    {def.faqs.map((faq, i) => (
+                      <div key={i}>
+                        <h3 className="text-lg font-bold text-slate-900 mb-2">{faq.q}</h3>
+                        <p className="text-slate-600">{faq.a}</p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+            </>
+          )}
+        </article>
+
+        {/* JSON-LD Schemas */}
+        {def.faqs && def.faqs.length > 0 && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": def.faqs.map(faq => ({
+                  "@type": "Question",
+                  "name": faq.q,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.a
+                  }
+                }))
+              })
+            }}
+          />
+        )}
+        
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": def.name,
+              "applicationCategory": "CalculatorApplication",
+              "operatingSystem": "Any",
+              "description": def.short,
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            })
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://www.allcalctool.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": category?.name || def.category,
+                  "item": \`https://www.allcalctool.com/category/\${def.category}/\`
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": def.name,
+                  "item": \`https://www.allcalctool.com/\${def.slug}/\`
+                }
+              ]
+            })
+          }}
+        />
+      </div>
+
+      {/* Right Sidebar (Like calculator.net) */}
+      <aside className="w-full lg:w-72 flex-shrink-0 mt-8 lg:mt-0 hidden lg:block">
+        <div className="bg-white border border-slate-200 rounded p-4 sticky top-6">
+          <h3 className="font-bold text-lg text-white bg-[#0e4e7e] px-4 py-2 -mx-4 -mt-4 mb-4 rounded-t">
+            {category?.name || "Related"} Calculators
+          </h3>
+          <ul className="flex flex-col gap-1.5 text-sm">
+            {allCalculators
+              .filter((c) => c.category === def.category && c.status === 'published')
+              .map((c) => (
+                <li key={c.slug} className="leading-tight">
+                  <Link href={\`/\${c.slug}/\`} className={\`hover:underline \${c.slug === def.slug ? 'font-bold text-slate-900' : 'text-[#0e4e7e]'}\`}>
+                    {c.name}
+                  </Link>
+                </li>
+              ))}
+          </ul>
+          
+          <div className="mt-6 pt-4 border-t border-slate-200">
+            <div className="flex flex-wrap gap-2 text-xs">
+              {categories.filter(cat => cat.slug !== def.category).slice(0, 4).map(cat => (
+                <span key={cat.slug} className="text-slate-400">
+                  <Link href={\`/category/\${cat.slug}/\`} className="text-[#0e4e7e] hover:underline whitespace-nowrap">
+                    {cat.name.split(' ')[0]}
+                  </Link>
+                  <span className="mx-1">|</span>
+                </span>
+              ))}
+              <Link href="/" className="text-[#0e4e7e] hover:underline whitespace-nowrap">
+                Other
+              </Link>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  );`;
+
+content = content.substring(0, returnStart) + newReturn + '\n}';
+fs.writeFileSync(pageTsxPath, content);
+console.log("Updated page.tsx layout");

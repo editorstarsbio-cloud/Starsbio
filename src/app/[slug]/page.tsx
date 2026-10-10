@@ -3,6 +3,13 @@ import { getCalculators, categories } from '@/calculators';
 import CalculatorEngine from '@/components/CalculatorEngine';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import fs from 'fs/promises';
+import path from 'path';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -40,6 +47,15 @@ export default async function CalculatorPage({ params }: Props) {
   const category = categories.find((c) => c.slug === def.category);
   const relatedCalcs = def.related ? allCalculators.filter(c => def.related!.includes(c.slug) && c.status === 'published') : [];
 
+  // Attempt to load optional long-form Markdown content
+  let markdownContent = null;
+  try {
+    const mdPath = path.join(process.cwd(), 'src/content/calculators', `${def.slug}.md`);
+    markdownContent = await fs.readFile(mdPath, 'utf8');
+  } catch (e) {
+    // No markdown file exists for this calculator yet, which is fine!
+  }
+
   return (
     <div className="max-w-4xl mx-auto">
       {/* Breadcrumbs */}
@@ -74,59 +90,73 @@ export default async function CalculatorPage({ params }: Props) {
       </div>
 
       {/* Calculator Content */}
-      <article className="prose prose-slate max-w-none">
-        <section className="mb-10">
-          <h2>About this Calculator</h2>
-          {def.intro.map((p, i) => (
-            <p key={i}>{p}</p>
-          ))}
-          {def.formula && (
-            <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 my-6 font-mono text-center">
-              {def.formula}
-            </div>
-          )}
-        </section>
-
-        {def.howTo && def.howTo.length > 0 && (
-          <section className="mb-10">
-            <h2>How to Use</h2>
-            <ol>
-              {def.howTo.map((step, i) => (
-                <li key={i}>{step}</li>
+      <article className="prose prose-slate max-w-none prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-headings:text-slate-900">
+        
+        {markdownContent ? (
+          // If long-form Markdown exists, render it completely!
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm, remarkMath]}
+            rehypePlugins={[rehypeKatex]}
+          >
+            {markdownContent}
+          </ReactMarkdown>
+        ) : (
+          // Fallback to original TS definition text if no markdown exists yet
+          <>
+            <section className="mb-10">
+              <h2>About this Calculator</h2>
+              {def.intro.map((p, i) => (
+                <p key={i}>{p}</p>
               ))}
-            </ol>
-          </section>
-        )}
-
-        {def.example && (
-          <section className="mb-10">
-            <h2>Example</h2>
-            <p>{def.example}</p>
-          </section>
-        )}
-
-        {((def.assumptions && def.assumptions.length > 0) || (def.limitations && def.limitations.length > 0)) && (
-          <section className="mb-10 bg-amber-50 p-6 rounded-lg border border-amber-200">
-            <h2 className="text-amber-900 mt-0">Assumptions & Limitations</h2>
-            <ul className="text-amber-800 mb-0">
-              {def.assumptions?.map((a, i) => <li key={`a-${i}`}>{a}</li>)}
-              {def.limitations?.map((l, i) => <li key={`l-${i}`}>{l}</li>)}
-            </ul>
-          </section>
-        )}
-
-        {def.faqs && def.faqs.length > 0 && (
-          <section className="mb-10">
-            <h2>Frequently Asked Questions</h2>
-            <div className="space-y-6">
-              {def.faqs.map((faq, i) => (
-                <div key={i}>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">{faq.q}</h3>
-                  <p className="text-slate-600">{faq.a}</p>
+              {def.formula && (
+                <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 my-6 font-mono text-center">
+                  {def.formula}
                 </div>
-              ))}
-            </div>
-          </section>
+              )}
+            </section>
+
+            {def.howTo && def.howTo.length > 0 && (
+              <section className="mb-10">
+                <h2>How to Use</h2>
+                <ol>
+                  {def.howTo.map((step, i) => (
+                    <li key={i}>{step}</li>
+                  ))}
+                </ol>
+              </section>
+            )}
+
+            {def.example && (
+              <section className="mb-10">
+                <h2>Example</h2>
+                <p>{def.example}</p>
+              </section>
+            )}
+
+            {((def.assumptions && def.assumptions.length > 0) || (def.limitations && def.limitations.length > 0)) && (
+              <section className="mb-10 bg-amber-50 p-6 rounded-lg border border-amber-200">
+                <h2 className="text-amber-900 mt-0">Assumptions & Limitations</h2>
+                <ul className="text-amber-800 mb-0">
+                  {def.assumptions?.map((a, i) => <li key={`a-${i}`}>{a}</li>)}
+                  {def.limitations?.map((l, i) => <li key={`l-${i}`}>{l}</li>)}
+                </ul>
+              </section>
+            )}
+
+            {def.faqs && def.faqs.length > 0 && (
+              <section className="mb-10">
+                <h2>Frequently Asked Questions</h2>
+                <div className="space-y-6">
+                  {def.faqs.map((faq, i) => (
+                    <div key={i}>
+                      <h3 className="text-lg font-bold text-slate-900 mb-2">{faq.q}</h3>
+                      <p className="text-slate-600">{faq.a}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+          </>
         )}
       </article>
 

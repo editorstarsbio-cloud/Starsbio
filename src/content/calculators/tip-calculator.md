@@ -1,41 +1,41 @@
 ## About the Tip Calculator
 
-Calculating a tip is one of the most frequent real-world math tasks people face at restaurants, salons, hotels, and spas. Our **Tip Calculator** makes it instant — no awkward mental math, no fumbling with percentages at the dinner table.
-
----
-
-## Standard Tipping Guide
-
-| Service Quality | Typical Tip |
-| :--- | :--- |
-| Exceptional | 25% or more |
-| Good | 20% |
-| Average | 15% |
-| Below Average | 10% |
-
-In the United States, 15–20% is the standard for restaurant servers. Tipping customs vary significantly by country — in Japan, tipping is considered rude; in Australia, it is entirely optional.
+Figuring out the correct tip (gratuity) at a restaurant can be stressful, especially when trying to do the mental math at the end of a long meal. Our **Tip Calculator** instantly figures out the exact amount you should leave based on standard tipping percentages.
 
 ---
 
 ## The Formula
 
-To calculate the tip amount manually:
+Calculating a tip requires multiplying the bill amount by the desired tip percentage (expressed as a decimal).
 
-$$ \text{Tip Amount} = \text{Bill Total} \times \left(\frac{\text{Tip \%}}{100}\right) $$
-$$ \text{Grand Total} = \text{Bill Total} + \text{Tip Amount} $$
+$$ \text{Tip Amount} = \text{Bill Total} \times \left( \frac{\text{Tip Percentage}}{100} \right) $$
 
-**Example:** A $68 restaurant bill with a 20% tip:
-$$ \text{Tip} = 68 \times 0.20 = \$13.60 $$
-$$ \text{Total} = 68 + 13.60 = \$81.60 $$
+$$ \text{Total to Pay} = \text{Bill Total} + \text{Tip Amount} $$
 
-If splitting among 4 people: $\$81.60 \div 4 = \$20.40$ per person.
+**Example:** Your restaurant bill is $65.00 and you want to leave a 20% tip.
+- Tip Amount = $65.00 \times 0.20 = \$13.00
+- Total to Pay = $65.00 + \$13.00 = **\$78.00**
+
+---
+
+## Tipping Etiquette and Standards (US)
+
+While tipping culture varies wildly around the world, in the United States, it is the primary way service industry workers make their living.
+
+- **15%:** The absolute minimum for acceptable service. Often used for lunch buffets or basic diner service.
+- **18%:** The standard for average, expected service.
+- **20%:** The standard for good or excellent service. (Most POS systems now default to 20%).
+- **25%+:** For exceptional service, fine dining, or if the server comped (gave for free) a dessert or drink.
+
+### Should I tip on the pre-tax or post-tax amount?
+Proper etiquette dictates that you tip on the **pre-tax** subtotal. However, most people find it easier to just look at the final bolded total at the bottom of the receipt and calculate the tip from that. Both are generally accepted, though tipping post-tax results in a slightly higher tip.
 
 ---
 
 ## Frequently Asked Questions
 
-**Should I tip on the pre-tax or post-tax total?**
-Etiquette experts differ on this, but tipping on the **pre-tax** subtotal is technically correct — you are rewarding the service, not the government's share. In practice, most people tip on the post-tax total because it is the number visible on the receipt.
+**Do I need to tip on takeout orders?**
+It is not strictly required in the same way sit-down service is. However, a 10% tip is customary for the staff who took the order, packaged the food, and ensured condiments and utensils were included.
 
-**Is it ever acceptable not to tip?**
-In countries with strong tipping culture (USA, Canada), it is generally expected for table service. For counter service or takeout, tipping is optional. For genuinely terrible service, speaking to a manager is usually more effective than leaving no tip.
+**What about delivery drivers (DoorDash, UberEats, pizza delivery)?**
+Drivers pay for their own gas and vehicle maintenance. A minimum of $5 or 20% (whichever is higher) is the standard expectation for food delivery.

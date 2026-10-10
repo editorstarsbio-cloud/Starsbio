@@ -2,11 +2,17 @@ import type { CalculatorDef, CategorySlug } from '@/lib/calc/types';
 import { everydayCalculators } from './everyday';
 import { mathCalculators } from './math';
 import { financeCalculators } from './finance';
+import { physicsCalculators } from './physics';
+import { chemistryCalculators } from './chemistry';
+import { engineeringCalculators } from './engineering';
 
 export const allCalculators: CalculatorDef[] = [
   ...everydayCalculators,
   ...mathCalculators,
-  ...financeCalculators
+  ...financeCalculators,
+  ...physicsCalculators,
+  ...chemistryCalculators,
+  ...engineeringCalculators
 ];
 
 export const getCalculators = async (): Promise<CalculatorDef[]> => {

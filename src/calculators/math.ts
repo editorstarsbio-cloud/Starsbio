@@ -692,24 +692,95 @@ export const mathCalculators: CalculatorDef[] = [
     name: 'Distance Calculator',
     slug: 'distance',
     category: 'math',
-    short: 'Calculate distance between two points.',
+    short: 'Calculate the distance between two points in 2D, 3D, or using latitude and longitude coordinates.',
     inputs: [
-      { key: 'x1', label: 'x1', type: 'number', default: 1 },
-      { key: 'y1', label: 'y1', type: 'number', default: 2 },
-      { key: 'x2', label: 'x2', type: 'number', default: 4 },
-      { key: 'y2', label: 'y2', type: 'number', default: 6 }
+      {
+        key: 'mode',
+        label: 'Calculation Mode',
+        type: 'select',
+        default: '2d',
+        options: [
+          { value: '2d', label: '2D Distance (x, y)' },
+          { value: '3d', label: '3D Distance (x, y, z)' },
+          { value: 'latlon', label: 'Distance by Latitude / Longitude' },
+        ],
+      },
+      { key: 'x1', label: 'Point 1 — x\u2081', type: 'number', default: 0, help: 'x-coordinate of Point 1' },
+      { key: 'y1', label: 'Point 1 — y\u2081', type: 'number', default: 0, help: 'y-coordinate of Point 1' },
+      { key: 'z1', label: 'Point 1 — z\u2081 (3D only)', type: 'number', default: 0, optional: true, help: 'z-coordinate (only for 3D mode)' },
+      { key: 'x2', label: 'Point 2 — x\u2082', type: 'number', default: 3, help: 'x-coordinate of Point 2' },
+      { key: 'y2', label: 'Point 2 — y\u2082', type: 'number', default: 4, help: 'y-coordinate of Point 2' },
+      { key: 'z2', label: 'Point 2 — z\u2082 (3D only)', type: 'number', default: 0, optional: true, help: 'z-coordinate (only for 3D mode)' },
+      { key: 'lat1', label: 'Latitude 1 (degrees)', type: 'number', default: 40.7128, optional: true, help: 'e.g. 40.7128 for New York City' },
+      { key: 'lon1', label: 'Longitude 1 (degrees)', type: 'number', default: -74.006, optional: true, help: 'e.g. -74.0060 for New York City' },
+      { key: 'lat2', label: 'Latitude 2 (degrees)', type: 'number', default: 34.0522, optional: true, help: 'e.g. 34.0522 for Los Angeles' },
+      { key: 'lon2', label: 'Longitude 2 (degrees)', type: 'number', default: -118.2437, optional: true, help: 'e.g. -118.2437 for Los Angeles' },
     ],
     compute: (raw) => {
+      const mode = String(raw.mode || '2d');
+      if (mode === '3d') {
+        const x1 = num(raw.x1), y1 = num(raw.y1), z1 = num(raw.z1 ?? 0);
+        const x2 = num(raw.x2), y2 = num(raw.y2), z2 = num(raw.z2 ?? 0);
+        const d = Math.sqrt((x2-x1)**2 + (y2-y1)**2 + (z2-z1)**2);
+        const dxy = Math.sqrt((x2-x1)**2 + (y2-y1)**2);
+        return {
+          results: [
+            { label: 'Distance (3D)', value: round(d, 6), primary: true },
+            { label: '2D Distance (ignoring z)', value: round(dxy, 6) },
+            { label: '\u0394z (depth difference)', value: round(Math.abs(z2-z1), 6) },
+          ],
+        };
+      }
+      if (mode === 'latlon') {
+        const toRad = (deg: number) => (deg * Math.PI) / 180;
+        const lat1 = num(raw.lat1 ?? 40.7128), lon1 = num(raw.lon1 ?? -74.006);
+        const lat2 = num(raw.lat2 ?? 34.0522), lon2 = num(raw.lon2 ?? -118.2437);
+        const R = 6371;
+        const dLat = toRad(lat2 - lat1);
+        const dLon = toRad(lon2 - lon1);
+        const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        const distKm = R * c;
+        return {
+          results: [
+            { label: 'Distance (km)', value: round(distKm, 3), primary: true, unit: 'km' },
+            { label: 'Distance (miles)', value: round(distKm * 0.621371, 3), unit: 'mi' },
+            { label: 'Distance (nautical miles)', value: round(distKm * 0.539957, 3), unit: 'nmi' },
+          ],
+          notes: ['Uses the Haversine formula assuming a spherical Earth (radius 6,371 km).'],
+        };
+      }
+      // default: 2D
       const x1 = num(raw.x1), y1 = num(raw.y1), x2 = num(raw.x2), y2 = num(raw.y2);
       const d = Math.sqrt((x2-x1)**2 + (y2-y1)**2);
-      return { results: [{ label: 'Distance', value: round(d, 4), primary: true }] };
+      return {
+        results: [
+          { label: 'Distance (2D)', value: round(d, 6), primary: true },
+          { label: '\u0394x (horizontal)', value: round(Math.abs(x2-x1), 6) },
+          { label: '\u0394y (vertical)', value: round(Math.abs(y2-y1), 6) },
+        ],
+      };
     },
-    formula: '√((x2-x1)² + (y2-y1)²)',
-    intro: ['Find distance.'],
+    formula: '2D: \u221a((x\u2082\u2212x\u2081)\u00b2 + (y\u2082\u2212y\u2081)\u00b2) | 3D: \u221a((x\u2082\u2212x\u2081)\u00b2 + (y\u2082\u2212y\u2081)\u00b2 + (z\u2082\u2212z\u2081)\u00b2) | Lat/Lon: Haversine',
+    intro: [
+      'This calculator finds the straight-line distance between two points.',
+      'Choose 2D mode for coordinate-plane problems, 3D mode for three-dimensional space, or Latitude/Longitude mode to find the real-world distance between two geographic locations on Earth.'
+    ],
+    howTo: [
+      'Select the calculation mode (2D, 3D, or Lat/Lon).',
+      'Enter the coordinates of Point 1 and Point 2.',
+      'Read the distance in the results panel. Lat/Lon mode shows km, miles, and nautical miles.'
+    ],
+    faqs: [
+      { q: 'What is the Euclidean distance formula?', a: 'Euclidean distance is the straight-line ("as-the-crow-flies") distance between two points. In 2D it equals the square root of (x2-x1)^2 + (y2-y1)^2.' },
+      { q: 'What is the Haversine formula?', a: 'The Haversine formula calculates the great-circle distance between two geographic points on a sphere using their latitudes and longitudes. It is accurate to within about 0.5% for Earth distances.' },
+      { q: 'How accurate is Lat/Lon distance?', a: 'The Haversine formula treats Earth as a perfect sphere. For high-precision work (aviation, surveying), the Vincenty formula using an ellipsoidal model is slightly more accurate, but differs by less than 0.3%.' },
+      { q: 'What units does the calculator use?', a: 'For 2D/3D mode, units match your input coordinates (if you enter meters, you get meters). For Lat/Lon mode, the output is always in kilometers, miles, and nautical miles.' },
+    ],
     status: 'published',
     tests: [
-      { name: 'dist', inputs: { x1:1, y1:2, x2:4, y2:6 }, expect: { Distance: 5 } },
-      { name: 'same', inputs: { x1:1, y1:2, x2:1, y2:2 }, expect: { Distance: 0 } }
+      { name: '2d-345', inputs: { mode: '2d', x1: 0, y1: 0, x2: 3, y2: 4 }, expect: { 'Distance (2D)': 5 } },
+      { name: '2d-zero', inputs: { mode: '2d', x1: 2, y1: 2, x2: 2, y2: 2 }, expect: { 'Distance (2D)': 0 } },
     ]
   },
   {

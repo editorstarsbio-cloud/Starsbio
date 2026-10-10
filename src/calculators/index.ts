@@ -5,6 +5,18 @@ import { financeCalculators } from './finance';
 import { physicsCalculators } from './physics';
 import { chemistryCalculators } from './chemistry';
 import { engineeringCalculators } from './engineering';
+import { businessCalculators } from './business';
+import { statisticsCalculators } from './statistics';
+import { dateTimeCalculators } from './date-time';
+import { healthFitnessCalculators } from './health-fitness';
+import { educationCalculators } from './education';
+import { constructionCalculators } from './construction';
+import { realEstateCalculators } from './real-estate';
+import { automotiveCalculators } from './automotive';
+import { cookingCalculators } from './cooking';
+import { technologyCalculators } from './technology';
+import { sportsCalculators } from './sports';
+import { biologyAgricultureCalculators } from './biology-agriculture';
 
 export const allCalculators: CalculatorDef[] = [
   ...everydayCalculators,
@@ -12,7 +24,19 @@ export const allCalculators: CalculatorDef[] = [
   ...financeCalculators,
   ...physicsCalculators,
   ...chemistryCalculators,
-  ...engineeringCalculators
+  ...engineeringCalculators,
+  ...businessCalculators,
+  ...statisticsCalculators,
+  ...dateTimeCalculators,
+  ...healthFitnessCalculators,
+  ...educationCalculators,
+  ...constructionCalculators,
+  ...realEstateCalculators,
+  ...automotiveCalculators,
+  ...cookingCalculators,
+  ...technologyCalculators,
+  ...sportsCalculators,
+  ...biologyAgricultureCalculators
 ];
 
 export const getCalculators = async (): Promise<CalculatorDef[]> => {

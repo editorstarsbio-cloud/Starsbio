@@ -28,7 +28,7 @@ export const cookingCalculators: CalculatorDef[] = [
     },
     formula: 'New Amount = Ingredient Amount * (Target Yield / Original Yield)',
     intro: ['Easily scale ingredient amounts for a different number of servings.'],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Double', inputs: { original: 4, target: 8, amount: 100 }, expect: { 'Conversion Factor': 2.0, 'New Amount': 200 } },
       { name: 'Half', inputs: { original: 4, target: 2, amount: 100 }, expect: { 'Conversion Factor': 0.5, 'New Amount': 50 } }
@@ -52,7 +52,7 @@ export const cookingCalculators: CalculatorDef[] = [
     },
     formula: 'Amount Per Serving = Total Amount / Servings',
     intro: ['Find out how much of an ingredient goes into each serving.'],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Test 1', inputs: { total: 500, servings: 4 }, expect: { 'Amount Per Serving': 125 } },
       { name: 'Test 2', inputs: { total: 100, servings: 3 }, expect: { 'Amount Per Serving': 33.33 } }
@@ -76,7 +76,7 @@ export const cookingCalculators: CalculatorDef[] = [
     },
     formula: 'Percentage = (Ingredient Weight / Total Flour Weight) * 100',
     intro: ['Calculate baker\'s percentages for bread making.'],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Water', inputs: { flour: 1000, ingredient: 700 }, expect: { 'Baker\'s Percentage': 70.0 } },
       { name: 'Salt', inputs: { flour: 500, ingredient: 10 }, expect: { 'Baker\'s Percentage': 2.0 } }
@@ -106,7 +106,7 @@ export const cookingCalculators: CalculatorDef[] = [
     },
     formula: 'Water = Coffee * Ratio',
     intro: ['Find the perfect coffee to water ratio for brewing.'],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Given coffee', inputs: { ratio: 15, known: 'c', amount: 20 }, expect: { 'Water Needed': 300 } },
       { name: 'Given water', inputs: { ratio: 16, known: 'w', amount: 480 }, expect: { 'Coffee Needed': 30.0 } }
@@ -134,7 +134,7 @@ export const cookingCalculators: CalculatorDef[] = [
     },
     formula: 'Water = Rice * Ratio',
     intro: ['Calculate how much water to use for different types of rice.'],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'White', inputs: { riceType: '1.5', riceVolume: 2 }, expect: { 'Water Needed': 3.0 } },
       { name: 'Brown', inputs: { riceType: '2', riceVolume: 1.5 }, expect: { 'Water Needed': 3.0 } }
@@ -158,7 +158,7 @@ export const cookingCalculators: CalculatorDef[] = [
     },
     formula: 'Portion Size = Total Weight / Number of Portions',
     intro: ['Divide a large batch of food into equal portions by weight.'],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Test 1', inputs: { totalWeight: 1000, portions: 4 }, expect: { 'Weight per Portion': 250 } },
       { name: 'Test 2', inputs: { totalWeight: 1500, portions: 6 }, expect: { 'Weight per Portion': 250 } }
@@ -187,7 +187,7 @@ export const cookingCalculators: CalculatorDef[] = [
     },
     formula: 'Cooking Time = Weight * (40 mins/kg unstuffed, or 45 mins/kg stuffed)',
     intro: ['Estimate how long to roast a turkey.'],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Unstuffed', inputs: { weight: 5, stuffed: 'n' }, expect: { 'Estimated Cooking Time': '3h 20m' } },
       { name: 'Stuffed', inputs: { weight: 5, stuffed: 'y' }, expect: { 'Estimated Cooking Time': '3h 45m' } }

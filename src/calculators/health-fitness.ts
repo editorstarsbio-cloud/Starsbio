@@ -35,7 +35,7 @@ export const healthFitnessCalculators: CalculatorDef[] = [
     },
     formula: 'BMI = Weight (kg) / (Height (m))^2',
     intro: ['Calculate your Body Mass Index (BMI).', introDisclaimer],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Normal', inputs: { weight: 70, height: 175 }, expect: { 'BMI': 22.9, 'Category': 'Normal weight' } },
       { name: 'Obese', inputs: { weight: 100, height: 175 }, expect: { 'BMI': 32.7, 'Category': 'Obese' } },
@@ -68,7 +68,7 @@ export const healthFitnessCalculators: CalculatorDef[] = [
     },
     formula: 'Mifflin-St Jeor Equation',
     intro: ['Estimate your Basal Metabolic Rate (BMR), the calories you burn at rest.', introDisclaimer],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Male', inputs: { gender: 'm', age: 30, weight: 70, height: 175 }, expect: { 'BMR': 1649 } },
       { name: 'Female', inputs: { gender: 'f', age: 30, weight: 60, height: 165 }, expect: { 'BMR': 1320 } }
@@ -102,7 +102,7 @@ export const healthFitnessCalculators: CalculatorDef[] = [
     },
     formula: 'Calories = BMR * Activity Multiplier',
     intro: ['Estimate daily calories to maintain or lose weight.', introDisclaimer],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Sedentary', inputs: { bmr: 1500, activity: '1.2' }, expect: { 'Maintenance Calories': 1800 } },
       { name: 'Active', inputs: { bmr: 1500, activity: '1.55' }, expect: { 'Maintenance Calories': 2325 } }
@@ -131,7 +131,7 @@ export const healthFitnessCalculators: CalculatorDef[] = [
     },
     formula: 'Max HR = 220 - Age. Zones are percentages of Max HR.',
     intro: ['Find your target heart rate zones for exercise.', introDisclaimer],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Age 30', inputs: { age: 30 }, expect: { 'Max Heart Rate': 190, 'Moderate (50-70%)': '95 - 133' } },
       { name: 'Age 50', inputs: { age: 50 }, expect: { 'Max Heart Rate': 170, 'Vigorous (70-85%)': '119 - 145' } }
@@ -170,7 +170,7 @@ export const healthFitnessCalculators: CalculatorDef[] = [
     },
     formula: 'U.S. Navy Method',
     intro: ['Estimate body fat percentage using tape measurements.', introDisclaimer],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Male', inputs: { gender: 'm', waist: 90, neck: 38, height: 180, hip: 0 }, expect: { 'Body Fat': 17.5 }, tolerance: 0.5 },
       { name: 'Female', inputs: { gender: 'f', waist: 70, neck: 35, height: 165, hip: 95 }, expect: { 'Body Fat': 23.9 }, tolerance: 0.5 }
@@ -196,7 +196,7 @@ export const healthFitnessCalculators: CalculatorDef[] = [
     },
     formula: 'Devine Formula: 50kg (male) or 45.5kg (female) + 2.3kg per inch over 5 feet.',
     intro: ['Estimate your ideal body weight.', introDisclaimer],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Male', inputs: { gender: 'm', height: 175 }, expect: { 'Ideal Weight (Devine)': 70.5 }, tolerance: 0.2 },
       { name: 'Female', inputs: { gender: 'f', height: 165 }, expect: { 'Ideal Weight (Devine)': 56.9 }, tolerance: 0.2 }
@@ -228,7 +228,7 @@ export const healthFitnessCalculators: CalculatorDef[] = [
     },
     formula: 'WHtR = Waist / Height',
     intro: ['Waist-to-height ratio is a measure of body fat distribution.', introDisclaimer],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Healthy', inputs: { waist: 80, height: 180 }, expect: { 'Ratio': 0.44, 'Risk Level': 'Low Risk' } },
       { name: 'Risk', inputs: { waist: 100, height: 170 }, expect: { 'Ratio': 0.59, 'Risk Level': 'Increased Risk' } }
@@ -256,7 +256,7 @@ export const healthFitnessCalculators: CalculatorDef[] = [
     },
     formula: 'Protein (g) = Weight (kg) * Multiplier (0.8 - 1.6+)',
     intro: ['Estimate how much protein you need daily based on your goals.', introDisclaimer],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Sedentary', inputs: { weight: 70, goal: '0.8' }, expect: { 'Daily Protein': 56 } },
       { name: 'Build Muscle', inputs: { weight: 70, goal: '1.6' }, expect: { 'Daily Protein': 112 } }
@@ -278,7 +278,7 @@ export const healthFitnessCalculators: CalculatorDef[] = [
     },
     formula: 'Due Date = LMP + 280 days (Naegele\'s rule)',
     intro: ['Estimate your pregnancy due date based on your last menstrual period.', introDisclaimer],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Test 1', inputs: { lmp: '2023-01-01' }, expect: { 'Estimated Due Date': '2023-10-08' } },
       { name: 'Test 2', inputs: { lmp: '2023-05-15' }, expect: { 'Estimated Due Date': '2024-02-19' } }
@@ -307,7 +307,7 @@ export const healthFitnessCalculators: CalculatorDef[] = [
     },
     formula: 'Boer Formula',
     intro: ['Estimate lean body mass (body weight minus fat).', introDisclaimer],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Male', inputs: { gender: 'm', weight: 80, height: 180 }, expect: { 'Lean Body Mass (Boer)': 61.4 }, tolerance: 0.2 },
       { name: 'Female', inputs: { gender: 'f', weight: 65, height: 165 }, expect: { 'Lean Body Mass (Boer)': 46.1 }, tolerance: 0.2 }

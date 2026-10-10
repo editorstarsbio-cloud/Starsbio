@@ -27,7 +27,7 @@ export const sportsCalculators: CalculatorDef[] = [
     },
     formula: 'Pace = Time / Distance',
     intro: ['Calculate your running pace based on time and distance.'],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: '5k in 25 mins', inputs: { distance: 5, minutes: 25 }, expect: { 'Pace': '5:00 /km' } },
       { name: '10k in 55 mins', inputs: { distance: 10, minutes: 55 }, expect: { 'Pace': '5:30 /km' } }
@@ -55,7 +55,7 @@ export const sportsCalculators: CalculatorDef[] = [
     },
     formula: 'Riegel\'s formula: T2 = T1 * (D2 / D1)^1.06',
     intro: ['Predict your time for a race based on a past performance.'],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: '5k to 10k', inputs: { t1: 25, d1: 5, d2: 10 }, expect: { 'Predicted Time': 52.1 }, tolerance: 0.2 },
       { name: '10k to half', inputs: { t1: 50, d1: 10, d2: 21.1 }, expect: { 'Predicted Time': 110.3 }, tolerance: 0.2 }
@@ -83,7 +83,7 @@ export const sportsCalculators: CalculatorDef[] = [
     },
     formula: 'Win % = (Wins + 0.5 * Ties) / Total Games * 100',
     intro: ['Calculate the winning percentage of a sports team.'],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'No ties', inputs: { wins: 10, losses: 5, ties: 0 }, expect: { 'Win Percentage': 66.67 } },
       { name: 'With ties', inputs: { wins: 10, losses: 5, ties: 1 }, expect: { 'Win Percentage': 65.63 } }
@@ -108,7 +108,7 @@ export const sportsCalculators: CalculatorDef[] = [
     },
     formula: 'AVG = Hits / At Bats',
     intro: ['Calculate a baseball player\'s batting average.'],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Good', inputs: { hits: 50, atBats: 150 }, expect: { 'Batting Average': '.333' } },
       { name: 'Perfect', inputs: { hits: 10, atBats: 10 }, expect: { 'Batting Average': '1.000' } }
@@ -133,7 +133,7 @@ export const sportsCalculators: CalculatorDef[] = [
     },
     formula: 'ERA = 9 * Earned Runs / Innings Pitched',
     intro: ['Calculate a pitcher\'s earned run average (ERA).'],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Average', inputs: { earnedRuns: 30, innings: 90 }, expect: { 'ERA': 3.00 } },
       { name: 'High', inputs: { earnedRuns: 50, innings: 100 }, expect: { 'ERA': 4.50 } }
@@ -157,7 +157,7 @@ export const sportsCalculators: CalculatorDef[] = [
     },
     formula: 'PPG = Total Points / Games Played',
     intro: ['Calculate average points per game.'],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Test 1', inputs: { points: 500, games: 20 }, expect: { 'Points Per Game': 25.0 } },
       { name: 'Test 2', inputs: { points: 81, games: 3 }, expect: { 'Points Per Game': 27.0 } }
@@ -182,7 +182,7 @@ export const sportsCalculators: CalculatorDef[] = [
     },
     formula: '1RM = Weight * (1 + Reps / 30) [Epley Formula]',
     intro: ['Estimate your one-rep max for weightlifting.'],
-    status: 'tested',
+    status: 'published',
     tests: [
       { name: 'Squat', inputs: { weight: 100, reps: 5 }, expect: { 'Estimated 1RM (Epley)': 116.7 } },
       { name: 'Bench', inputs: { weight: 80, reps: 8 }, expect: { 'Estimated 1RM (Epley)': 101.3 } }

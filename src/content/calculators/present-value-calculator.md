@@ -1,39 +1,44 @@
 ## About the Present Value Calculator
 
-**Present Value (PV)** is the current worth of a future sum of money, discounted at a specific interest rate. It is the foundation of all financial valuation — from stock prices to real estate to bond pricing. The concept rests on the **Time Value of Money**: a dollar today is worth more than a dollar tomorrow.
+**Present Value (PV)** is the current worth of a future sum of money or stream of cash flows given a specified rate of return. It is the foundational concept of the "Time Value of Money"—the principle that receiving $1,000 today is worth more than receiving $1,000 five years from now.
 
 ---
 
-## The Present Value Formula
+## The Formula
 
-$$ PV = \frac{FV}{(1 + r)^n} $$
+To find the present value of a single future sum:
+
+$$ \text{PV} = \frac{\text{Future Value}}{(1 + r)^t} $$
 
 Where:
-- **$PV$** = Present Value
-- **$FV$** = Future Value (the amount you will receive in the future)
-- **$r$** = Discount rate per period (as a decimal)
-- **$n$** = Number of periods
+- **$r$** = Discount rate (interest rate)
+- **$t$** = Number of time periods (years)
 
-**Example:** You are promised $10,000 in 5 years. If you could otherwise invest money at 8% annually, what is that $10,000 worth today?
+**Example:**
+You are promised a payment of $10,000 in 5 years. If you could safely invest money today and earn a 6% return, what is that future $10,000 worth right now?
+$$ \text{PV} = \frac{10000}{(1 + 0.06)^5} = \frac{10000}{1.3382} = \mathbf{\$7,472.58} $$
 
-$$ PV = \frac{10,000}{(1 + 0.08)^5} = \frac{10,000}{1.4693} \approx \$6,806 $$
-
-The **present value** of $10,000 received in 5 years, at an 8% discount rate, is **$6,806**.
+This means that having $7,472.58 today is mathematically identical to having $10,000 in 5 years, assuming a 6% interest rate.
 
 ---
 
 ## Why Present Value Matters
 
-- **Investment decisions:** Is a future cash flow worth the upfront investment?
-- **Bond pricing:** A bond's price is the PV of all future coupon payments plus the PV of the face value at maturity.
-- **Legal settlements:** Courts use PV to calculate lump-sum equivalents of structured payment plans.
+Present value is critical for making financial decisions, particularly in evaluating investments or settlements.
+
+**Scenario: The Lottery Payout**
+You win the lottery. The state offers you two options:
+1. $1,000,000 paid immediately (Lump Sum)
+2. $50,000 paid every year for 25 years (Total = $1,250,000)
+
+Which is better? You must calculate the Present Value of the 25-year annuity. If you assume you can invest the lump sum in the stock market at an 8% return, the Present Value of those 25 annual payments is only about **$533,700**. Therefore, you should absolutely take the $1,000,000 lump sum today, even though the "total" payout is smaller.
 
 ---
 
 ## Frequently Asked Questions
 
 **What discount rate should I use?**
-The discount rate represents your opportunity cost — what you could earn on an alternative investment of similar risk. Common choices: risk-free rate (government bond yield), weighted average cost of capital (WACC) for businesses, or your expected portfolio return.
+The discount rate represents your "opportunity cost"—the rate of return you could earn on an investment of similar risk. If you are comparing guaranteed payouts, use the rate of a safe treasury bond (e.g., 4%). If you are comparing business investments, use the stock market average (e.g., 8-10%).
 
-**What is the difference between PV and NPV?**
-PV is the present value of a single future cash flow. NPV (Net Present Value) is the sum of PVs of multiple cash flows (an entire project's stream of income) minus the initial investment.
+**How is Present Value different from Net Present Value (NPV)?**
+Present Value calculates the worth of future cash flows. Net Present Value takes that calculation and subtracts the initial cost of the investment to see if the project creates a net positive value.

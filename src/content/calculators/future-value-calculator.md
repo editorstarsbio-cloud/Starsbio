@@ -1,37 +1,52 @@
 ## About the Future Value Calculator
 
-**Future Value (FV)** tells you what a sum of money or investment will be worth at a specific point in the future, given an assumed rate of return. It is the cornerstone of long-term financial planning — retirement projections, investment goals, and savings targets.
+**Future Value (FV)** calculates how much a current sum of money, or a series of regular payments, will be worth at a specific date in the future when invested at a given interest rate. It is the mathematical opposite of Present Value.
 
 ---
 
 ## The Formula
 
-$$ FV = PV \times (1 + r)^n $$
+The formula for the future value of a single lump sum is the standard compound interest formula:
+
+$$ \text{FV} = \text{Present Value} \times (1 + r)^t $$
 
 Where:
-- **$FV$** = Future Value
-- **$PV$** = Present Value (today's amount)
-- **$r$** = Rate of return per period
-- **$n$** = Number of periods
+- **$r$** = Interest rate per period
+- **$t$** = Number of periods
 
-**Example 1 — Lump Sum:** How much will $8,000 grow to in 15 years at a 7% annual return?
-$$ FV = 8000 \times (1.07)^{15} = 8000 \times 2.759 = \$22,073 $$
+**Example (Lump Sum):**
+You invest $5,000 today at a 7% annual return. How much will it be worth in 20 years?
+$$ \text{FV} = 5000 \times (1 + 0.07)^{20} = 5000 \times 3.8697 = \mathbf{\$19,348.50} $$
 
-### With Regular Contributions
+### Future Value of an Annuity
+Most people do not just invest a lump sum; they contribute a specific amount every month or year (an annuity). The formula for the future value of an annuity is:
 
-$$ FV = PV(1+r)^n + PMT \times \frac{(1+r)^n - 1}{r} $$
+$$ \text{FV} = P \times \left( \frac{(1 + r)^t - 1}{r} \right) $$
 
-**Example 2:** $5,000 initial, $200/month, 7% annual, 20 years:
-- $FV_1 = 5000 \times (1.00583)^{240} = 5000 \times 4.038 = \$20,190$
-- $FV_2 = 200 \times \frac{(1.00583)^{240}-1}{0.00583} = 200 \times 524.1 = \$104,820$
-- **Total FV ≈ $125,010**
+*(Where $P$ is the periodic payment amount)*
+
+**Example (Regular Contributions):**
+You invest $5,000 every year for 20 years at a 7% annual return.
+$$ \text{FV} = 5000 \times \left( \frac{(1 + 0.07)^{20} - 1}{0.07} \right) = 5000 \times \left( \frac{2.8697}{0.07} \right) = 5000 \times 40.995 = \mathbf{\$204,975} $$
+
+---
+
+## The Impact of Compounding Frequency
+
+The more frequently interest is calculated and added to your balance, the faster your money grows. A 6% annual rate compounded *daily* yields slightly more than a 6% rate compounded *annually*.
+
+- **Annual:** $(1 + 0.06)^1 = 1.0600$
+- **Monthly:** $(1 + \frac{0.06}{12})^{12} = 1.0616$
+- **Daily:** $(1 + \frac{0.06}{365})^{365} = 1.0618$
+
+The difference (called the APY or Annual Percentage Yield) becomes highly significant over large sums and long periods.
 
 ---
 
 ## Frequently Asked Questions
 
-**What is the "Rule of 72" shortcut?**
-Divide 72 by your annual interest rate to find roughly how many years it takes for money to double. At 7% annual return: $72 \div 7 \approx 10.3$ years to double.
+**Why is Future Value important?**
+It helps you plan for retirement and major purchases. If you know you need $1,000,000 to retire in 30 years, you can use the FV formula backward to calculate exactly how much you need to save each month at an expected 8% return to reach that goal.
 
-**How does inflation affect future value?**
-The future value formula shows nominal (before inflation) growth. To find real purchasing power, subtract inflation: Real Rate ≈ Nominal Rate − Inflation Rate. At 7% returns and 3% inflation, your money effectively grows at ~4% in real purchasing power.
+**Does this account for inflation?**
+No. The Future Value calculator gives you the *nominal* amount of money you will have. To find out the actual purchasing power of that money, you must subtract the expected inflation rate from your expected return rate (e.g., 8% return - 3% inflation = 5% "real" return).

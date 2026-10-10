@@ -1,47 +1,47 @@
 ## About the Loan Calculator
 
-Our **Loan Calculator** helps you estimate monthly payments, total interest paid, and the total cost of borrowing for any personal loan, student loan, or installment debt.
+Taking on debt is a serious financial commitment. Our **Loan Calculator** helps you dissect any fixed-rate installment loan—whether it's for a boat, a home renovation, or a medical bill—to determine your exact monthly payments and total interest costs.
 
 ---
 
-## How Loan Payments Are Calculated
+## The Formula
 
-All standard fixed-rate loans use the same amortization formula:
+The math behind fixed-rate loan amortization is complex. The formula to calculate the monthly payment is:
 
-$$ M = P \frac{r(1+r)^n}{(1+r)^n - 1} $$
+$$ M = P \times \frac{r(1 + r)^n}{(1 + r)^n - 1} $$
 
 Where:
-- **$M$** = Monthly payment
-- **$P$** = Principal (the loan amount)
-- **$r$** = Monthly interest rate (annual rate ÷ 12)
-- **$n$** = Total number of payments (years × 12)
+- **$M$** = Total Monthly Payment
+- **$P$** = Principal Loan Amount
+- **$r$** = Monthly Interest Rate (Annual Rate divided by 12)
+- **$n$** = Total Number of Months
 
-**Example:** $15,000 personal loan at 8% annual interest over 3 years:
-- $P = 15,000$, $r = 0.08/12 = 0.00667$, $n = 36$
+**Example:**
+You take out a $20,000 personal loan at an 8% annual interest rate for 5 years (60 months).
+- $P = 20,000$
+- $r = 0.08 / 12 = 0.006667$
+- $n = 60$
 
-$$ M = 15000 \times \frac{0.00667 \times (1.00667)^{36}}{(1.00667)^{36} - 1} \approx \$470.05 $$
-
-**Total paid:** $470.05 × 36 = $16,921.80  
-**Total interest:** $16,921.80 − $15,000 = **$1,921.80**
+Plugging these into the formula yields a monthly payment of **$405.53**. Over 60 months, you will pay a total of $24,331.80, meaning the loan cost you $4,331.80 in pure interest.
 
 ---
 
-## Amortization: How Each Payment Splits
+## The Impact of Loan Terms
 
-Early in the loan term, most of your payment goes toward interest. Over time, more goes toward principal. This is called **amortization**.
+When taking out a loan, the lender will often push you toward a longer "term" (e.g., 7 years instead of 3 years) because it lowers your monthly payment. However, it drastically increases the bank's profit.
 
-| Month | Payment | Interest | Principal | Balance |
-|:---|:---|:---|:---|:---|
-| 1 | $470.05 | $100.00 | $370.05 | $14,629.95 |
-| 18 | $470.05 | $64.52 | $405.53 | $9,213.40 |
-| 36 | $470.05 | $3.12 | $466.93 | $0 |
+Consider a $30,000 car loan at 6%:
+- **3-Year Term:** Payment is $912/month. Total Interest = $2,855.
+- **7-Year Term:** Payment is $438/month. Total Interest = $6,815.
+
+The 7-year loan cuts your monthly burden in half, but it costs you **$4,000 more** in interest, and traps you in debt for four additional years.
 
 ---
 
 ## Frequently Asked Questions
 
-**What is the difference between APR and interest rate?**
-The interest rate is the base cost of borrowing. APR (Annual Percentage Rate) includes the interest rate plus additional fees (origination fees, insurance). APR gives a more accurate picture of the total annual cost of the loan.
+**What is the difference between an installment loan and revolving credit?**
+An installment loan (like a mortgage or auto loan) gives you a lump sum upfront, which you pay back in fixed, equal payments over a set schedule until the balance is zero. Revolving credit (like a credit card) gives you a maximum limit; you can borrow, pay back, and borrow again indefinitely, and your payment fluctuates based on your balance.
 
-**Should I choose a shorter or longer loan term?**
-Shorter terms mean higher monthly payments but far less total interest paid. Longer terms are easier on cash flow but significantly increase total cost. Always choose the shortest term your budget can support.
+**Are personal loans a bad idea?**
+It depends entirely on the purpose. Using a 7% personal loan to consolidate and pay off 24% credit card debt is a brilliant financial move. Using an 11% personal loan to fund a luxury vacation you cannot afford is a terrible financial move.

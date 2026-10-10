@@ -214,6 +214,37 @@ export default async function CalculatorPage({ params }: Props) {
           })
         }}
       />
+
+      {/* Breadcrumbs Schema for Deep Internal Linking & GEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.allcalctool.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": category?.name || def.category,
+                "item": `https://www.allcalctool.com/category/${def.category}/`
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": def.name,
+                "item": `https://www.allcalctool.com/${def.slug}/`
+              }
+            ]
+          })
+        }}
+      />
     </div>
   );
 }

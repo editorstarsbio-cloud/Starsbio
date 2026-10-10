@@ -1,45 +1,37 @@
 ## About the Retirement Calculator
 
-Planning for retirement is one of the most critical long-term financial decisions you will make. Our **Retirement Calculator** estimates how much you need to save, how long your savings will last, and whether you are on track to retire comfortably.
-
-> **Disclaimer:** This calculator provides estimates only. It is not financial advice. Consult a qualified financial advisor before making retirement investment decisions.
+Planning for retirement is the single largest financial goal most people will ever have. Our **Retirement Calculator** projects how your current savings, monthly contributions, and expected investment returns will grow over your career, helping you determine if you are on track for a comfortable retirement.
 
 ---
 
-## How Retirement Savings Grow
+## The "4% Rule" of Retirement
 
-Your retirement nest egg grows through a combination of regular contributions and compound investment returns. The future value of a series of regular contributions is:
+How do you know when you have enough money to retire? Financial planners often use the **4% Rule** (also known as the Trinity Study). 
 
-$$ FV = PMT \times \frac{(1+r)^n - 1}{r} $$
+The rule states that if you withdraw 4% of your total retirement portfolio in your first year of retirement, and adjust that amount for inflation every subsequent year, you have a 95%+ historical probability of never running out of money over a 30-year retirement.
 
-Where:
-- **$FV$** = Future value of savings
-- **$PMT$** = Regular contribution per period
-- **$r$** = Investment return rate per period
-- **$n$** = Total number of contribution periods
+**Example:**
+If you determine you need $60,000 a year to live comfortably in retirement:
+- Multiply your annual need by 25 ($60,000 × 25 = $1,500,000).
+- Your "Retirement Number" is **$1.5 million**. 
+- 4% of $1.5 million is exactly $60,000. 
 
-**Example:** Contributing $500/month for 30 years at 7% annual return:
-- $r = 0.07/12 = 0.005833$
-- $n = 30 \times 12 = 360$
-
-$$ FV = 500 \times \frac{(1.005833)^{360} - 1}{0.005833} \approx \$566,765 $$
+If you reach $1.5M, you can safely retire.
 
 ---
 
-## The 4% Withdrawal Rule
+## The Danger of Inflation
 
-A widely cited guideline from retirement research (the "Trinity Study") suggests that retirees can safely withdraw **4% of their portfolio per year** without running out of money over a 30-year retirement.
+When planning a retirement 30 years in the future, you must account for inflation. If you need $5,000 a month to live today, you will likely need $10,000 or $12,000 a month to maintain that exact same standard of living in 2055.
 
-$$ \text{Required Nest Egg} = \frac{\text{Annual Retirement Expenses}}{0.04} $$
-
-If you need $50,000/year in retirement: $50,000 \div 0.04 = \$1,250,000$ needed.
+To account for this in your projections, you should use an **inflation-adjusted return rate**. If you expect the stock market to return 9% annually, and inflation to average 3%, you should plug **6%** into your retirement calculator. This ensures the final number the calculator gives you is in "today's dollars," making it much easier to comprehend.
 
 ---
 
 ## Frequently Asked Questions
 
-**When should I start saving for retirement?**
-As early as possible. Due to compounding, $1 saved at age 25 is worth roughly $15 at retirement (at 7% return). The same $1 saved at age 45 is worth only $4. Starting 20 years earlier quadruples the outcome.
+**What is the difference between a 401(k) and a Traditional IRA?**
+Both are tax-advantaged retirement accounts where your contributions are tax-deductible today, and you pay taxes when you withdraw the money in retirement. A 401(k) is offered through your employer (often with an employer match), while an IRA (Individual Retirement Account) is opened by you personally at a brokerage like Fidelity or Vanguard.
 
-**How much should I save each month?**
-A common benchmark is saving **15% of your gross income** for retirement, including any employer match. This assumes you start saving in your 20s. Starting later requires a higher percentage.
+**Should I use a Roth or Traditional account?**
+If you believe your tax bracket is currently lower than it will be when you retire (e.g., you are young and just starting your career), use a Roth account. You pay taxes now, but all future growth and withdrawals are 100% tax-free. If you are in your peak earning years and in a high tax bracket, use a Traditional account to lower your current tax burden.

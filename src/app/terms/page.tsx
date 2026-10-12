@@ -1,41 +1,38 @@
-export const metadata = {
-  title: 'Terms of Use',
-  description: 'Terms and conditions for using AllCalcTool.com.',
+import React from 'react';
+import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { SITE_CONFIG } from '@/lib/utils';
+
+export const metadata: Metadata = {
+  title: `Terms of Use | ${SITE_CONFIG.brandName}`,
+  description: `Terms and conditions governing the use of ${SITE_CONFIG.brandName}.`,
+  alternates: { canonical: `${SITE_CONFIG.siteUrl}/terms` },
 };
 
 export default function TermsPage() {
   return (
-    <div className="max-w-3xl mx-auto prose prose-slate">
-      <h1>Terms of Use</h1>
-      <p>Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
-      
-      <h2>1. Acceptance of Terms</h2>
-      <p>
-        By accessing and using AllCalcTool.com, you accept and agree to be bound by the terms and provisions of this agreement.
-      </p>
-
-      <h2>2. Use of the Site</h2>
-      <p>
-        The calculators, tools, and content provided on this website are for personal, non-commercial use, as well as general informational purposes. You may not scrape, copy, reproduce, or systematically extract data or calculator logic from this website for use in a competing service.
-      </p>
-
-      <h2>3. Disclaimer of Warranties</h2>
-      <p>
-        The materials on AllCalcTool.com are provided on an 'as is' basis. We make no warranties, expressed or implied, and hereby disclaim all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property.
-      </p>
-      <p>
-        Please review our <a href="/disclaimer/">Disclaimer</a> for specific information regarding the limits of our financial, health, and engineering calculators.
-      </p>
-
-      <h2>4. Limitation of Liability</h2>
-      <p>
-        In no event shall AllCalcTool.com or its operators be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on this website, even if we have been notified orally or in writing of the possibility of such damage.
-      </p>
-
-      <h2>5. Governing Law</h2>
-      <p>
-        These terms and conditions are governed by and construed in accordance with applicable laws, and you irrevocably submit to the exclusive jurisdiction of the courts in that location.
-      </p>
+    <div className="max-w-4xl mx-auto space-y-8">
+      <Breadcrumbs items={[{ label: 'Terms of Use' }]} />
+      <div className="bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm space-y-6">
+        <h1 className="text-3xl font-extrabold text-slate-900">Terms of Use</h1>
+        <div className="prose prose-slate text-slate-700 space-y-4 text-sm sm:text-base leading-relaxed">
+          <p>
+            By accessing or using {SITE_CONFIG.brandName}, you agree to be bound by these Terms of Use.
+          </p>
+          <h2 className="text-xl font-bold text-slate-900 pt-4">1. Use of Content</h2>
+          <p>
+            The biographical summaries, compilation formats, and site architecture of {SITE_CONFIG.brandName} are protected by copyright. Content is provided solely for personal, educational, and informational discovery.
+          </p>
+          <h2 className="text-xl font-bold text-slate-900 pt-4">2. Scraping and Automated Extraction</h2>
+          <p>
+            Automated harvesting, mass scraping, or unauthorized mirror copying of our compiled dataset without explicit written permission is strictly prohibited.
+          </p>
+          <h2 className="text-xl font-bold text-slate-900 pt-4">3. Limitation of Liability</h2>
+          <p>
+            While every effort is made to guarantee date accuracy, {SITE_CONFIG.brandName} makes no warranties regarding absolute completeness and shall not be held liable for discrepancies.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

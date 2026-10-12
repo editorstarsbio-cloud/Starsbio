@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Exclude internal search query parameters and privileged cron endpoints from crawling
+Disallow: /search?
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://starbirthday.example.com/sitemap.xml

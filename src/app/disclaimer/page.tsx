@@ -1,30 +1,35 @@
-export const metadata = {
-  title: 'Disclaimer',
-  description: 'Important legal disclaimer for calculations on AllCalcTool.com.',
+import React from 'react';
+import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { SITE_CONFIG } from '@/lib/utils';
+
+export const metadata: Metadata = {
+  title: `Disclaimer | ${SITE_CONFIG.brandName}`,
+  description: `General informational and astrological disclaimer for ${SITE_CONFIG.brandName}.`,
+  alternates: { canonical: `${SITE_CONFIG.siteUrl}/disclaimer` },
 };
 
 export default function DisclaimerPage() {
   return (
-    <div className="max-w-3xl mx-auto prose prose-slate">
-      <h1>Disclaimer</h1>
-      <p>Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
-      <p>
-        The calculators and information provided on AllCalcTool.com are for educational, informational, and general use purposes only. 
-      </p>
-      <h2>Not Professional Advice</h2>
-      <p>
-        <strong>Financial & Tax Calculators:</strong> The results provided by our finance, mortgage, and tax calculators are estimates based on the inputs you provide and simplified formulas. They do not constitute financial, investment, or tax advice. You should consult a qualified financial advisor or tax professional before making significant financial decisions.
-      </p>
-      <p>
-        <strong>Health & Medical Calculators:</strong> Calculators relating to health, fitness, BMI, BMR, and similar topics provide broad estimates based on generalized statistical formulas. They are not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
-      </p>
-      <p>
-        <strong>Engineering & Construction Calculators:</strong> Tools designed for construction material estimation or engineering physics are simplified models. They do not replace professional engineering analysis, site-specific surveying, or adherence to local building codes. 
-      </p>
-      <h2>No Warranties</h2>
-      <p>
-        While we strive to ensure the accuracy of our calculators and content, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
-      </p>
+    <div className="max-w-4xl mx-auto space-y-8">
+      <Breadcrumbs items={[{ label: 'Disclaimer' }]} />
+      <div className="bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm space-y-6">
+        <h1 className="text-3xl font-extrabold text-slate-900">Disclaimer</h1>
+        <div className="prose prose-slate text-slate-700 space-y-4 text-sm sm:text-base leading-relaxed">
+          <h2 className="text-xl font-bold text-slate-900">1. Informational & Biographical Reference</h2>
+          <p>
+            {SITE_CONFIG.brandName} is an editorial directory compiled for entertainment, cultural, and informational purposes. All biographical statements and birthday dates represent verifiable facts drawn from public records.
+          </p>
+          <h2 className="text-xl font-bold text-slate-900 pt-4">2. Astrological Classifications</h2>
+          <p>
+            Zodiac signs displayed throughout this platform represent conventional date-based astrological classifications. {SITE_CONFIG.brandName} makes no scientific claims regarding personality forecasting, destiny, or empirical influence of zodiac signs.
+          </p>
+          <h2 className="text-xl font-bold text-slate-900 pt-4">3. No Commercial Affiliation</h2>
+          <p>
+            Unless explicitly stated, {SITE_CONFIG.brandName} is not sponsored, endorsed by, or affiliated with the celebrities, artists, or public figures profiled on this site.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

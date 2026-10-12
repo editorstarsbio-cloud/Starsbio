@@ -1,108 +1,52 @@
 import { MetadataRoute } from 'next';
-import { getCalculators, categories } from '@/calculators';
-import { getArticles, blogCategories } from '@/content/blog';
-
-export const dynamic = 'force-static';
+import { getFeaturedCelebrities, getAllCategories } from '@/lib/repository';
+import { ZODIAC_SIGNS, SITE_CONFIG } from '@/lib/utils';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://www.allcalctool.com';
-  
-  const allCalculators = await getCalculators();
-  const publishedCalcs = allCalculators.filter(c => c.status === 'published');
-  
-  const allArticles = await getArticles();
-  const publishedArticles = allArticles.filter(a => a.status === 'published');
+  const baseUrl = SITE_CONFIG.siteUrl;
+  const now = new Date();
 
-  const routes: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}/`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/category/`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog/`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/about/`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/contact/`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/privacy/`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms/`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/disclaimer/`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
+  // Core static pages
+  const staticRoutes: MetadataRoute.Sitemap = [
+    { url: `${baseUrl}`, lastModified: now, changeFrequency: 'daily', priority: 1.0 },
+    { url: `${baseUrl}/birthdays`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/category`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/zodiac`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${baseUrl}/editorial-policy`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${baseUrl}/corrections-policy`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${baseUrl}/data-sources`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${baseUrl}/privacy-policy`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
+    { url: `${baseUrl}/terms`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
+    { url: `${baseUrl}/disclaimer`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
+    { url: `${baseUrl}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
   ];
 
-  // Calculator Pages
-  for (const calc of publishedCalcs) {
-    routes.push({
-      url: `${baseUrl}/${calc.slug}/`,
-      lastModified: new Date(), // Could be from file stats in a real environment
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    });
-  }
+  // Published profiles only (never drafts or unverified)
+  const publishedCelebrities = await getFeaturedCelebrities(500);
+  const profileRoutes: MetadataRoute.Sitemap = publishedCelebrities.map((c) => ({
+    url: `${baseUrl}/people/${c.slug}`,
+    lastModified: c.updated_at ? new Date(c.updated_at) : now,
+    changeFrequency: 'weekly',
+    priority: 0.9,
+  }));
 
-  // Category Pages
-  for (const cat of categories) {
-    routes.push({
-      url: `${baseUrl}/category/${cat.slug}/`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    });
-  }
+  // Categories
+  const categories = await getAllCategories();
+  const categoryRoutes: MetadataRoute.Sitemap = categories.map((cat) => ({
+    url: `${baseUrl}/category/${cat.slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  }));
 
-  // Blog Article Pages
-  for (const article of publishedArticles) {
-    routes.push({
-      url: `${baseUrl}/blog/${article.slug}/`,
-      lastModified: new Date(article.updated || article.published),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    });
-  }
+  // Zodiac sign pages
+  const zodiacRoutes: MetadataRoute.Sitemap = Object.keys(ZODIAC_SIGNS).map((sign) => ({
+    url: `${baseUrl}/zodiac/${sign.toLowerCase()}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  }));
 
-  // Blog Category Pages
-  for (const cat of blogCategories) {
-    routes.push({
-      url: `${baseUrl}/blog/category/${cat.slug}/`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.6,
-    });
-  }
-
-  return routes;
+  return [...staticRoutes, ...categoryRoutes, ...zodiacRoutes, ...profileRoutes];
 }

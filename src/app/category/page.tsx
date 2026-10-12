@@ -1,34 +1,59 @@
+import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
-import { categories } from '@/calculators';
+import { getAllCategories } from '@/lib/repository';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { SITE_CONFIG } from '@/lib/utils';
+import { Bookmark, ChevronRight } from 'lucide-react';
 
-export const metadata = {
-  title: 'All Calculator Categories - AllCalcTool.com',
-  description: 'Browse our complete list of calculator categories including Math, Finance, Health & Fitness, Physics, Engineering, and more.',
+export const metadata: Metadata = {
+  title: `All Professions & Categories | ${SITE_CONFIG.brandName}`,
+  description: 'Browse celebrities by their primary category, occupation, and artistic field.',
   alternates: {
-    canonical: 'https://www.allcalctool.com/category/',
-  }
+    canonical: `${SITE_CONFIG.siteUrl}/category`,
+  },
 };
 
-export default function CategoryIndexPage() {
+export default async function CategoryIndexPage() {
+  const categories = await getAllCategories();
+  const breadcrumbs = [{ label: 'Categories' }];
+
   return (
-    <div className="container mx-auto px-4 py-12 max-w-5xl">
-      <div className="mb-10 text-center">
-        <h1 className="text-4xl font-bold text-slate-900 mb-4">Calculator Categories</h1>
-        <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-          Browse our collection of hundreds of free calculators across mathematics, finance, health, science, and everyday life.
+    <div className="space-y-8">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm space-y-4">
+        <div className="inline-flex items-center space-x-1.5 text-xs font-bold text-indigo-600 uppercase tracking-wider">
+          <Bookmark className="w-3.5 h-3.5" />
+          <span>Category Directory</span>
+        </div>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Browse Celebrities by Profession
+        </h1>
+        <p className="text-sm text-slate-500 max-w-2xl leading-relaxed">
+          From screen actors and pop vocalists to pioneering scientists and creators, explore verified biographies across every profession.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {categories.map(cat => (
-          <Link key={cat.slug} href={`/category/${cat.slug}/`} className="card p-6 hover:shadow-md transition-all flex flex-col h-full group border border-slate-200 rounded-xl bg-white">
-            <h2 className="text-xl font-bold text-slate-900 group-hover:text-primary mb-2 flex items-center justify-between">
-              {cat.name}
-              <span className="text-primary opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-            </h2>
-            <p className="text-sm text-slate-600 flex-grow">
-              {cat.desc}
-            </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {categories.map((cat) => (
+          <Link
+            key={cat.id}
+            href={`/category/${cat.slug}`}
+            className="p-6 bg-white rounded-2xl border border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all group flex flex-col justify-between"
+          >
+            <div>
+              <h3 className="text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                {cat.name}
+              </h3>
+              <p className="text-xs text-slate-500 mt-2 line-clamp-2">
+                {cat.description || `Explore famous ${cat.name} profiles, biographies, and birthday records.`}
+              </p>
+            </div>
+            <div className="mt-4 pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-indigo-600">
+              <span>View Directory</span>
+              <ChevronRight className="w-4 h-4" />
+            </div>
           </Link>
         ))}
       </div>

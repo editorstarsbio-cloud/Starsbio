@@ -1,0 +1,15 @@
+# StarBirthday — Technical Summary & AI Guidance
+
+> StarBirthday is an independent, fact-checked digital reference platform providing verified celebrity birthdays, chronological age calculations, zodiac details, and factual biographies.
+
+## Core Content Structure
+- /people/[slug] — Individual biographical profile with verified birth date, dynamic age calculation, and birthplace.
+- /birthdays/[month]/[day] — Daily chronological archive of figures born on a specific calendar day.
+- /birthdays/month/[month] — Full month calendar archive.
+- /category/[slug] — Directory of figures grouped by primary verified profession.
+- /zodiac/[sign] — Directory of figures categorized by astronomical calendar birth windows.
+
+## Editorial Standards
+- Fact Verification: Every record is cross-checked against public records and encyclopedic sources.
+- Dynamic Milestones: Current ages and milestone calculations are computed dynamically relative to UTC time.
+- Corrections & Privacy: Inquiries and fact disputes are managed by our editorial board at editorial@starbirthday.example.com.

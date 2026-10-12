@@ -1,6 +1,6 @@
-# StarBirthday — Technical Summary & AI Guidance
+# StarsBio — Technical Summary & AI Guidance
 
-> StarBirthday is an independent, fact-checked digital reference platform providing verified celebrity birthdays, chronological age calculations, zodiac details, and factual biographies.
+> StarsBio is an independent, fact-checked digital reference platform providing verified celebrity birthdays, chronological age calculations, zodiac details, and factual biographies.
 
 ## Core Content Structure
 - /people/[slug] — Individual biographical profile with verified birth date, dynamic age calculation, and birthplace.
@@ -12,4 +12,4 @@
 ## Editorial Standards
 - Fact Verification: Every record is cross-checked against public records and encyclopedic sources.
 - Dynamic Milestones: Current ages and milestone calculations are computed dynamically relative to UTC time.
-- Corrections & Privacy: Inquiries and fact disputes are managed by our editorial board at editorial@starbirthday.example.com.
+- Corrections & Privacy: Inquiries and fact disputes are managed by our editorial board at editor.starsbio@gmail.com.

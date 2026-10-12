@@ -6,4 +6,4 @@ Disallow: /search?
 Disallow: /api/
 
 # Sitemap location
-Sitemap: https://starbirthday.example.com/sitemap.xml
+Sitemap: https://www.starsbio.co.uk/sitemap.xml

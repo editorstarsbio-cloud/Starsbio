@@ -40,8 +40,8 @@ export default function ContactPage() {
               <h3 className="font-bold text-slate-900 text-sm">Corrections & Rights</h3>
               <p className="text-xs text-slate-500 mt-1">Factual date disputes, image clearance, and verification notices.</p>
             </div>
-            <a href={`mailto:corrections@starbirthday.example.com`} className="mt-4 text-xs font-bold text-emerald-600 truncate underline">
-              corrections@starbirthday.example.com
+            <a href={`mailto:${SITE_CONFIG.contactEmail}`} className="mt-4 text-xs font-bold text-emerald-600 truncate underline">
+              {SITE_CONFIG.contactEmail}
             </a>
           </div>
 

@@ -1,13 +1,13 @@
 import { ZodiacSignInfo } from '@/types/database';
 
 export const SITE_CONFIG = {
-  brandName: process.env.NEXT_PUBLIC_BRAND_NAME || 'StarBirthday',
-  siteUrl: (process.env.NEXT_PUBLIC_SITE_URL || 'https://starbirthday.example.com').replace(/\/$/, ''),
-  timezone: process.env.SITE_TIMEZONE || 'Europe/Berlin',
-  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'editorial@starbirthday.example.com',
-  defaultSeoTitle: 'StarBirthday — Discover Celebrity Birthdays & Biographies',
+  brandName: process.env.NEXT_PUBLIC_BRAND_NAME || 'StarsBio',
+  siteUrl: (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.starsbio.co.uk').replace(/\/$/, ''),
+  timezone: process.env.SITE_TIMEZONE || 'Europe/London',
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'editor.starsbio@gmail.com',
+  defaultSeoTitle: 'StarsBio — Celebrity Birthdays, Biographies & Profiles',
   defaultMetaDescription:
-    'Discover verified birthdays, dynamic age calculations, zodiac profiles, life milestones, and factual biographies of global celebrities, creators, and public figures.',
+    'Discover verified birthdays, dynamic age calculations, zodiac profiles, life milestones, and factual biographies of global celebrities, creators, and public figures on StarsBio.',
 };
 
 /**

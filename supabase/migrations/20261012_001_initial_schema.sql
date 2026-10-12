@@ -193,10 +193,10 @@ CREATE TABLE IF NOT EXISTS site_settings (
 
 -- Insert default site settings
 INSERT INTO site_settings (key, value) VALUES
-  ('brand_name', '"StarBirthday"'),
-  ('site_title', '"StarBirthday — Discover Celebrity Birthdays & Biographies"'),
-  ('site_description', '"Explore birthdays, ages, biographies, zodiac signs, and life milestones of global celebrities, public figures, and creators."'),
-  ('default_timezone', '"Europe/Berlin"')
+  ('brand_name', '"StarsBio"'),
+  ('site_title', '"StarsBio — Discover Celebrity Birthdays & Biographies"'),
+  ('site_description', '"Explore birthdays, ages, biographies, zodiac signs, and life milestones of global celebrities, public figures, and creators on StarsBio."'),
+  ('default_timezone', '"Europe/London"')
 ON CONFLICT (key) DO NOTHING;
 
 -- ====================================================================

@@ -8,6 +8,9 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { CelebrityCard } from '@/components/CelebrityCard';
 import { CelebrityAvatar } from '@/components/CelebrityAvatar';
 import { CelebrityFactsViewer } from '@/components/CelebrityFactsViewer';
+import { CelebrityBoostButton } from '@/components/CelebrityBoostButton';
+import { CelebrityBattleWidget } from '@/components/CelebrityBattleWidget';
+import { FloatingNextStarBar } from '@/components/FloatingNextStarBar';
 import { Calendar, Sparkles, ShieldCheck, ExternalLink, Bookmark, TrendingUp, Award, Users } from 'lucide-react';
 
 interface ProfilePageProps {
@@ -28,10 +31,12 @@ export async function generateMetadata({ params }: ProfilePageProps): Promise<Me
   const ageInfo = calculateAge(celebrity.birth_date, celebrity.death_date);
   const ageDescription = ageInfo ? (ageInfo.isDeceased ? `passed away at age ${ageInfo.age}` : `currently ${ageInfo.age} years old`) : '';
 
-  const title = celebrity.seo_title || `${celebrity.name} — Birthday, Age, Bio & Facts | ${SITE_CONFIG.brandName}`;
+  const professionStr = celebrity.primary_profession ? ` (${celebrity.primary_profession})` : '';
+  const ageStr = ageInfo ? (ageInfo.isDeceased ? ` (19xx-${ageInfo.age})` : ` - Age ${ageInfo.age}`) : '';
+  
+  const title = `${celebrity.name}${professionStr} Birthday, Real Age${ageStr} & Biography`;
   const description =
-    celebrity.meta_description ||
-    `Read ${celebrity.name}'s verified biography, birthday (${celebrity.birth_date}), ${ageDescription}, zodiac sign (${celebrity.zodiac_sign || ''}), and career milestones.`;
+    `Who is ${celebrity.name}? Born on ${celebrity.birth_date}, ${ageDescription}. Discover real height, relationships, net worth insights, family life, zodiac secrets, and career trivia on StarsBio.`;
 
   return {
     title,
@@ -156,10 +161,19 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
                 {celebrity.name}
               </h1>
 
-              {/* Popularity Ranking Pill */}
-              <div className="inline-flex items-center space-x-2 bg-pink-50 border border-pink-200/70 px-3.5 py-1.5 rounded-2xl text-xs font-bold text-pink-700 shrink-0 self-start sm:self-auto">
-                <TrendingUp className="w-4 h-4 text-pink-600" />
-                <span>#{overallRank} Most Popular</span>
+              <div className="flex items-center space-x-3 shrink-0 self-start sm:self-auto">
+                {/* Popularity Ranking Pill */}
+                <div className="inline-flex items-center space-x-2 bg-pink-50 border border-pink-200/70 px-3.5 py-1.5 rounded-2xl text-xs font-bold text-pink-700">
+                  <TrendingUp className="w-4 h-4 text-pink-600" />
+                  <span>#{overallRank} Popular</span>
+                </div>
+
+                {/* High-CTR Interactive Boost Button */}
+                <CelebrityBoostButton
+                  celebritySlug={celebrity.slug}
+                  celebrityName={celebrity.name}
+                  initialBoosts={positiveHash % 4000 + 1200}
+                />
               </div>
             </div>
 
@@ -264,6 +278,14 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
           </div>
         </div>
       </section>
+
+      {/* High-CTR Celebrity Battle Face-Off Widget */}
+      {relatedProfiles.length > 0 && (
+        <CelebrityBattleWidget
+          currentCelebrity={celebrity}
+          competitors={relatedProfiles}
+        />
+      )}
 
       {/* Fans Also Viewed / Related Profiles */}
       {relatedProfiles.length > 0 && (
@@ -371,6 +393,11 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
           </div>
         )}
       </section>
+
+      {/* Sticky Floating Next Trending Star Bar (Mobile & Desktop Scroll CTR Booster) */}
+      {relatedProfiles.length > 0 && (
+        <FloatingNextStarBar candidates={relatedProfiles} />
+      )}
     </article>
   );
 }

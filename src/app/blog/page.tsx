@@ -44,7 +44,7 @@ export default async function BlogIndexPage() {
                 <img
                   src={post.coverImage}
                   alt={post.coverImageAlt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
                 <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-xs font-bold">

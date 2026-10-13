@@ -133,13 +133,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
       </header>
 
-      {/* Featured Cover Image */}
-      <div className="relative aspect-video w-full rounded-3xl overflow-hidden bg-slate-100 shadow-md border border-slate-200">
+      {/* Featured Cover Image - Locked Face Focus */}
+      <div className="relative w-full max-h-[500px] aspect-[16/10] sm:aspect-[16/9] rounded-3xl overflow-hidden bg-slate-100 shadow-md border border-slate-200">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={post.coverImage}
           alt={post.coverImageAlt}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-top"
         />
       </div>
 

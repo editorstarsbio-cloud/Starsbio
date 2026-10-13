@@ -25,7 +25,7 @@ export function CelebrityAvatar({
         <img
           src={imageUrl}
           alt={imageAlt || `${name} portrait`}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-top"
           loading="lazy"
         />
       </div>

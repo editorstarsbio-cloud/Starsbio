@@ -17,7 +17,7 @@ export const BLOG_POSTS: BlogPost[] = [
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
     },
     summary: 'Discover Shah Rukh Khan\'s complete biography, real net worth, marriage to Gauri Khan, kids, family, and awards timeline on StarsBio.',
-    seoTitle: 'Shah Rukh Khan: Net Worth, Age, Wife, Kids & Bio (2026)',
+    seoTitle: 'Who is Shah Rukh Khan? Age, Net Worth, Wife & Biography',
     metaDescription: 'Discover Shah Rukh Khan\'s complete biography, real net worth, marriage to Gauri Khan, kids, family, and awards timeline on StarsBio.',
     quickFacts: {
       born: 'November 2, 1965',

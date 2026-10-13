@@ -58,13 +58,14 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
   }
 
   const ageInfo = calculateAge(celebrity.birth_date, celebrity.death_date);
-  const relatedProfiles = await getRelatedCelebrities(celebrity, 4);
+  const relatedProfiles = await getRelatedCelebrities(celebrity, 8);
+  const associatedPeer = relatedProfiles.length > 0 ? relatedProfiles[0] : null;
 
   const [bYear, bMonth, bDay] = celebrity.birth_date.split('-').map(Number);
   const monthName = getMonthName(bMonth);
 
   // Fetch more celebrities born on same date
-  const sameBirthdayList = (await getCelebritiesBornOn(bMonth, bDay, 5)).filter((c) => c.slug !== celebrity.slug).slice(0, 4);
+  const sameBirthdayList = (await getCelebritiesBornOn(bMonth, bDay, 8)).filter((c) => c.slug !== celebrity.slug).slice(0, 4);
 
   // Deterministic Rank badge numbers based on slug hash for fun engagement
   let hash = 0;
@@ -204,7 +205,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
             </div>
 
             {/* Comprehensive 5-Section Editorial Facts (About, Before Fame, Trivia, Family Life, Associated With) */}
-            <CelebrityFactsViewer celebrity={celebrity} />
+            <CelebrityFactsViewer celebrity={celebrity} associatedPeer={associatedPeer} />
           </div>
         </div>
       </div>

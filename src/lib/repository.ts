@@ -116,3 +116,15 @@ export async function getDeceasedCelebrities(limit = 100): Promise<Celebrity[]> 
   return deceased.slice(0, limit);
 }
 
+export async function getAllCelebrities(): Promise<Celebrity[]> {
+  return allCelebrities;
+}
+
+export async function getCelebritiesByBirthYear(year: number, limit = 8): Promise<Celebrity[]> {
+  const list = allCelebrities.filter((c) => {
+    const parts = c.birth_date.split('-');
+    return parts.length === 3 && parseInt(parts[0], 10) === year;
+  });
+  return list.slice(0, limit);
+}
+

@@ -1,0 +1,1538 @@
+[
+  {
+    "id": "cat-activist",
+    "name": "Activist",
+    "slug": "activist",
+    "description": "Famous and celebrated figures working as Activist.",
+    "created_at": "2026-10-13T06:36:17.861Z",
+    "updated_at": "2026-10-13T06:36:17.861Z"
+  },
+  {
+    "id": "cat-animator",
+    "name": "Animator",
+    "slug": "animator",
+    "description": "Famous and celebrated figures working as Animator.",
+    "created_at": "2026-10-13T06:36:18.012Z",
+    "updated_at": "2026-10-13T06:36:18.012Z"
+  },
+  {
+    "id": "cat-astronaut",
+    "name": "Astronaut",
+    "slug": "astronaut",
+    "description": "Famous and celebrated figures working as Astronaut.",
+    "created_at": "2026-10-13T06:36:17.807Z",
+    "updated_at": "2026-10-13T06:36:17.807Z"
+  },
+  {
+    "id": "cat-australian-rules-footballer",
+    "name": "Australian Rules Footballer",
+    "slug": "australian-rules-footballer",
+    "description": "Famous and celebrated figures working as Australian Rules Footballer.",
+    "created_at": "2026-10-13T06:36:18.008Z",
+    "updated_at": "2026-10-13T06:36:18.008Z"
+  },
+  {
+    "id": "cat-autobiographer",
+    "name": "Autobiographer",
+    "slug": "autobiographer",
+    "description": "Famous and celebrated figures working as Autobiographer.",
+    "created_at": "2026-10-13T06:36:17.901Z",
+    "updated_at": "2026-10-13T06:36:17.901Z"
+  },
+  {
+    "id": "cat-baseball-player",
+    "name": "Baseball Player",
+    "slug": "baseball-player",
+    "description": "Famous and celebrated figures working as Baseball Player.",
+    "created_at": "2026-10-13T06:36:17.818Z",
+    "updated_at": "2026-10-13T06:36:17.818Z"
+  },
+  {
+    "id": "cat-basketball-coach",
+    "name": "Basketball Coach",
+    "slug": "basketball-coach",
+    "description": "Famous and celebrated figures working as Basketball Coach.",
+    "created_at": "2026-10-13T06:36:18.079Z",
+    "updated_at": "2026-10-13T06:36:18.079Z"
+  },
+  {
+    "id": "cat-basketball-player",
+    "name": "Basketball Player",
+    "slug": "basketball-player",
+    "description": "Famous and celebrated figures working as Basketball Player.",
+    "created_at": "2026-10-13T06:36:17.790Z",
+    "updated_at": "2026-10-13T06:36:17.790Z"
+  },
+  {
+    "id": "cat-bassist",
+    "name": "Bassist",
+    "slug": "bassist",
+    "description": "Famous and celebrated figures working as Bassist.",
+    "created_at": "2026-10-13T06:36:17.782Z",
+    "updated_at": "2026-10-13T06:36:17.782Z"
+  },
+  {
+    "id": "cat-beatboxer",
+    "name": "Beatboxer",
+    "slug": "beatboxer",
+    "description": "Famous and celebrated figures working as Beatboxer.",
+    "created_at": "2026-10-13T06:36:18.195Z",
+    "updated_at": "2026-10-13T06:36:18.195Z"
+  },
+  {
+    "id": "cat-biologist",
+    "name": "Biologist",
+    "slug": "biologist",
+    "description": "Famous and celebrated figures working as Biologist.",
+    "created_at": "2026-10-13T06:36:18.237Z",
+    "updated_at": "2026-10-13T06:36:18.237Z"
+  },
+  {
+    "id": "cat-blogger",
+    "name": "Blogger",
+    "slug": "blogger",
+    "description": "Famous and celebrated figures working as Blogger.",
+    "created_at": "2026-10-13T06:36:17.795Z",
+    "updated_at": "2026-10-13T06:36:17.795Z"
+  },
+  {
+    "id": "cat-blues-singer",
+    "name": "Blues Singer",
+    "slug": "blues-singer",
+    "description": "Famous and celebrated figures working as Blues Singer.",
+    "created_at": "2026-10-13T06:36:18.328Z",
+    "updated_at": "2026-10-13T06:36:18.328Z"
+  },
+  {
+    "id": "cat-bmx-rider",
+    "name": "BMX Rider",
+    "slug": "bmx-rider",
+    "description": "Famous and celebrated figures working as BMX Rider.",
+    "created_at": "2026-10-13T06:36:18.326Z",
+    "updated_at": "2026-10-13T06:36:18.326Z"
+  },
+  {
+    "id": "cat-bodybuilder",
+    "name": "Bodybuilder",
+    "slug": "bodybuilder",
+    "description": "Famous and celebrated figures working as Bodybuilder.",
+    "created_at": "2026-10-13T06:36:17.972Z",
+    "updated_at": "2026-10-13T06:36:17.972Z"
+  },
+  {
+    "id": "cat-botanist",
+    "name": "Botanist",
+    "slug": "botanist",
+    "description": "Famous and celebrated figures working as Botanist.",
+    "created_at": "2026-10-13T06:36:18.053Z",
+    "updated_at": "2026-10-13T06:36:18.053Z"
+  },
+  {
+    "id": "cat-boxer",
+    "name": "Boxer",
+    "slug": "boxer",
+    "description": "Famous and celebrated figures working as Boxer.",
+    "created_at": "2026-10-13T06:36:17.874Z",
+    "updated_at": "2026-10-13T06:36:17.874Z"
+  },
+  {
+    "id": "cat-bull-rider",
+    "name": "Bull Rider",
+    "slug": "bull-rider",
+    "description": "Famous and celebrated figures working as Bull Rider.",
+    "created_at": "2026-10-13T06:36:17.901Z",
+    "updated_at": "2026-10-13T06:36:17.901Z"
+  },
+  {
+    "id": "cat-business-executive",
+    "name": "Business Executive",
+    "slug": "business-executive",
+    "description": "Famous and celebrated figures working as Business Executive.",
+    "created_at": "2026-10-13T06:36:17.888Z",
+    "updated_at": "2026-10-13T06:36:17.888Z"
+  },
+  {
+    "id": "cat-cartoonist",
+    "name": "Cartoonist",
+    "slug": "cartoonist",
+    "description": "Famous and celebrated figures working as Cartoonist.",
+    "created_at": "2026-10-13T06:36:17.888Z",
+    "updated_at": "2026-10-13T06:36:17.888Z"
+  },
+  {
+    "id": "cat-cellist",
+    "name": "Cellist",
+    "slug": "cellist",
+    "description": "Famous and celebrated figures working as Cellist.",
+    "created_at": "2026-10-13T06:36:18.142Z",
+    "updated_at": "2026-10-13T06:36:18.142Z"
+  },
+  {
+    "id": "cat-cheerleader",
+    "name": "Cheerleader",
+    "slug": "cheerleader",
+    "description": "Famous and celebrated figures working as Cheerleader.",
+    "created_at": "2026-10-13T06:36:17.859Z",
+    "updated_at": "2026-10-13T06:36:17.859Z"
+  },
+  {
+    "id": "cat-chef",
+    "name": "Chef",
+    "slug": "chef",
+    "description": "Famous and celebrated figures working as Chef.",
+    "created_at": "2026-10-13T06:36:17.938Z",
+    "updated_at": "2026-10-13T06:36:17.938Z"
+  },
+  {
+    "id": "cat-chemist",
+    "name": "Chemist",
+    "slug": "chemist",
+    "description": "Famous and celebrated figures working as Chemist.",
+    "created_at": "2026-10-13T06:36:17.947Z",
+    "updated_at": "2026-10-13T06:36:17.947Z"
+  },
+  {
+    "id": "cat-chess-player",
+    "name": "Chess Player",
+    "slug": "chess-player",
+    "description": "Famous and celebrated figures working as Chess Player.",
+    "created_at": "2026-10-13T06:36:17.830Z",
+    "updated_at": "2026-10-13T06:36:17.830Z"
+  },
+  {
+    "id": "cat-children-s-author",
+    "name": "Children's Author",
+    "slug": "children-s-author",
+    "description": "Famous and celebrated figures working as Children's Author.",
+    "created_at": "2026-10-13T06:36:17.796Z",
+    "updated_at": "2026-10-13T06:36:17.796Z"
+  },
+  {
+    "id": "cat-choreographer",
+    "name": "Choreographer",
+    "slug": "choreographer",
+    "description": "Famous and celebrated figures working as Choreographer.",
+    "created_at": "2026-10-13T06:36:17.827Z",
+    "updated_at": "2026-10-13T06:36:17.827Z"
+  },
+  {
+    "id": "cat-civil-rights-leader",
+    "name": "Civil Rights Leader",
+    "slug": "civil-rights-leader",
+    "description": "Famous and celebrated figures working as Civil Rights Leader.",
+    "created_at": "2026-10-13T06:36:17.777Z",
+    "updated_at": "2026-10-13T06:36:17.777Z"
+  },
+  {
+    "id": "cat-clubhouse-star",
+    "name": "Clubhouse Star",
+    "slug": "clubhouse-star",
+    "description": "Famous and celebrated figures working as Clubhouse Star.",
+    "created_at": "2026-10-13T06:36:18.253Z",
+    "updated_at": "2026-10-13T06:36:18.253Z"
+  },
+  {
+    "id": "cat-comedian",
+    "name": "Comedian",
+    "slug": "comedian",
+    "description": "Famous and celebrated figures working as Comedian.",
+    "created_at": "2026-10-13T06:36:17.783Z",
+    "updated_at": "2026-10-13T06:36:17.783Z"
+  },
+  {
+    "id": "cat-comic-book-artist",
+    "name": "Comic Book Artist",
+    "slug": "comic-book-artist",
+    "description": "Famous and celebrated figures working as Comic Book Artist.",
+    "created_at": "2026-10-13T06:36:17.914Z",
+    "updated_at": "2026-10-13T06:36:17.914Z"
+  },
+  {
+    "id": "cat-comic-book-author",
+    "name": "Comic Book Author",
+    "slug": "comic-book-author",
+    "description": "Famous and celebrated figures working as Comic Book Author.",
+    "created_at": "2026-10-13T06:36:18.354Z",
+    "updated_at": "2026-10-13T06:36:18.354Z"
+  },
+  {
+    "id": "cat-competitive-eater",
+    "name": "Competitive Eater",
+    "slug": "competitive-eater",
+    "description": "Famous and celebrated figures working as Competitive Eater.",
+    "created_at": "2026-10-13T06:36:18.139Z",
+    "updated_at": "2026-10-13T06:36:18.140Z"
+  },
+  {
+    "id": "cat-composer",
+    "name": "Composer",
+    "slug": "composer",
+    "description": "Famous and celebrated figures working as Composer.",
+    "created_at": "2026-10-13T06:36:17.843Z",
+    "updated_at": "2026-10-13T06:36:17.843Z"
+  },
+  {
+    "id": "cat-cosplayer",
+    "name": "Cosplayer",
+    "slug": "cosplayer",
+    "description": "Famous and celebrated figures working as Cosplayer.",
+    "created_at": "2026-10-13T06:36:18.046Z",
+    "updated_at": "2026-10-13T06:36:18.046Z"
+  },
+  {
+    "id": "cat-country-singer",
+    "name": "Country Singer",
+    "slug": "country-singer",
+    "description": "Famous and celebrated figures working as Country Singer.",
+    "created_at": "2026-10-13T06:36:17.790Z",
+    "updated_at": "2026-10-13T06:36:17.790Z"
+  },
+  {
+    "id": "cat-cricketer",
+    "name": "Cricketer",
+    "slug": "cricketer",
+    "description": "Famous and celebrated figures working as Cricketer.",
+    "created_at": "2026-10-13T06:36:17.811Z",
+    "updated_at": "2026-10-13T06:36:17.811Z"
+  },
+  {
+    "id": "cat-cyclist",
+    "name": "Cyclist",
+    "slug": "cyclist",
+    "description": "Famous and celebrated figures working as Cyclist.",
+    "created_at": "2026-10-13T06:36:18.289Z",
+    "updated_at": "2026-10-13T06:36:18.289Z"
+  },
+  {
+    "id": "cat-dancer",
+    "name": "Dancer",
+    "slug": "dancer",
+    "description": "Famous and celebrated figures working as Dancer.",
+    "created_at": "2026-10-13T06:36:17.782Z",
+    "updated_at": "2026-10-13T06:36:17.782Z"
+  },
+  {
+    "id": "cat-darts-player",
+    "name": "Darts Player",
+    "slug": "darts-player",
+    "description": "Famous and celebrated figures working as Darts Player.",
+    "created_at": "2026-10-13T06:36:18.171Z",
+    "updated_at": "2026-10-13T06:36:18.171Z"
+  },
+  {
+    "id": "cat-director",
+    "name": "Director",
+    "slug": "director",
+    "description": "Famous and celebrated figures working as Director.",
+    "created_at": "2026-10-13T06:36:17.789Z",
+    "updated_at": "2026-10-13T06:36:17.789Z"
+  },
+  {
+    "id": "cat-diver",
+    "name": "Diver",
+    "slug": "diver",
+    "description": "Famous and celebrated figures working as Diver.",
+    "created_at": "2026-10-13T06:36:17.956Z",
+    "updated_at": "2026-10-13T06:36:17.956Z"
+  },
+  {
+    "id": "cat-dj",
+    "name": "DJ",
+    "slug": "dj",
+    "description": "Famous and celebrated figures working as DJ.",
+    "created_at": "2026-10-13T06:36:17.779Z",
+    "updated_at": "2026-10-13T06:36:17.779Z"
+  },
+  {
+    "id": "cat-doctor",
+    "name": "Doctor",
+    "slug": "doctor",
+    "description": "Famous and celebrated figures working as Doctor.",
+    "created_at": "2026-10-13T06:36:18.107Z",
+    "updated_at": "2026-10-13T06:36:18.107Z"
+  },
+  {
+    "id": "cat-dog",
+    "name": "Dog",
+    "slug": "dog",
+    "description": "Famous and celebrated figures working as Dog.",
+    "created_at": "2026-10-13T06:36:18.279Z",
+    "updated_at": "2026-10-13T06:36:18.279Z"
+  },
+  {
+    "id": "cat-drummer",
+    "name": "Drummer",
+    "slug": "drummer",
+    "description": "Famous and celebrated figures working as Drummer.",
+    "created_at": "2026-10-13T06:36:17.856Z",
+    "updated_at": "2026-10-13T06:36:17.856Z"
+  },
+  {
+    "id": "cat-dubsmash-star",
+    "name": "Dubsmash Star",
+    "slug": "dubsmash-star",
+    "description": "Famous and celebrated figures working as Dubsmash Star.",
+    "created_at": "2026-10-13T06:36:18.307Z",
+    "updated_at": "2026-10-13T06:36:18.307Z"
+  },
+  {
+    "id": "cat-duchess",
+    "name": "Duchess",
+    "slug": "duchess",
+    "description": "Famous and celebrated figures working as Duchess.",
+    "created_at": "2026-10-13T06:36:18.149Z",
+    "updated_at": "2026-10-13T06:36:18.149Z"
+  },
+  {
+    "id": "cat-emperor",
+    "name": "Emperor",
+    "slug": "emperor",
+    "description": "Famous and celebrated figures working as Emperor.",
+    "created_at": "2026-10-13T06:36:17.905Z",
+    "updated_at": "2026-10-13T06:36:17.905Z"
+  },
+  {
+    "id": "cat-entrepreneur",
+    "name": "Entrepreneur",
+    "slug": "entrepreneur",
+    "description": "Famous and celebrated figures working as Entrepreneur.",
+    "created_at": "2026-10-13T06:36:17.785Z",
+    "updated_at": "2026-10-13T06:36:17.785Z"
+  },
+  {
+    "id": "cat-esports-player",
+    "name": "eSports Player",
+    "slug": "esports-player",
+    "description": "Famous and celebrated figures working as eSports Player.",
+    "created_at": "2026-10-13T06:36:17.830Z",
+    "updated_at": "2026-10-13T06:36:17.830Z"
+  },
+  {
+    "id": "cat-explorer",
+    "name": "Explorer",
+    "slug": "explorer",
+    "description": "Famous and celebrated figures working as Explorer.",
+    "created_at": "2026-10-13T06:36:18.021Z",
+    "updated_at": "2026-10-13T06:36:18.021Z"
+  },
+  {
+    "id": "cat-facebook-star",
+    "name": "Facebook Star",
+    "slug": "facebook-star",
+    "description": "Famous and celebrated figures working as Facebook Star.",
+    "created_at": "2026-10-13T06:36:17.902Z",
+    "updated_at": "2026-10-13T06:36:17.902Z"
+  },
+  {
+    "id": "cat-family-member",
+    "name": "Family Member",
+    "slug": "family-member",
+    "description": "Famous and celebrated figures working as Family Member.",
+    "created_at": "2026-10-13T06:36:17.786Z",
+    "updated_at": "2026-10-13T06:36:17.786Z"
+  },
+  {
+    "id": "cat-fashion-designer",
+    "name": "Fashion Designer",
+    "slug": "fashion-designer",
+    "description": "Famous and celebrated figures working as Fashion Designer.",
+    "created_at": "2026-10-13T06:36:17.795Z",
+    "updated_at": "2026-10-13T06:36:17.795Z"
+  },
+  {
+    "id": "cat-figure-skater",
+    "name": "Figure Skater",
+    "slug": "figure-skater",
+    "description": "Famous and celebrated figures working as Figure Skater.",
+    "created_at": "2026-10-13T06:36:17.841Z",
+    "updated_at": "2026-10-13T06:36:17.841Z"
+  },
+  {
+    "id": "cat-film-producer",
+    "name": "Film Producer",
+    "slug": "film-producer",
+    "description": "Famous and celebrated figures working as Film Producer.",
+    "created_at": "2026-10-13T06:36:17.882Z",
+    "updated_at": "2026-10-13T06:36:17.882Z"
+  },
+  {
+    "id": "cat-first-lady",
+    "name": "First Lady",
+    "slug": "first-lady",
+    "description": "Famous and celebrated figures working as First Lady.",
+    "created_at": "2026-10-13T06:36:18.129Z",
+    "updated_at": "2026-10-13T06:36:18.129Z"
+  },
+  {
+    "id": "cat-fitness-instructor",
+    "name": "Fitness Instructor",
+    "slug": "fitness-instructor",
+    "description": "Famous and celebrated figures working as Fitness Instructor.",
+    "created_at": "2026-10-13T06:36:17.789Z",
+    "updated_at": "2026-10-13T06:36:17.789Z"
+  },
+  {
+    "id": "cat-folk-singer",
+    "name": "Folk Singer",
+    "slug": "folk-singer",
+    "description": "Famous and celebrated figures working as Folk Singer.",
+    "created_at": "2026-10-13T06:36:17.931Z",
+    "updated_at": "2026-10-13T06:36:17.931Z"
+  },
+  {
+    "id": "cat-football-coach",
+    "name": "Football Coach",
+    "slug": "football-coach",
+    "description": "Famous and celebrated figures working as Football Coach.",
+    "created_at": "2026-10-13T06:36:17.829Z",
+    "updated_at": "2026-10-13T06:36:17.829Z"
+  },
+  {
+    "id": "cat-football-player",
+    "name": "Football Player",
+    "slug": "football-player",
+    "description": "Famous and celebrated figures working as Football Player.",
+    "created_at": "2026-10-13T06:36:17.780Z",
+    "updated_at": "2026-10-13T06:36:17.780Z"
+  },
+  {
+    "id": "cat-freerunner",
+    "name": "Freerunner",
+    "slug": "freerunner",
+    "description": "Famous and celebrated figures working as Freerunner.",
+    "created_at": "2026-10-13T06:36:18.035Z",
+    "updated_at": "2026-10-13T06:36:18.035Z"
+  },
+  {
+    "id": "cat-funk-singer",
+    "name": "Funk Singer",
+    "slug": "funk-singer",
+    "description": "Famous and celebrated figures working as Funk Singer.",
+    "created_at": "2026-10-13T06:36:18.094Z",
+    "updated_at": "2026-10-13T06:36:18.094Z"
+  },
+  {
+    "id": "cat-game-designer",
+    "name": "Game Designer",
+    "slug": "game-designer",
+    "description": "Famous and celebrated figures working as Game Designer.",
+    "created_at": "2026-10-13T06:36:17.963Z",
+    "updated_at": "2026-10-13T06:36:17.963Z"
+  },
+  {
+    "id": "cat-game-show-host",
+    "name": "Game Show Host",
+    "slug": "game-show-host",
+    "description": "Famous and celebrated figures working as Game Show Host.",
+    "created_at": "2026-10-13T06:36:17.878Z",
+    "updated_at": "2026-10-13T06:36:17.878Z"
+  },
+  {
+    "id": "cat-golfer",
+    "name": "Golfer",
+    "slug": "golfer",
+    "description": "Famous and celebrated figures working as Golfer.",
+    "created_at": "2026-10-13T06:36:17.874Z",
+    "updated_at": "2026-10-13T06:36:17.874Z"
+  },
+  {
+    "id": "cat-gospel-singer",
+    "name": "Gospel Singer",
+    "slug": "gospel-singer",
+    "description": "Famous and celebrated figures working as Gospel Singer.",
+    "created_at": "2026-10-13T06:36:17.875Z",
+    "updated_at": "2026-10-13T06:36:17.875Z"
+  },
+  {
+    "id": "cat-guitarist",
+    "name": "Guitarist",
+    "slug": "guitarist",
+    "description": "Famous and celebrated figures working as Guitarist.",
+    "created_at": "2026-10-13T06:36:17.809Z",
+    "updated_at": "2026-10-13T06:36:17.809Z"
+  },
+  {
+    "id": "cat-gymnast",
+    "name": "Gymnast",
+    "slug": "gymnast",
+    "description": "Famous and celebrated figures working as Gymnast.",
+    "created_at": "2026-10-13T06:36:17.821Z",
+    "updated_at": "2026-10-13T06:36:17.821Z"
+  },
+  {
+    "id": "cat-hockey-player",
+    "name": "Hockey Player",
+    "slug": "hockey-player",
+    "description": "Famous and celebrated figures working as Hockey Player.",
+    "created_at": "2026-10-13T06:36:17.803Z",
+    "updated_at": "2026-10-13T06:36:17.803Z"
+  },
+  {
+    "id": "cat-illustrator",
+    "name": "Illustrator",
+    "slug": "illustrator",
+    "description": "Famous and celebrated figures working as Illustrator.",
+    "created_at": "2026-10-13T06:36:17.869Z",
+    "updated_at": "2026-10-13T06:36:17.869Z"
+  },
+  {
+    "id": "cat-instagram-star",
+    "name": "Instagram Star",
+    "slug": "instagram-star",
+    "description": "Famous and celebrated figures working as Instagram Star.",
+    "created_at": "2026-10-13T06:36:17.778Z",
+    "updated_at": "2026-10-13T06:36:17.778Z"
+  },
+  {
+    "id": "cat-interior-designer",
+    "name": "Interior Designer",
+    "slug": "interior-designer",
+    "description": "Famous and celebrated figures working as Interior Designer.",
+    "created_at": "2026-10-13T06:36:18.228Z",
+    "updated_at": "2026-10-13T06:36:18.228Z"
+  },
+  {
+    "id": "cat-inventor",
+    "name": "Inventor",
+    "slug": "inventor",
+    "description": "Famous and celebrated figures working as Inventor.",
+    "created_at": "2026-10-13T06:36:17.868Z",
+    "updated_at": "2026-10-13T06:36:17.868Z"
+  },
+  {
+    "id": "cat-investor",
+    "name": "Investor",
+    "slug": "investor",
+    "description": "Famous and celebrated figures working as Investor.",
+    "created_at": "2026-10-13T06:36:18.394Z",
+    "updated_at": "2026-10-13T06:36:18.394Z"
+  },
+  {
+    "id": "cat-jazz-singer",
+    "name": "Jazz Singer",
+    "slug": "jazz-singer",
+    "description": "Famous and celebrated figures working as Jazz Singer.",
+    "created_at": "2026-10-13T06:36:17.845Z",
+    "updated_at": "2026-10-13T06:36:17.845Z"
+  },
+  {
+    "id": "cat-journalist",
+    "name": "Journalist",
+    "slug": "journalist",
+    "description": "Famous and celebrated figures working as Journalist.",
+    "created_at": "2026-10-13T06:36:17.842Z",
+    "updated_at": "2026-10-13T06:36:17.842Z"
+  },
+  {
+    "id": "cat-kickboxer",
+    "name": "Kickboxer",
+    "slug": "kickboxer",
+    "description": "Famous and celebrated figures working as Kickboxer.",
+    "created_at": "2026-10-13T06:36:17.886Z",
+    "updated_at": "2026-10-13T06:36:17.886Z"
+  },
+  {
+    "id": "cat-king",
+    "name": "King",
+    "slug": "king",
+    "description": "Famous and celebrated figures working as King.",
+    "created_at": "2026-10-13T06:36:17.813Z",
+    "updated_at": "2026-10-13T06:36:17.813Z"
+  },
+  {
+    "id": "cat-lawyer",
+    "name": "Lawyer",
+    "slug": "lawyer",
+    "description": "Famous and celebrated figures working as Lawyer.",
+    "created_at": "2026-10-13T06:36:18.143Z",
+    "updated_at": "2026-10-13T06:36:18.143Z"
+  },
+  {
+    "id": "cat-live-me-star",
+    "name": "Live.me Star",
+    "slug": "live-me-star",
+    "description": "Famous and celebrated figures working as Live.me Star.",
+    "created_at": "2026-10-13T06:36:18.056Z",
+    "updated_at": "2026-10-13T06:36:18.056Z"
+  },
+  {
+    "id": "cat-magician",
+    "name": "Magician",
+    "slug": "magician",
+    "description": "Famous and celebrated figures working as Magician.",
+    "created_at": "2026-10-13T06:36:17.813Z",
+    "updated_at": "2026-10-13T06:36:17.813Z"
+  },
+  {
+    "id": "cat-makeup-artist",
+    "name": "Makeup Artist",
+    "slug": "makeup-artist",
+    "description": "Famous and celebrated figures working as Makeup Artist.",
+    "created_at": "2026-10-13T06:36:17.856Z",
+    "updated_at": "2026-10-13T06:36:17.856Z"
+  },
+  {
+    "id": "cat-martial-artist",
+    "name": "Martial Artist",
+    "slug": "martial-artist",
+    "description": "Famous and celebrated figures working as Martial Artist.",
+    "created_at": "2026-10-13T06:36:17.865Z",
+    "updated_at": "2026-10-13T06:36:17.865Z"
+  },
+  {
+    "id": "cat-mathematician",
+    "name": "Mathematician",
+    "slug": "mathematician",
+    "description": "Famous and celebrated figures working as Mathematician.",
+    "created_at": "2026-10-13T06:36:18.192Z",
+    "updated_at": "2026-10-13T06:36:18.192Z"
+  },
+  {
+    "id": "cat-metal-singer",
+    "name": "Metal Singer",
+    "slug": "metal-singer",
+    "description": "Famous and celebrated figures working as Metal Singer.",
+    "created_at": "2026-10-13T06:36:17.863Z",
+    "updated_at": "2026-10-13T06:36:17.863Z"
+  },
+  {
+    "id": "cat-meteorologist",
+    "name": "Meteorologist",
+    "slug": "meteorologist",
+    "description": "Famous and celebrated figures working as Meteorologist.",
+    "created_at": "2026-10-13T06:36:17.984Z",
+    "updated_at": "2026-10-13T06:36:17.984Z"
+  },
+  {
+    "id": "cat-missionary",
+    "name": "Missionary",
+    "slug": "missionary",
+    "description": "Famous and celebrated figures working as Missionary.",
+    "created_at": "2026-10-13T06:36:17.873Z",
+    "updated_at": "2026-10-13T06:36:17.873Z"
+  },
+  {
+    "id": "cat-mma-fighter",
+    "name": "MMA Fighter",
+    "slug": "mma-fighter",
+    "description": "Famous and celebrated figures working as MMA Fighter.",
+    "created_at": "2026-10-13T06:36:17.790Z",
+    "updated_at": "2026-10-13T06:36:17.790Z"
+  },
+  {
+    "id": "cat-model",
+    "name": "Model",
+    "slug": "model",
+    "description": "Famous and celebrated figures working as Model.",
+    "created_at": "2026-10-13T06:36:17.786Z",
+    "updated_at": "2026-10-13T06:36:17.786Z"
+  },
+  {
+    "id": "cat-motivational-speaker",
+    "name": "Motivational Speaker",
+    "slug": "motivational-speaker",
+    "description": "Famous and celebrated figures working as Motivational Speaker.",
+    "created_at": "2026-10-13T06:36:17.877Z",
+    "updated_at": "2026-10-13T06:36:17.877Z"
+  },
+  {
+    "id": "cat-motorcycle-racer",
+    "name": "Motorcycle Racer",
+    "slug": "motorcycle-racer",
+    "description": "Famous and celebrated figures working as Motorcycle Racer.",
+    "created_at": "2026-10-13T06:36:17.797Z",
+    "updated_at": "2026-10-13T06:36:17.797Z"
+  },
+  {
+    "id": "cat-mountain-biker",
+    "name": "Mountain Biker",
+    "slug": "mountain-biker",
+    "description": "Famous and celebrated figures working as Mountain Biker.",
+    "created_at": "2026-10-13T06:36:18.177Z",
+    "updated_at": "2026-10-13T06:36:18.177Z"
+  },
+  {
+    "id": "cat-movie-actor",
+    "name": "Movie Actor",
+    "slug": "movie-actor",
+    "description": "Famous and celebrated figures working as Movie Actor.",
+    "created_at": "2026-10-13T06:36:17.775Z",
+    "updated_at": "2026-10-13T06:36:17.775Z"
+  },
+  {
+    "id": "cat-movie-actress",
+    "name": "Movie Actress",
+    "slug": "movie-actress",
+    "description": "Famous and celebrated figures working as Movie Actress.",
+    "created_at": "2026-10-13T06:36:17.779Z",
+    "updated_at": "2026-10-13T06:36:17.779Z"
+  },
+  {
+    "id": "cat-multimedia-artist",
+    "name": "Multimedia Artist",
+    "slug": "multimedia-artist",
+    "description": "Famous and celebrated figures working as Multimedia Artist.",
+    "created_at": "2026-10-13T06:36:18.132Z",
+    "updated_at": "2026-10-13T06:36:18.132Z"
+  },
+  {
+    "id": "cat-music-producer",
+    "name": "Music Producer",
+    "slug": "music-producer",
+    "description": "Famous and celebrated figures working as Music Producer.",
+    "created_at": "2026-10-13T06:36:17.788Z",
+    "updated_at": "2026-10-13T06:36:17.788Z"
+  },
+  {
+    "id": "cat-non-fiction-author",
+    "name": "Non-Fiction Author",
+    "slug": "non-fiction-author",
+    "description": "Famous and celebrated figures working as Non-Fiction Author.",
+    "created_at": "2026-10-13T06:36:18.223Z",
+    "updated_at": "2026-10-13T06:36:18.223Z"
+  },
+  {
+    "id": "cat-novelist",
+    "name": "Novelist",
+    "slug": "novelist",
+    "description": "Famous and celebrated figures working as Novelist.",
+    "created_at": "2026-10-13T06:36:17.834Z",
+    "updated_at": "2026-10-13T06:36:17.834Z"
+  },
+  {
+    "id": "cat-opera-singer",
+    "name": "Opera Singer",
+    "slug": "opera-singer",
+    "description": "Famous and celebrated figures working as Opera Singer.",
+    "created_at": "2026-10-13T06:36:18.330Z",
+    "updated_at": "2026-10-13T06:36:18.330Z"
+  },
+  {
+    "id": "cat-other",
+    "name": "Other",
+    "slug": "other",
+    "description": "Famous and celebrated figures working as Other.",
+    "created_at": "2026-10-13T06:36:17.872Z",
+    "updated_at": "2026-10-13T06:36:17.873Z"
+  },
+  {
+    "id": "cat-pageant-contestant",
+    "name": "Pageant Contestant",
+    "slug": "pageant-contestant",
+    "description": "Famous and celebrated figures working as Pageant Contestant.",
+    "created_at": "2026-10-13T06:36:17.890Z",
+    "updated_at": "2026-10-13T06:36:17.890Z"
+  },
+  {
+    "id": "cat-painter",
+    "name": "Painter",
+    "slug": "painter",
+    "description": "Famous and celebrated figures working as Painter.",
+    "created_at": "2026-10-13T06:36:17.883Z",
+    "updated_at": "2026-10-13T06:36:17.883Z"
+  },
+  {
+    "id": "cat-philosopher",
+    "name": "Philosopher",
+    "slug": "philosopher",
+    "description": "Famous and celebrated figures working as Philosopher.",
+    "created_at": "2026-10-13T06:36:18.070Z",
+    "updated_at": "2026-10-13T06:36:18.070Z"
+  },
+  {
+    "id": "cat-photographer",
+    "name": "Photographer",
+    "slug": "photographer",
+    "description": "Famous and celebrated figures working as Photographer.",
+    "created_at": "2026-10-13T06:36:17.895Z",
+    "updated_at": "2026-10-13T06:36:17.895Z"
+  },
+  {
+    "id": "cat-physicist",
+    "name": "Physicist",
+    "slug": "physicist",
+    "description": "Famous and celebrated figures working as Physicist.",
+    "created_at": "2026-10-13T06:36:18.028Z",
+    "updated_at": "2026-10-13T06:36:18.028Z"
+  },
+  {
+    "id": "cat-pianist",
+    "name": "Pianist",
+    "slug": "pianist",
+    "description": "Famous and celebrated figures working as Pianist.",
+    "created_at": "2026-10-13T06:36:18.058Z",
+    "updated_at": "2026-10-13T06:36:18.058Z"
+  },
+  {
+    "id": "cat-pilot",
+    "name": "Pilot",
+    "slug": "pilot",
+    "description": "Famous and celebrated figures working as Pilot.",
+    "created_at": "2026-10-13T06:36:18.247Z",
+    "updated_at": "2026-10-13T06:36:18.247Z"
+  },
+  {
+    "id": "cat-playwright",
+    "name": "Playwright",
+    "slug": "playwright",
+    "description": "Famous and celebrated figures working as Playwright.",
+    "created_at": "2026-10-13T06:36:17.846Z",
+    "updated_at": "2026-10-13T06:36:17.846Z"
+  },
+  {
+    "id": "cat-podcast-host",
+    "name": "Podcast Host",
+    "slug": "podcast-host",
+    "description": "Famous and celebrated figures working as Podcast Host.",
+    "created_at": "2026-10-13T06:36:17.930Z",
+    "updated_at": "2026-10-13T06:36:17.930Z"
+  },
+  {
+    "id": "cat-poet",
+    "name": "Poet",
+    "slug": "poet",
+    "description": "Famous and celebrated figures working as Poet.",
+    "created_at": "2026-10-13T06:36:18.014Z",
+    "updated_at": "2026-10-13T06:36:18.014Z"
+  },
+  {
+    "id": "cat-pole-vaulter",
+    "name": "Pole Vaulter",
+    "slug": "pole-vaulter",
+    "description": "Famous and celebrated figures working as Pole Vaulter.",
+    "created_at": "2026-10-13T06:36:18.313Z",
+    "updated_at": "2026-10-13T06:36:18.313Z"
+  },
+  {
+    "id": "cat-political-wife",
+    "name": "Political Wife",
+    "slug": "political-wife",
+    "description": "Famous and celebrated figures working as Political Wife.",
+    "created_at": "2026-10-13T06:36:18.130Z",
+    "updated_at": "2026-10-13T06:36:18.130Z"
+  },
+  {
+    "id": "cat-politician",
+    "name": "Politician",
+    "slug": "politician",
+    "description": "Famous and celebrated figures working as Politician.",
+    "created_at": "2026-10-13T06:36:17.779Z",
+    "updated_at": "2026-10-13T06:36:17.779Z"
+  },
+  {
+    "id": "cat-pop-artist",
+    "name": "Pop Artist",
+    "slug": "pop-artist",
+    "description": "Famous and celebrated figures working as Pop Artist.",
+    "created_at": "2026-10-13T06:36:17.831Z",
+    "updated_at": "2026-10-13T06:36:17.831Z"
+  },
+  {
+    "id": "cat-pop-singer",
+    "name": "Pop Singer",
+    "slug": "pop-singer",
+    "description": "Famous and celebrated figures working as Pop Singer.",
+    "created_at": "2026-10-13T06:36:17.779Z",
+    "updated_at": "2026-10-13T06:36:17.779Z"
+  },
+  {
+    "id": "cat-prince",
+    "name": "Prince",
+    "slug": "prince",
+    "description": "Famous and celebrated figures working as Prince.",
+    "created_at": "2026-10-13T06:36:17.997Z",
+    "updated_at": "2026-10-13T06:36:17.997Z"
+  },
+  {
+    "id": "cat-princess",
+    "name": "Princess",
+    "slug": "princess",
+    "description": "Famous and celebrated figures working as Princess.",
+    "created_at": "2026-10-13T06:36:17.833Z",
+    "updated_at": "2026-10-13T06:36:17.833Z"
+  },
+  {
+    "id": "cat-psychologist",
+    "name": "Psychologist",
+    "slug": "psychologist",
+    "description": "Famous and celebrated figures working as Psychologist.",
+    "created_at": "2026-10-13T06:36:18.066Z",
+    "updated_at": "2026-10-13T06:36:18.066Z"
+  },
+  {
+    "id": "cat-punk-singer",
+    "name": "Punk Singer",
+    "slug": "punk-singer",
+    "description": "Famous and celebrated figures working as Punk Singer.",
+    "created_at": "2026-10-13T06:36:17.824Z",
+    "updated_at": "2026-10-13T06:36:17.824Z"
+  },
+  {
+    "id": "cat-puppeteer",
+    "name": "Puppeteer",
+    "slug": "puppeteer",
+    "description": "Famous and celebrated figures working as Puppeteer.",
+    "created_at": "2026-10-13T06:36:17.829Z",
+    "updated_at": "2026-10-13T06:36:17.829Z"
+  },
+  {
+    "id": "cat-queen",
+    "name": "Queen",
+    "slug": "queen",
+    "description": "Famous and celebrated figures working as Queen.",
+    "created_at": "2026-10-13T06:36:17.785Z",
+    "updated_at": "2026-10-13T06:36:17.785Z"
+  },
+  {
+    "id": "cat-r-b-singer",
+    "name": "R&B Singer",
+    "slug": "r-b-singer",
+    "description": "Famous and celebrated figures working as R&B Singer.",
+    "created_at": "2026-10-13T06:36:17.798Z",
+    "updated_at": "2026-10-13T06:36:17.798Z"
+  },
+  {
+    "id": "cat-race-car-driver",
+    "name": "Race Car Driver",
+    "slug": "race-car-driver",
+    "description": "Famous and celebrated figures working as Race Car Driver.",
+    "created_at": "2026-10-13T06:36:17.790Z",
+    "updated_at": "2026-10-13T06:36:17.790Z"
+  },
+  {
+    "id": "cat-radio-host",
+    "name": "Radio Host",
+    "slug": "radio-host",
+    "description": "Famous and celebrated figures working as Radio Host.",
+    "created_at": "2026-10-13T06:36:17.805Z",
+    "updated_at": "2026-10-13T06:36:17.805Z"
+  },
+  {
+    "id": "cat-rapper",
+    "name": "Rapper",
+    "slug": "rapper",
+    "description": "Famous and celebrated figures working as Rapper.",
+    "created_at": "2026-10-13T06:36:17.779Z",
+    "updated_at": "2026-10-13T06:36:17.779Z"
+  },
+  {
+    "id": "cat-reality-star",
+    "name": "Reality Star",
+    "slug": "reality-star",
+    "description": "Famous and celebrated figures working as Reality Star.",
+    "created_at": "2026-10-13T06:36:17.780Z",
+    "updated_at": "2026-10-13T06:36:17.780Z"
+  },
+  {
+    "id": "cat-reggae-singer",
+    "name": "Reggae Singer",
+    "slug": "reggae-singer",
+    "description": "Famous and celebrated figures working as Reggae Singer.",
+    "created_at": "2026-10-13T06:36:17.873Z",
+    "updated_at": "2026-10-13T06:36:17.873Z"
+  },
+  {
+    "id": "cat-reggaeton-singer",
+    "name": "Reggaeton Singer",
+    "slug": "reggaeton-singer",
+    "description": "Famous and celebrated figures working as Reggaeton Singer.",
+    "created_at": "2026-10-13T06:36:17.883Z",
+    "updated_at": "2026-10-13T06:36:17.883Z"
+  },
+  {
+    "id": "cat-religious-leader",
+    "name": "Religious Leader",
+    "slug": "religious-leader",
+    "description": "Famous and celebrated figures working as Religious Leader.",
+    "created_at": "2026-10-13T06:36:17.946Z",
+    "updated_at": "2026-10-13T06:36:17.946Z"
+  },
+  {
+    "id": "cat-roblox-star",
+    "name": "Roblox Star",
+    "slug": "roblox-star",
+    "description": "Famous and celebrated figures working as Roblox Star.",
+    "created_at": "2026-10-13T06:36:17.779Z",
+    "updated_at": "2026-10-13T06:36:17.779Z"
+  },
+  {
+    "id": "cat-rock-singer",
+    "name": "Rock Singer",
+    "slug": "rock-singer",
+    "description": "Famous and celebrated figures working as Rock Singer.",
+    "created_at": "2026-10-13T06:36:17.783Z",
+    "updated_at": "2026-10-13T06:36:17.783Z"
+  },
+  {
+    "id": "cat-rugby-player",
+    "name": "Rugby Player",
+    "slug": "rugby-player",
+    "description": "Famous and celebrated figures working as Rugby Player.",
+    "created_at": "2026-10-13T06:36:17.805Z",
+    "updated_at": "2026-10-13T06:36:17.805Z"
+  },
+  {
+    "id": "cat-runner",
+    "name": "Runner",
+    "slug": "runner",
+    "description": "Famous and celebrated figures working as Runner.",
+    "created_at": "2026-10-13T06:36:17.856Z",
+    "updated_at": "2026-10-13T06:36:17.856Z"
+  },
+  {
+    "id": "cat-saxophonist",
+    "name": "Saxophonist",
+    "slug": "saxophonist",
+    "description": "Famous and celebrated figures working as Saxophonist.",
+    "created_at": "2026-10-13T06:36:18.028Z",
+    "updated_at": "2026-10-13T06:36:18.028Z"
+  },
+  {
+    "id": "cat-screenwriter",
+    "name": "Screenwriter",
+    "slug": "screenwriter",
+    "description": "Famous and celebrated figures working as Screenwriter.",
+    "created_at": "2026-10-13T06:36:17.845Z",
+    "updated_at": "2026-10-13T06:36:17.845Z"
+  },
+  {
+    "id": "cat-sculptor",
+    "name": "Sculptor",
+    "slug": "sculptor",
+    "description": "Famous and celebrated figures working as Sculptor.",
+    "created_at": "2026-10-13T06:36:17.906Z",
+    "updated_at": "2026-10-13T06:36:17.906Z"
+  },
+  {
+    "id": "cat-self-help-author",
+    "name": "Self-Help Author",
+    "slug": "self-help-author",
+    "description": "Famous and celebrated figures working as Self-Help Author.",
+    "created_at": "2026-10-13T06:36:17.900Z",
+    "updated_at": "2026-10-13T06:36:17.900Z"
+  },
+  {
+    "id": "cat-skateboarder",
+    "name": "Skateboarder",
+    "slug": "skateboarder",
+    "description": "Famous and celebrated figures working as Skateboarder.",
+    "created_at": "2026-10-13T06:36:17.856Z",
+    "updated_at": "2026-10-13T06:36:17.856Z"
+  },
+  {
+    "id": "cat-skier",
+    "name": "Skier",
+    "slug": "skier",
+    "description": "Famous and celebrated figures working as Skier.",
+    "created_at": "2026-10-13T06:36:18.066Z",
+    "updated_at": "2026-10-13T06:36:18.066Z"
+  },
+  {
+    "id": "cat-snapchat-star",
+    "name": "Snapchat Star",
+    "slug": "snapchat-star",
+    "description": "Famous and celebrated figures working as Snapchat Star.",
+    "created_at": "2026-10-13T06:36:17.796Z",
+    "updated_at": "2026-10-13T06:36:17.796Z"
+  },
+  {
+    "id": "cat-snowboarder",
+    "name": "Snowboarder",
+    "slug": "snowboarder",
+    "description": "Famous and celebrated figures working as Snowboarder.",
+    "created_at": "2026-10-13T06:36:18.163Z",
+    "updated_at": "2026-10-13T06:36:18.163Z"
+  },
+  {
+    "id": "cat-soap-opera-actor",
+    "name": "Soap Opera Actor",
+    "slug": "soap-opera-actor",
+    "description": "Famous and celebrated figures working as Soap Opera Actor.",
+    "created_at": "2026-10-13T06:36:17.837Z",
+    "updated_at": "2026-10-13T06:36:17.837Z"
+  },
+  {
+    "id": "cat-soap-opera-actress",
+    "name": "Soap Opera Actress",
+    "slug": "soap-opera-actress",
+    "description": "Famous and celebrated figures working as Soap Opera Actress.",
+    "created_at": "2026-10-13T06:36:17.795Z",
+    "updated_at": "2026-10-13T06:36:17.795Z"
+  },
+  {
+    "id": "cat-soccer-coach",
+    "name": "Soccer Coach",
+    "slug": "soccer-coach",
+    "description": "Famous and celebrated figures working as Soccer Coach.",
+    "created_at": "2026-10-13T06:36:17.887Z",
+    "updated_at": "2026-10-13T06:36:17.887Z"
+  },
+  {
+    "id": "cat-soccer-player",
+    "name": "Soccer Player",
+    "slug": "soccer-player",
+    "description": "Famous and celebrated figures working as Soccer Player.",
+    "created_at": "2026-10-13T06:36:17.781Z",
+    "updated_at": "2026-10-13T06:36:17.781Z"
+  },
+  {
+    "id": "cat-softball-player",
+    "name": "Softball Player",
+    "slug": "softball-player",
+    "description": "Famous and celebrated figures working as Softball Player.",
+    "created_at": "2026-10-13T06:36:17.863Z",
+    "updated_at": "2026-10-13T06:36:17.863Z"
+  },
+  {
+    "id": "cat-songwriter",
+    "name": "Songwriter",
+    "slug": "songwriter",
+    "description": "Famous and celebrated figures working as Songwriter.",
+    "created_at": "2026-10-13T06:36:17.778Z",
+    "updated_at": "2026-10-13T06:36:17.778Z"
+  },
+  {
+    "id": "cat-soul-singer",
+    "name": "Soul Singer",
+    "slug": "soul-singer",
+    "description": "Famous and celebrated figures working as Soul Singer.",
+    "created_at": "2026-10-13T06:36:17.856Z",
+    "updated_at": "2026-10-13T06:36:17.856Z"
+  },
+  {
+    "id": "cat-speedskater",
+    "name": "Speedskater",
+    "slug": "speedskater",
+    "description": "Famous and celebrated figures working as Speedskater.",
+    "created_at": "2026-10-13T06:36:18.078Z",
+    "updated_at": "2026-10-13T06:36:18.078Z"
+  },
+  {
+    "id": "cat-sports-executive",
+    "name": "Sports Executive",
+    "slug": "sports-executive",
+    "description": "Famous and celebrated figures working as Sports Executive.",
+    "created_at": "2026-10-13T06:36:17.856Z",
+    "updated_at": "2026-10-13T06:36:17.856Z"
+  },
+  {
+    "id": "cat-sportscaster",
+    "name": "Sportscaster",
+    "slug": "sportscaster",
+    "description": "Famous and celebrated figures working as Sportscaster.",
+    "created_at": "2026-10-13T06:36:18.196Z",
+    "updated_at": "2026-10-13T06:36:18.196Z"
+  },
+  {
+    "id": "cat-stage-actor",
+    "name": "Stage Actor",
+    "slug": "stage-actor",
+    "description": "Famous and celebrated figures working as Stage Actor.",
+    "created_at": "2026-10-13T06:36:17.801Z",
+    "updated_at": "2026-10-13T06:36:17.801Z"
+  },
+  {
+    "id": "cat-stage-actress",
+    "name": "Stage Actress",
+    "slug": "stage-actress",
+    "description": "Famous and celebrated figures working as Stage Actress.",
+    "created_at": "2026-10-13T06:36:17.797Z",
+    "updated_at": "2026-10-13T06:36:17.797Z"
+  },
+  {
+    "id": "cat-stunt-double",
+    "name": "Stunt Double",
+    "slug": "stunt-double",
+    "description": "Famous and celebrated figures working as Stunt Double.",
+    "created_at": "2026-10-13T06:36:18.311Z",
+    "updated_at": "2026-10-13T06:36:18.311Z"
+  },
+  {
+    "id": "cat-stylist",
+    "name": "Stylist",
+    "slug": "stylist",
+    "description": "Famous and celebrated figures working as Stylist.",
+    "created_at": "2026-10-13T06:36:17.947Z",
+    "updated_at": "2026-10-13T06:36:17.947Z"
+  },
+  {
+    "id": "cat-supercentenarian",
+    "name": "Supercentenarian",
+    "slug": "supercentenarian",
+    "description": "Famous and celebrated figures working as Supercentenarian.",
+    "created_at": "2026-10-13T06:36:17.780Z",
+    "updated_at": "2026-10-13T06:36:17.780Z"
+  },
+  {
+    "id": "cat-supreme-court-justice",
+    "name": "Supreme Court Justice",
+    "slug": "supreme-court-justice",
+    "description": "Famous and celebrated figures working as Supreme Court Justice.",
+    "created_at": "2026-10-13T06:36:17.881Z",
+    "updated_at": "2026-10-13T06:36:17.881Z"
+  },
+  {
+    "id": "cat-surfer",
+    "name": "Surfer",
+    "slug": "surfer",
+    "description": "Famous and celebrated figures working as Surfer.",
+    "created_at": "2026-10-13T06:36:17.933Z",
+    "updated_at": "2026-10-13T06:36:17.933Z"
+  },
+  {
+    "id": "cat-swimmer",
+    "name": "Swimmer",
+    "slug": "swimmer",
+    "description": "Famous and celebrated figures working as Swimmer.",
+    "created_at": "2026-10-13T06:36:18.227Z",
+    "updated_at": "2026-10-13T06:36:18.227Z"
+  },
+  {
+    "id": "cat-talent-manager",
+    "name": "Talent Manager",
+    "slug": "talent-manager",
+    "description": "Famous and celebrated figures working as Talent Manager.",
+    "created_at": "2026-10-13T06:36:18.025Z",
+    "updated_at": "2026-10-13T06:36:18.025Z"
+  },
+  {
+    "id": "cat-tattoo-artist",
+    "name": "Tattoo Artist",
+    "slug": "tattoo-artist",
+    "description": "Famous and celebrated figures working as Tattoo Artist.",
+    "created_at": "2026-10-13T06:36:18.000Z",
+    "updated_at": "2026-10-13T06:36:18.000Z"
+  },
+  {
+    "id": "cat-teacher",
+    "name": "Teacher",
+    "slug": "teacher",
+    "description": "Famous and celebrated figures working as Teacher.",
+    "created_at": "2026-10-13T06:36:17.868Z",
+    "updated_at": "2026-10-13T06:36:17.868Z"
+  },
+  {
+    "id": "cat-tennis-player",
+    "name": "Tennis Player",
+    "slug": "tennis-player",
+    "description": "Famous and celebrated figures working as Tennis Player.",
+    "created_at": "2026-10-13T06:36:17.797Z",
+    "updated_at": "2026-10-13T06:36:17.797Z"
+  },
+  {
+    "id": "cat-tiktok-star",
+    "name": "TikTok Star",
+    "slug": "tiktok-star",
+    "description": "Famous and celebrated figures working as TikTok Star.",
+    "created_at": "2026-10-13T06:36:17.776Z",
+    "updated_at": "2026-10-13T06:36:17.776Z"
+  },
+  {
+    "id": "cat-titanic-survivor",
+    "name": "Titanic Survivor",
+    "slug": "titanic-survivor",
+    "description": "Famous and celebrated figures working as Titanic Survivor.",
+    "created_at": "2026-10-13T06:36:18.343Z",
+    "updated_at": "2026-10-13T06:36:18.343Z"
+  },
+  {
+    "id": "cat-trumpet-player",
+    "name": "Trumpet Player",
+    "slug": "trumpet-player",
+    "description": "Famous and celebrated figures working as Trumpet Player.",
+    "created_at": "2026-10-13T06:36:17.873Z",
+    "updated_at": "2026-10-13T06:36:17.873Z"
+  },
+  {
+    "id": "cat-tv-actor",
+    "name": "TV Actor",
+    "slug": "tv-actor",
+    "description": "Famous and celebrated figures working as TV Actor.",
+    "created_at": "2026-10-13T06:36:17.779Z",
+    "updated_at": "2026-10-13T06:36:17.779Z"
+  },
+  {
+    "id": "cat-tv-actress",
+    "name": "TV Actress",
+    "slug": "tv-actress",
+    "description": "Famous and celebrated figures working as TV Actress.",
+    "created_at": "2026-10-13T06:36:17.779Z",
+    "updated_at": "2026-10-13T06:36:17.779Z"
+  },
+  {
+    "id": "cat-tv-producer",
+    "name": "TV Producer",
+    "slug": "tv-producer",
+    "description": "Famous and celebrated figures working as TV Producer.",
+    "created_at": "2026-10-13T06:36:17.889Z",
+    "updated_at": "2026-10-13T06:36:17.889Z"
+  },
+  {
+    "id": "cat-tv-show-host",
+    "name": "TV Show Host",
+    "slug": "tv-show-host",
+    "description": "Famous and celebrated figures working as TV Show Host.",
+    "created_at": "2026-10-13T06:36:17.776Z",
+    "updated_at": "2026-10-13T06:36:17.776Z"
+  },
+  {
+    "id": "cat-twitch-star",
+    "name": "Twitch Star",
+    "slug": "twitch-star",
+    "description": "Famous and celebrated figures working as Twitch Star.",
+    "created_at": "2026-10-13T06:36:17.779Z",
+    "updated_at": "2026-10-13T06:36:17.779Z"
+  },
+  {
+    "id": "cat-twitter-star",
+    "name": "Twitter Star",
+    "slug": "twitter-star",
+    "description": "Famous and celebrated figures working as Twitter Star.",
+    "created_at": "2026-10-13T06:36:17.845Z",
+    "updated_at": "2026-10-13T06:36:17.845Z"
+  },
+  {
+    "id": "cat-us-president",
+    "name": "US President",
+    "slug": "us-president",
+    "description": "Famous and celebrated figures working as US President.",
+    "created_at": "2026-10-13T06:36:17.788Z",
+    "updated_at": "2026-10-13T06:36:17.788Z"
+  },
+  {
+    "id": "cat-ventriloquist",
+    "name": "Ventriloquist",
+    "slug": "ventriloquist",
+    "description": "Famous and celebrated figures working as Ventriloquist.",
+    "created_at": "2026-10-13T06:36:18.131Z",
+    "updated_at": "2026-10-13T06:36:18.131Z"
+  },
+  {
+    "id": "cat-veterinarian",
+    "name": "Veterinarian",
+    "slug": "veterinarian",
+    "description": "Famous and celebrated figures working as Veterinarian.",
+    "created_at": "2026-10-13T06:36:17.967Z",
+    "updated_at": "2026-10-13T06:36:17.967Z"
+  },
+  {
+    "id": "cat-vice-president",
+    "name": "Vice President",
+    "slug": "vice-president",
+    "description": "Famous and celebrated figures working as Vice President.",
+    "created_at": "2026-10-13T06:36:17.945Z",
+    "updated_at": "2026-10-13T06:36:17.945Z"
+  },
+  {
+    "id": "cat-vine-star",
+    "name": "Vine Star",
+    "slug": "vine-star",
+    "description": "Famous and celebrated figures working as Vine Star.",
+    "created_at": "2026-10-13T06:36:18.125Z",
+    "updated_at": "2026-10-13T06:36:18.125Z"
+  },
+  {
+    "id": "cat-violinist",
+    "name": "Violinist",
+    "slug": "violinist",
+    "description": "Famous and celebrated figures working as Violinist.",
+    "created_at": "2026-10-13T06:36:17.939Z",
+    "updated_at": "2026-10-13T06:36:17.939Z"
+  },
+  {
+    "id": "cat-voice-actor",
+    "name": "Voice Actor",
+    "slug": "voice-actor",
+    "description": "Famous and celebrated figures working as Voice Actor.",
+    "created_at": "2026-10-13T06:36:17.780Z",
+    "updated_at": "2026-10-13T06:36:17.780Z"
+  },
+  {
+    "id": "cat-voice-actress",
+    "name": "Voice Actress",
+    "slug": "voice-actress",
+    "description": "Famous and celebrated figures working as Voice Actress.",
+    "created_at": "2026-10-13T06:36:17.791Z",
+    "updated_at": "2026-10-13T06:36:17.791Z"
+  },
+  {
+    "id": "cat-volleyball-player",
+    "name": "Volleyball Player",
+    "slug": "volleyball-player",
+    "description": "Famous and celebrated figures working as Volleyball Player.",
+    "created_at": "2026-10-13T06:36:17.846Z",
+    "updated_at": "2026-10-13T06:36:17.846Z"
+  },
+  {
+    "id": "cat-war-hero",
+    "name": "War Hero",
+    "slug": "war-hero",
+    "description": "Famous and celebrated figures working as War Hero.",
+    "created_at": "2026-10-13T06:36:17.840Z",
+    "updated_at": "2026-10-13T06:36:17.840Z"
+  },
+  {
+    "id": "cat-weightlifter",
+    "name": "Weightlifter",
+    "slug": "weightlifter",
+    "description": "Famous and celebrated figures working as Weightlifter.",
+    "created_at": "2026-10-13T06:36:18.191Z",
+    "updated_at": "2026-10-13T06:36:18.191Z"
+  },
+  {
+    "id": "cat-world-leader",
+    "name": "World Leader",
+    "slug": "world-leader",
+    "description": "Famous and celebrated figures working as World Leader.",
+    "created_at": "2026-10-13T06:36:17.812Z",
+    "updated_at": "2026-10-13T06:36:17.812Z"
+  },
+  {
+    "id": "cat-world-music-singer",
+    "name": "World Music Singer",
+    "slug": "world-music-singer",
+    "description": "Famous and celebrated figures working as World Music Singer.",
+    "created_at": "2026-10-13T06:36:17.779Z",
+    "updated_at": "2026-10-13T06:36:17.779Z"
+  },
+  {
+    "id": "cat-wrestler",
+    "name": "Wrestler",
+    "slug": "wrestler",
+    "description": "Famous and celebrated figures working as Wrestler.",
+    "created_at": "2026-10-13T06:36:17.779Z",
+    "updated_at": "2026-10-13T06:36:17.779Z"
+  },
+  {
+    "id": "cat-young-adult-author",
+    "name": "Young Adult Author",
+    "slug": "young-adult-author",
+    "description": "Famous and celebrated figures working as Young Adult Author.",
+    "created_at": "2026-10-13T06:36:17.859Z",
+    "updated_at": "2026-10-13T06:36:17.859Z"
+  },
+  {
+    "id": "cat-younow-star",
+    "name": "YouNow Star",
+    "slug": "younow-star",
+    "description": "Famous and celebrated figures working as YouNow Star.",
+    "created_at": "2026-10-13T06:36:18.080Z",
+    "updated_at": "2026-10-13T06:36:18.080Z"
+  },
+  {
+    "id": "cat-youtube-star",
+    "name": "YouTube Star",
+    "slug": "youtube-star",
+    "description": "Famous and celebrated figures working as YouTube Star.",
+    "created_at": "2026-10-13T06:36:17.777Z",
+    "updated_at": "2026-10-13T06:36:17.777Z"
+  },
+  {
+    "id": "cat-zoologist",
+    "name": "Zoologist",
+    "slug": "zoologist",
+    "description": "Famous and celebrated figures working as Zoologist.",
+    "created_at": "2026-10-13T06:36:17.895Z",
+    "updated_at": "2026-10-13T06:36:17.895Z"
+  }
+]

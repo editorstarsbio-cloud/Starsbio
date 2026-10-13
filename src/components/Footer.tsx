@@ -47,6 +47,11 @@ export function Footer() {
                   Celebrity Search
                 </Link>
               </li>
+              <li>
+                <Link href="/in-memoriam" className="hover:text-rose-400 transition-colors">
+                  In Memoriam
+                </Link>
+              </li>
             </ul>
           </div>
 

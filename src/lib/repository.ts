@@ -101,3 +101,9 @@ export async function getRelatedCelebrities(celebrity: Celebrity, limit = 4): Pr
   const list = categoryIndex.get(celebrity.primary_profession.toLowerCase()) || [];
   return list.filter((c) => c.id !== celebrity.id).slice(0, limit);
 }
+
+export async function getDeceasedCelebrities(limit = 100): Promise<Celebrity[]> {
+  const deceased = allCelebrities.filter((c) => Boolean(c.death_date));
+  return deceased.slice(0, limit);
+}
+

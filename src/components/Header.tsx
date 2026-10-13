@@ -67,6 +67,9 @@ export function Header() {
             <Link href="/zodiac" className="hover:text-indigo-600 transition-colors">
               Zodiac Signs
             </Link>
+            <Link href="/in-memoriam" className="hover:text-rose-600 transition-colors font-semibold text-rose-500/90">
+              In Memoriam
+            </Link>
           </nav>
 
           {/* Mobile Menu Toggle */}
@@ -123,6 +126,13 @@ export function Header() {
                 className="px-3 py-2 rounded-md hover:bg-slate-50"
               >
                 Zodiac Directory
+              </Link>
+              <Link
+                href="/in-memoriam"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-md hover:bg-rose-50 text-rose-600 font-semibold"
+              >
+                In Memoriam
               </Link>
             </div>
           </div>

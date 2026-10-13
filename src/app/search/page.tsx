@@ -15,7 +15,7 @@ export async function generateMetadata({ searchParams }: SearchPageProps): Promi
   const query = q?.trim() || '';
 
   return {
-    title: query ? `Search Results for "${query}" | ${SITE_CONFIG.brandName}` : `Search Celebrity Database | ${SITE_CONFIG.brandName}`,
+    title: query ? `Search Results for "${query}"` : `Search Celebrity Database`,
     description: `Search verified birthdays, ages, biographies, and professions of celebrities and public figures.`,
     robots: {
       index: false, // Technical SEO best practice: internal search pages are noindexed to prevent crawl bloat

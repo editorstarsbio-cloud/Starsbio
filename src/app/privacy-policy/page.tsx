@@ -4,7 +4,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { SITE_CONFIG } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: `Privacy Policy | ${SITE_CONFIG.brandName}`,
+  title: "Privacy Policy",
   description: `Privacy policy explaining how data is handled on ${SITE_CONFIG.brandName}.`,
   alternates: { canonical: `${SITE_CONFIG.siteUrl}/privacy-policy` },
 };

@@ -5,7 +5,7 @@ import { SITE_CONFIG } from '@/lib/utils';
 import { Mail, Clock, ShieldCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: `Contact Editorial Team | ${SITE_CONFIG.brandName}`,
+  title: "Contact Editorial Team",
   description: `Contact the editorial desk at ${SITE_CONFIG.brandName} for corrections, profile inquiries, or rights verification.`,
   alternates: { canonical: `${SITE_CONFIG.siteUrl}/contact` },
 };

@@ -3,7 +3,17 @@ import Link from 'next/link';
 import { ChevronRight, TrendingUp, Sparkles, Flame } from 'lucide-react';
 import { getCelebritiesBornOn, getFeaturedCelebrities } from '@/lib/repository';
 import { CompactCelebrityCard } from '@/components/CompactCelebrityCard';
-import { getMonthName } from '@/lib/utils';
+import { Metadata } from 'next';
+import { getMonthName, SITE_CONFIG } from '@/lib/utils';
+
+export const metadata: Metadata = {
+  title: 'StarsBio - Celebrity Birthdays, Biographies & Facts',
+  description:
+    'Discover verified birthdays, real ages, and biographies of celebrities, movie actors, musicians, and influencers on StarsBio.',
+  alternates: {
+    canonical: SITE_CONFIG.siteUrl,
+  },
+};
 
 export default async function HomePage() {
   const now = new Date();
@@ -34,6 +44,11 @@ export default async function HomePage() {
 
   return (
     <div className="max-w-4xl mx-auto space-y-10 pt-2 pb-12">
+      {/* Primary Semantic H1 Header (Accessible & Clean for SEO) */}
+      <div className="sr-only">
+        <h1>StarsBio — Celebrity Birthdays, Ages, Biographies & Milestones Directory</h1>
+      </div>
+
       {/* 1. TODAY'S BIRTHDAYS */}
       <section>
         <div className="flex items-center justify-between mb-4 border-b border-slate-200/80 pb-2.5">
@@ -53,8 +68,8 @@ export default async function HomePage() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-4">
-          {bornTodayList.map((celeb) => (
-            <CompactCelebrityCard key={celeb.id} celebrity={celeb} />
+          {bornTodayList.map((celeb, idx) => (
+            <CompactCelebrityCard key={celeb.id} celebrity={celeb} priority={idx < 2} />
           ))}
 
           {/* MORE BIRTHDAYS CARD */}

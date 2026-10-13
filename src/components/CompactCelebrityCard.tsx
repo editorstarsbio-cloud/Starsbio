@@ -6,9 +6,10 @@ import { CelebrityAvatar } from '@/components/CelebrityAvatar';
 
 interface CompactCelebrityCardProps {
   celebrity: Celebrity;
+  priority?: boolean;
 }
 
-export function CompactCelebrityCard({ celebrity }: CompactCelebrityCardProps) {
+export function CompactCelebrityCard({ celebrity, priority = false }: CompactCelebrityCardProps) {
   const ageInfo = calculateAge(celebrity.birth_date, celebrity.death_date);
 
   const initials = celebrity.name
@@ -41,6 +42,7 @@ export function CompactCelebrityCard({ celebrity }: CompactCelebrityCardProps) {
           imageUrl={celebrity.image_url}
           imageAlt={celebrity.image_alt || celebrity.name}
           size="md"
+          priority={priority}
         />
       </div>
 

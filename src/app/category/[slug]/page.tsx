@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     return { title: 'Category Not Found', robots: { index: false } };
   }
 
-  const title = `${category.name} Celebrities & Biographies | ${SITE_CONFIG.brandName}`;
+  const title = `${category.name} Celebrities & Biographies`;
   const description = `Explore famous ${category.name} personalities, actors, creators, and public figures. Discover birthdays, career milestones, and ages.`;
 
   return {

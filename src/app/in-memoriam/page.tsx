@@ -7,7 +7,7 @@ import { SITE_CONFIG } from '@/lib/utils';
 import { Heart, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: `In Memoriam — Celebrated Figures & Historical Icons | ${SITE_CONFIG.brandName}`,
+  title: "In Memoriam - Remembering Famous Figures",
   description:
     'Honor and discover iconic public figures, historic leaders, pioneering artists, and celebrities who have passed away. Explore life milestones, birth dates, and ages.',
   alternates: {
@@ -15,8 +15,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function InMemoriamPage() {
-  const deceasedCelebrities = await getDeceasedCelebrities(150);
+interface InMemoriamPageProps {
+  searchParams?: Promise<{ page?: string }>;
+}
+
+export default async function InMemoriamPage(props: InMemoriamPageProps) {
+  const searchParams = await props.searchParams;
+  const currentPage = Math.max(1, parseInt(searchParams?.page || '1', 10) || 1);
+  const pageSize = 36;
+
+  // Retrieve deceased celebrities
+  const allDeceased = await getDeceasedCelebrities(1000);
+  const totalDeceased = allDeceased.length;
+  const totalPages = Math.ceil(totalDeceased / pageSize);
+  const startIndex = (currentPage - 1) * pageSize;
+  const deceasedCelebrities = allDeceased.slice(startIndex, startIndex + pageSize);
+
   const breadcrumbs = [{ label: 'In Memoriam' }];
 
   return (
@@ -36,9 +50,11 @@ export default async function InMemoriamPage() {
         </p>
       </div>
 
-      <section className="space-y-4">
+      <section className="space-y-6">
         <div className="flex items-center justify-between text-xs text-slate-500 px-1">
-          <span>Showing {deceasedCelebrities.length} historical figures</span>
+          <span>
+            Showing {deceasedCelebrities.length} of {totalDeceased} historical figures (Page {currentPage} of {totalPages})
+          </span>
           <span className="flex items-center space-x-1 text-slate-400">
             <Sparkles className="w-3 h-3 text-amber-500" />
             <span>Honoring lasting legacies</span>
@@ -50,6 +66,31 @@ export default async function InMemoriamPage() {
             <CelebrityCard key={celeb.id} celebrity={celeb} />
           ))}
         </div>
+
+        {/* Pagination Navigation */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-2 pt-6 border-t border-slate-100">
+            {currentPage > 1 && (
+              <a
+                href={`/in-memoriam?page=${currentPage - 1}`}
+                className="px-4 py-2 text-sm font-semibold text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 transition shadow-sm"
+              >
+                Previous
+              </a>
+            )}
+            <span className="text-sm font-medium text-slate-500 px-3">
+              Page {currentPage} of {totalPages}
+            </span>
+            {currentPage < totalPages && (
+              <a
+                href={`/in-memoriam?page=${currentPage + 1}`}
+                className="px-4 py-2 text-sm font-semibold text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 transition shadow-sm"
+              >
+                Next
+              </a>
+            )}
+          </div>
+        )}
       </section>
     </div>
   );

@@ -7,7 +7,7 @@ import { SITE_CONFIG } from '@/lib/utils';
 import { Bookmark, ChevronRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: `All Professions & Categories | ${SITE_CONFIG.brandName}`,
+  title: "Browse Celebrities by Category",
   description: 'Browse celebrities by their primary category, occupation, and artistic field.',
   alternates: {
     canonical: `${SITE_CONFIG.siteUrl}/category`,

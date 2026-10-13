@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_CONFIG.brandName}`,
   },
   description: SITE_CONFIG.defaultMetaDescription,
+  alternates: {
+    canonical: SITE_CONFIG.siteUrl,
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -21,6 +24,20 @@ export const metadata: Metadata = {
     siteName: SITE_CONFIG.brandName,
     title: SITE_CONFIG.defaultSeoTitle,
     description: SITE_CONFIG.defaultMetaDescription,
+    images: [
+      {
+        url: `${SITE_CONFIG.siteUrl}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_CONFIG.brandName} - Celebrity Birthdays, Ages & Biographies`,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_CONFIG.defaultSeoTitle,
+    description: SITE_CONFIG.defaultMetaDescription,
+    images: [`${SITE_CONFIG.siteUrl}/og-image.png`],
   },
   robots: {
     index: true,
@@ -29,10 +46,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
     ],
     apple: [
-      { url: '/favicon.svg' },
+      { url: '/apple-icon.svg' },
     ],
   },
 };

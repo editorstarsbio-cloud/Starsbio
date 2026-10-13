@@ -1,15 +1,23 @@
 import { ZodiacSignInfo } from '@/types/database';
 
+// Resolve site URL dynamically: custom domain env > Vercel deployment URL > fallback to live Vercel URL
+const resolvedSiteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : '') ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : '') ||
+  'https://starsbio-delta.vercel.app'
+).replace(/\/$/, '');
+
 export const SITE_CONFIG = {
   brandName: process.env.NEXT_PUBLIC_BRAND_NAME || 'StarsBio',
-  siteUrl: (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.starsbio.co.uk').replace(/\/$/, ''),
+  siteUrl: resolvedSiteUrl,
   timezone: process.env.SITE_TIMEZONE || 'Europe/London',
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'editor.starsbio@gmail.com',
   legalEntity: 'StarsBio Media Ltd.',
   registeredAddress: '71-75 Shelton Street, Covent Garden',
   cityPostalCountry: 'London, WC2H 9JQ, United Kingdom',
   governingLaw: 'Laws of England and Wales (UK GDPR & DPA 2018)',
-  defaultSeoTitle: 'StarsBio — Celebrity Birthdays, Biographies & Profiles',
+  defaultSeoTitle: 'StarsBio - Celebrity Birthdays, Biographies & Profiles',
   defaultMetaDescription:
     'Discover verified birthdays, dynamic age calculations, zodiac profiles, life milestones, and factual biographies of global celebrities, creators, and public figures on StarsBio.',
 };

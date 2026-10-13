@@ -8,6 +8,7 @@ interface CelebrityAvatarProps {
   imageAlt?: string | null;
   className?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
+  priority?: boolean;
 }
 
 export function CelebrityAvatar({
@@ -17,6 +18,7 @@ export function CelebrityAvatar({
   imageAlt,
   className = '',
   size = 'md',
+  priority = false,
 }: CelebrityAvatarProps) {
   if (imageUrl) {
     return (
@@ -25,8 +27,11 @@ export function CelebrityAvatar({
         <img
           src={imageUrl}
           alt={imageAlt || `${name} portrait`}
+          width={300}
+          height={300}
           className="w-full h-full object-cover object-top"
-          loading="lazy"
+          loading={priority ? 'eager' : 'lazy'}
+          fetchPriority={priority ? 'high' : 'auto'}
         />
       </div>
     );

@@ -6,7 +6,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Calendar, ChevronRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: `Celebrity Birthday Calendar — 365-Day Directory | ${SITE_CONFIG.brandName}`,
+  title: "Celebrity Birthdays Calendar",
   description:
     'Browse our complete calendar year of celebrity birthdays. Select any month or date to explore verified profiles and biographies.',
   alternates: {

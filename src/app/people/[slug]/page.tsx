@@ -134,6 +134,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
               imageUrl={celebrity.image_url}
               imageAlt={celebrity.image_alt || celebrity.name}
               size="xl"
+              priority={true}
             />
           </div>
 

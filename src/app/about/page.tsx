@@ -4,7 +4,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { SITE_CONFIG } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: `About Us | ${SITE_CONFIG.brandName}`,
+  title: "About Us",
   description: `Learn about ${SITE_CONFIG.brandName}'s mission to provide verified celebrity birthdays, factual biographies, and age calculations.`,
   alternates: { canonical: `${SITE_CONFIG.siteUrl}/about` },
 };

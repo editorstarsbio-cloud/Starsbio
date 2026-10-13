@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: MonthlyCalendarProps): Promis
   }
 
   const monthName = getMonthName(month);
-  const title = `${monthName} Celebrity Birthdays Calendar | ${SITE_CONFIG.brandName}`;
+  const title = `${monthName} Celebrity Birthdays Calendar`;
   const description = `Daily birthday directory for the month of ${monthName}. Browse famous figures, actors, musicians, and historical icons by their exact day of birth.`;
 
   return {

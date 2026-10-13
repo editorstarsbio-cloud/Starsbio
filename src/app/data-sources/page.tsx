@@ -4,7 +4,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { SITE_CONFIG } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: `Data Sources & Content Rights | ${SITE_CONFIG.brandName}`,
+  title: "Data Sources & Methodology",
   description: `How ${SITE_CONFIG.brandName} verifies information, attributes sources, and respects intellectual property rights.`,
   alternates: { canonical: `${SITE_CONFIG.siteUrl}/data-sources` },
 };

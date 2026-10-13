@@ -6,7 +6,7 @@ import { SITE_CONFIG } from '@/lib/utils';
 import { BookOpen, Calendar, Clock, ChevronRight, User, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: `Celebrity Biographies, Net Worth & Life Stories | ${SITE_CONFIG.brandName} Editorial Blog`,
+  title: "Celebrity Biographies & Editorial Blog",
   description:
     'In-depth celebrity life stories, career histories, net worth breakdowns, spouses, children, and lesser-known trivia written by the StarsBio editorial team.',
 };

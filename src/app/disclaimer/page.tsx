@@ -4,7 +4,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { SITE_CONFIG } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: `Disclaimer | ${SITE_CONFIG.brandName}`,
+  title: "Disclaimer",
   description: `General informational and astrological disclaimer for ${SITE_CONFIG.brandName}.`,
   alternates: { canonical: `${SITE_CONFIG.siteUrl}/disclaimer` },
 };

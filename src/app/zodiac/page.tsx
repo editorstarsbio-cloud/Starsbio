@@ -6,7 +6,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Sparkles, ChevronRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: `Zodiac Signs Celebrity Directory | ${SITE_CONFIG.brandName}`,
+  title: "Celebrity Zodiac Signs",
   description: 'Explore famous public figures, actors, and creators grouped by their 12 astrological sun signs.',
   alternates: {
     canonical: `${SITE_CONFIG.siteUrl}/zodiac`,

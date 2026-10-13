@@ -4,7 +4,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { SITE_CONFIG } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: `Corrections Policy | ${SITE_CONFIG.brandName}`,
+  title: "Corrections Policy",
   description: `Our transparent procedure for handling factual corrections and profile update requests.`,
   alternates: { canonical: `${SITE_CONFIG.siteUrl}/corrections-policy` },
 };

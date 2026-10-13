@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: ZodiacPageProps): Promise<Met
     return { title: 'Zodiac Sign Not Found', robots: { index: false } };
   }
 
-  const title = `Famous ${signInfo.sign} Celebrities & Birthdays | ${SITE_CONFIG.brandName}`;
+  const title = `Famous ${signInfo.sign} Celebrities & Birthdays`;
   const description = `Explore public figures, musicians, and actors born under the ${signInfo.sign} sign (${signInfo.dateRange}). Discover dynamic ages and biographies.`;
 
   return {

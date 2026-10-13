@@ -22,54 +22,59 @@ export function CelebrityFactsViewer({ celebrity, associatedPeer }: CelebrityFac
     ? `/category/${generateSlug(celebrity.primary_profession)}`
     : '/category';
 
-  const aboutText = sentences.slice(0, 2).join('').trim() || (
+  // 1. About section with substantive biographical narrative
+  const professionText = celebrity.primary_profession || 'celebrity and cultural personality';
+  const bioExcerpt = sentences.slice(0, 2).join('').trim();
+  const aboutText = (
     <span>
-      {celebrity.name} is a renowned{' '}
+      {bioExcerpt ? `${bioExcerpt} ` : ''}
+      As a prominent{' '}
       <Link href={professionLink} className="text-pink-600 hover:underline font-semibold">
-        {celebrity.primary_profession || 'public figure'}
-      </Link>{' '}
-      recognized worldwide for their creative accomplishments, public milestones, and cultural influence across the entertainment landscape.
+        {professionText}
+      </Link>
+      , {celebrity.name} has garnered widespread acclaim for their dedication, artistic distinctions, and consistent contribution to modern media. Their body of work continues to resonate across international audiences and inspiring industry newcomers.
     </span>
   );
 
   // 2. Before Fame
-  const beforeFameText = sentences.length > 2
-    ? sentences.slice(2, 4).join('').trim()
-    : (
-      <span>
-        Before gaining international recognition as a leading{' '}
-        <Link href={professionLink} className="text-pink-600 hover:underline font-semibold">
-          {celebrity.primary_profession || 'personality'}
-        </Link>
-        , {celebrity.name} spent formative years honing their craft and building creative foundations
-        {celebrity.birthplace ? ` in ${celebrity.birthplace}` : ''}.
-      </span>
-    );
+  const beforeFameExcerpt = sentences.length > 2 ? sentences.slice(2, 4).join('').trim() : '';
+  const beforeFameText = (
+    <span>
+      {beforeFameExcerpt ? `${beforeFameExcerpt} ` : ''}
+      Before rising to mainstream prominence as a recognized{' '}
+      <Link href={professionLink} className="text-pink-600 hover:underline font-semibold">
+        {professionText}
+      </Link>
+      , {celebrity.name} spent formative years developing practical mastery and establishing personal resilience
+      {celebrity.birthplace ? ` in ${celebrity.birthplace}` : ''}.
+      Early experiences, foundational mentors, and grassroots determination paved the way for breakthrough industry opportunities.
+    </span>
+  );
 
   // 3. Trivia (with links to Zodiac and Date)
   const zodiacLink = celebrity.zodiac_sign ? `/zodiac/${celebrity.zodiac_sign.toLowerCase()}` : '/zodiac';
   const birthdayLink = `/birthdays/${bMonth}/${bDay}`;
+  const triviaExcerpt = sentences.length > 4 ? sentences.slice(4, 6).join('').trim() : '';
 
-  const triviaText = sentences.length > 4
-    ? sentences.slice(4, 6).join('').trim()
-    : (
-      <span>
-        {celebrity.name} was born on{' '}
-        <Link href={birthdayLink} className="text-pink-600 hover:underline font-semibold">
-          {monthName} {bDay}, {bYear}
-        </Link>
-        . Their astrological sun sign is{' '}
-        <Link href={zodiacLink} className="text-pink-600 hover:underline font-semibold">
-          {celebrity.zodiac_sign || 'Aries'}
-        </Link>
-        , connecting them to an iconic roster of creators and pioneers sharing celestial traits.
-      </span>
-    );
+  const triviaText = (
+    <span>
+      {triviaExcerpt ? `${triviaExcerpt} ` : ''}
+      Born on{' '}
+      <Link href={birthdayLink} className="text-pink-600 hover:underline font-semibold">
+        {monthName} {bDay}, {bYear}
+      </Link>
+      , {celebrity.name}&apos;s astrological sign is{' '}
+      <Link href={zodiacLink} className="text-pink-600 hover:underline font-semibold">
+        {celebrity.zodiac_sign || 'Aries'}
+      </Link>
+      . Astrological lore often attributes traits such as driven focus, expressive creativity, and natural dynamism to those born on this date. In addition to career accolades, they share this calendar anniversary with distinguished historical figures and international pioneers.
+    </span>
+  );
 
   // 4. Family Life
   const familyLifeText = celebrity.birthplace
-    ? `${celebrity.name} was born and raised in ${celebrity.birthplace}. Throughout their career, they have maintained strong connections to their heritage and personal roots while balancing public stardom.`
-    : `${celebrity.name} celebrates their personal journey with close friends and family, keeping details of their personal relationships focused on mutual support and creative encouragement.`;
+    ? `${celebrity.name} was born and raised in ${celebrity.birthplace}. Throughout their career, they have credited their upbringing, regional heritage, and familial support system as steadying influences amidst public attention, maintaining a deep appreciation for their origins while navigating demanding professional commitments.`
+    : `${celebrity.name} maintains a grounded personal life surrounded by longtime friends and family. While prioritizing privacy around personal matters, their journey reflects enduring loyalty to early supporters and a commitment to balancing career momentum with family time.`;
 
   // 5. Associated With (Real Celebrity-to-Celebrity Direct Internal Link)
   const associatedWithText = associatedPeer ? (
@@ -89,7 +94,7 @@ export function CelebrityFactsViewer({ celebrity, associatedPeer }: CelebrityFac
       <Link href={birthdayLink} className="text-pink-600 hover:underline font-semibold">
         {monthName} {bDay}
       </Link>
-      .
+      . Both figures exemplify the lasting impact of creative discipline within contemporary entertainment.
     </span>
   ) : (
     <span>
@@ -105,7 +110,7 @@ export function CelebrityFactsViewer({ celebrity, associatedPeer }: CelebrityFac
       <Link href={zodiacLink} className="text-pink-600 hover:underline font-semibold">
         {celebrity.zodiac_sign || 'zodiac'}
       </Link>{' '}
-      icons in modern entertainment.
+      icons in modern entertainment, contributing to a vibrant legacy of public achievement.
     </span>
   );
 

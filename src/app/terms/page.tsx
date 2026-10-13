@@ -4,7 +4,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { SITE_CONFIG } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: `Terms of Use | ${SITE_CONFIG.brandName}`,
+  title: "Terms of Service",
   description: `Terms and conditions governing the use of ${SITE_CONFIG.brandName}.`,
   alternates: { canonical: `${SITE_CONFIG.siteUrl}/terms` },
 };

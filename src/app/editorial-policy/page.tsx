@@ -4,7 +4,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { SITE_CONFIG } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: `Editorial Policy | ${SITE_CONFIG.brandName}`,
+  title: "Editorial Policy",
   description: `Read the editorial guidelines, fact-checking criteria, and verification procedures governing ${SITE_CONFIG.brandName}.`,
   alternates: { canonical: `${SITE_CONFIG.siteUrl}/editorial-policy` },
 };

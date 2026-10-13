@@ -49,7 +49,13 @@ export async function getCelebrityBySlug(slug: string): Promise<Celebrity | null
 export async function getCelebritiesBornOn(month: number, day: number, limit = 50): Promise<Celebrity[]> {
   const key = `${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
   const list = birthdayIndex.get(key) || [];
-  return list.slice(0, limit);
+  // Prioritize celebrities with real images and top popularity rank for visually stunning layouts
+  const sorted = [...list].sort((a, b) => {
+    if (a.image_url && !b.image_url) return -1;
+    if (!a.image_url && b.image_url) return 1;
+    return (a.popularity_score || 999999) - (b.popularity_score || 999999);
+  });
+  return sorted.slice(0, limit);
 }
 
 export async function getCelebritiesByZodiac(sign: string, limit = 50): Promise<Celebrity[]> {
@@ -89,7 +95,10 @@ export async function searchCelebrities(query: string, limit = 50): Promise<Cele
 }
 
 export async function getFeaturedCelebrities(limit = 8): Promise<Celebrity[]> {
-  return allCelebrities.slice(0, limit);
+  const sorted = [...allCelebrities]
+    .filter((c) => c.image_url)
+    .sort((a, b) => (a.popularity_score || 999999) - (b.popularity_score || 999999));
+  return sorted.slice(0, limit);
 }
 
 export async function getAllCategories(): Promise<Category[]> {

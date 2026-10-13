@@ -21,6 +21,7 @@ export interface Celebrity {
   source_verified_at?: string | null;
   seo_title?: string | null;
   meta_description?: string | null;
+  popularity_score?: number | null;
   created_at: string;
   updated_at: string;
   published_at?: string | null;

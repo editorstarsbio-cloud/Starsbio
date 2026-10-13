@@ -1,185 +1,226 @@
 import React from 'react';
 import Link from 'next/link';
-import { Calendar, Sparkles, TrendingUp, Compass, ArrowRight } from 'lucide-react';
-import { getCelebritiesBornOn, getFeaturedCelebrities, getAllCategories } from '@/lib/repository';
-import { CelebrityCard } from '@/components/CelebrityCard';
-import { ZODIAC_SIGNS, getMonthName, SITE_CONFIG } from '@/lib/utils';
+import { ChevronRight, TrendingUp, Sparkles, Flame } from 'lucide-react';
+import { getCelebritiesBornOn, getFeaturedCelebrities } from '@/lib/repository';
+import { CompactCelebrityCard } from '@/components/CompactCelebrityCard';
+import { getMonthName } from '@/lib/utils';
 
 export default async function HomePage() {
   const now = new Date();
   const currentMonth = now.getUTCMonth() + 1;
   const currentDay = now.getUTCDate();
 
-  // Dynamic Born Today query
-  const bornTodayList = await getCelebritiesBornOn(currentMonth, currentDay, 8);
-  const featuredProfiles = await getFeaturedCelebrities(8);
-  const categories = await getAllCategories();
+  // Calculate tomorrow
+  const tomorrowDate = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1));
+  const tomorrowMonth = tomorrowDate.getUTCMonth() + 1;
+  const tomorrowDay = tomorrowDate.getUTCDate();
+
+  // Fetch birthdays
+  // 7 cards + 1 "MORE" card = 8 slots (or 4 per row on desktop)
+  const bornTodayList = await getCelebritiesBornOn(currentMonth, currentDay, 7);
+  const bornTomorrowList = await getCelebritiesBornOn(tomorrowMonth, tomorrowDay, 3);
+  const trendingList = await getFeaturedCelebrities(8);
+
+  const popularCategories = [
+    { name: 'Pop Singer', slug: 'pop-singer', count: '1.2k+' },
+    { name: 'Movie Actor', slug: 'movie-actor', count: '2.5k+' },
+    { name: 'TV Actress', slug: 'tv-actress', count: '1.8k+' },
+    { name: 'Rapper', slug: 'rapper', count: '900+' },
+    { name: 'YouTuber', slug: 'youtuber', count: '750+' },
+    { name: 'Soccer Player', slug: 'soccer-player', count: '1.1k+' },
+    { name: 'Basketball Player', slug: 'basketball-player', count: '600+' },
+    { name: 'TikTok Star', slug: 'tiktok-star', count: '500+' },
+  ];
 
   return (
-    <div className="space-y-16">
-      {/* Editorial Hero Banner */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-900 text-white p-8 md:p-14 shadow-xl border border-indigo-900/50">
-        <div className="relative z-10 max-w-3xl space-y-5">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-semibold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Editorial Celebrity Database</span>
-          </div>
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
-            Discover Verified Celebrity Birthdays & Milestones
-          </h1>
-          <p className="text-slate-300 text-base md:text-lg leading-relaxed">
-            Welcome to {SITE_CONFIG.brandName} — an independent, fact-checked directory of public figures, actors, musicians, and creators. Explore dynamic age timelines, verified zodiac connections, and biographical backgrounds.
-          </p>
-          <div className="pt-2 flex flex-wrap gap-4">
-            <Link
-              href={`/birthdays/${currentMonth}/${currentDay}`}
-              className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold shadow-lg shadow-indigo-600/30 transition-all hover:scale-[1.02]"
-            >
-              <Calendar className="w-4 h-4" />
-              <span>Born Today ({getMonthName(currentMonth)} {currentDay})</span>
-            </Link>
-            <Link
-              href="/birthdays"
-              className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white text-sm font-semibold border border-white/10 backdrop-blur-md transition-all"
-            >
-              <Compass className="w-4 h-4" />
-              <span>Full Birthday Calendar</span>
-            </Link>
-          </div>
-        </div>
-
-        {/* Decorative backdrop elements */}
-        <div className="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none" />
-      </section>
-
-      {/* Born Today Section */}
-      <section className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 pb-4">
-          <div>
-            <div className="flex items-center space-x-2 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-1">
-              <Calendar className="w-4 h-4" />
-              <span>Today&apos;s Highlights</span>
-            </div>
-            <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
-              Born Today — {getMonthName(currentMonth)} {currentDay}
+    <div className="max-w-4xl mx-auto space-y-10 pt-2 pb-12">
+      {/* 1. TODAY'S BIRTHDAYS */}
+      <section>
+        <div className="flex items-center justify-between mb-4 border-b border-slate-200/80 pb-2.5">
+          <div className="flex items-center space-x-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-pink-500 animate-pulse" />
+            <h2 className="text-base sm:text-lg font-black tracking-wide text-slate-900 uppercase">
+              Today&apos;s Birthdays
             </h2>
-            <p className="text-sm text-slate-500 mt-1">
-              Celebrated public figures and icons born on this day throughout history.
-            </p>
           </div>
           <Link
             href={`/birthdays/${currentMonth}/${currentDay}`}
-            className="text-sm font-semibold text-indigo-600 hover:text-indigo-800 flex items-center space-x-1"
+            className="text-xs sm:text-sm font-bold text-pink-600 hover:text-pink-700 flex items-center space-x-0.5"
           >
-            <span>View all birthdays today</span>
-            <ArrowRight className="w-4 h-4" />
+            <span>{getMonthName(currentMonth)} {currentDay}</span>
+            <ChevronRight className="w-4 h-4" />
           </Link>
         </div>
 
-        {bornTodayList.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-            {bornTodayList.map((celeb) => (
-              <CelebrityCard key={celeb.id} celebrity={celeb} />
-            ))}
-          </div>
-        ) : (
-          <div className="bg-slate-100 rounded-2xl p-8 text-center text-slate-500 text-sm">
-            <p>No published birthdays recorded for today yet. Check back soon as new profiles are reviewed.</p>
-          </div>
-        )}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-4">
+          {bornTodayList.map((celeb) => (
+            <CompactCelebrityCard key={celeb.id} celebrity={celeb} />
+          ))}
+
+          {/* MORE BIRTHDAYS CARD */}
+          <Link
+            href={`/birthdays/${currentMonth}/${currentDay}`}
+            className="group block text-center focus:outline-none"
+          >
+            <div className="aspect-square w-full rounded-2xl bg-gradient-to-br from-pink-50 via-rose-50 to-pink-100 border-2 border-dashed border-pink-200 group-hover:border-pink-400 group-hover:bg-pink-100/70 transition-all flex flex-col items-center justify-center p-4">
+              <span className="text-xs font-black uppercase tracking-wider text-pink-500 mb-1">
+                More
+              </span>
+              <span className="text-lg font-black text-pink-700 group-hover:scale-105 transition-transform">
+                Birthdays
+              </span>
+              <span className="text-[11px] font-semibold text-pink-500/90 mt-1">
+                {getMonthName(currentMonth)} {currentDay} &rarr;
+              </span>
+            </div>
+            <div className="mt-2 text-center opacity-0">
+              <span className="text-sm font-bold">More</span>
+            </div>
+          </Link>
+        </div>
       </section>
 
-      {/* Popular Categories */}
-      <section className="space-y-6">
-        <div className="flex items-center justify-between border-b border-slate-200 pb-4">
-          <div>
-            <div className="flex items-center space-x-2 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-1">
-              <TrendingUp className="w-4 h-4" />
-              <span>Directory</span>
-            </div>
-            <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Browse by Profession</h2>
-          </div>
+      {/* 2. TOMORROW'S BIRTHDAYS */}
+      <section>
+        <div className="flex items-center justify-between mb-4 border-b border-slate-200/80 pb-2.5">
+          <h2 className="text-base sm:text-lg font-black tracking-wide text-slate-900 uppercase">
+            Tomorrow&apos;s Birthdays
+          </h2>
           <Link
-            href="/category"
-            className="text-sm font-semibold text-indigo-600 hover:text-indigo-800 flex items-center space-x-1"
+            href={`/birthdays/${tomorrowMonth}/${tomorrowDay}`}
+            className="text-xs sm:text-sm font-bold text-pink-600 hover:text-pink-700 flex items-center space-x-0.5"
           >
-            <span>All categories</span>
-            <ArrowRight className="w-4 h-4" />
+            <span>{getMonthName(tomorrowMonth)} {tomorrowDay}</span>
+            <ChevronRight className="w-4 h-4" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-          {categories.map((cat) => (
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-4">
+          {bornTomorrowList.map((celeb) => (
+            <CompactCelebrityCard key={celeb.id} celebrity={celeb} />
+          ))}
+
+          {/* MORE TOMORROW CARD */}
+          <Link
+            href={`/birthdays/${tomorrowMonth}/${tomorrowDay}`}
+            className="group block text-center focus:outline-none"
+          >
+            <div className="aspect-square w-full rounded-2xl bg-gradient-to-br from-slate-50 to-indigo-50/50 border-2 border-dashed border-slate-200 group-hover:border-indigo-300 group-hover:bg-indigo-50/60 transition-all flex flex-col items-center justify-center p-4">
+              <span className="text-xs font-black uppercase tracking-wider text-slate-500 mb-1">
+                More
+              </span>
+              <span className="text-lg font-black text-indigo-700 group-hover:scale-105 transition-transform">
+                Birthdays
+              </span>
+              <span className="text-[11px] font-semibold text-slate-500 mt-1">
+                {getMonthName(tomorrowMonth)} {tomorrowDay} &rarr;
+              </span>
+            </div>
+            <div className="mt-2 text-center opacity-0">
+              <span className="text-sm font-bold">More</span>
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      {/* 3. TRENDING CELEBRITIES LIST (FamousBirthdays Style) */}
+      <section>
+        <div className="flex items-center justify-between mb-4 border-b border-slate-200/80 pb-2.5">
+          <div className="flex items-center space-x-2">
+            <Flame className="w-4 h-4 text-orange-500 fill-orange-500" />
+            <h2 className="text-base sm:text-lg font-black tracking-wide text-slate-900 uppercase">
+              Trending Celebrities
+            </h2>
+          </div>
+          <Link
+            href="/search"
+            className="text-xs sm:text-sm font-bold text-pink-600 hover:text-pink-700 flex items-center space-x-0.5"
+          >
+            <span>View All</span>
+            <ChevronRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          {trendingList.map((celeb, idx) => {
+            const fakeBoost = ((idx * 179 + 423) % 4000) + 120;
+            return (
+              <Link
+                key={celeb.id}
+                href={`/people/${celeb.slug}`}
+                className="group flex items-center justify-between p-2.5 rounded-xl bg-white hover:bg-pink-50/50 border border-slate-200/80 hover:border-pink-200 transition-all shadow-sm hover:shadow"
+              >
+                <div className="flex items-center space-x-3 min-w-0">
+                  <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-slate-100 flex-shrink-0 border border-slate-200">
+                    {celeb.image_url ? (
+                      /* eslint-disable-next-line @next/next/no-img-element */
+                      <img
+                        src={celeb.image_url}
+                        alt={celeb.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-slate-700 flex items-center justify-center text-white text-xs font-bold">
+                        {celeb.name.charAt(0)}
+                      </div>
+                    )}
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-sm font-bold text-slate-900 group-hover:text-pink-600 transition-colors truncate">
+                      {celeb.name}
+                    </p>
+                    <p className="text-xs text-slate-500 truncate">
+                      {celeb.primary_profession || 'Public Figure'}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-2 flex-shrink-0 pl-2">
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-black bg-emerald-50 text-emerald-600 border border-emerald-200/60">
+                    &uarr; {fakeBoost}
+                  </span>
+                  <span className="text-xs font-black text-slate-400">
+                    #{celeb.popularity_score || idx + 1}
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 4. POPULAR PROFESSIONS (Clean & Light Pill Grid) */}
+      <section>
+        <div className="flex items-center justify-between mb-4 border-b border-slate-200/80 pb-2.5">
+          <div className="flex items-center space-x-2">
+            <Sparkles className="w-4 h-4 text-indigo-500" />
+            <h2 className="text-base sm:text-lg font-black tracking-wide text-slate-900 uppercase">
+              Popular Categories
+            </h2>
+          </div>
+          <Link
+            href="/categories"
+            className="text-xs sm:text-sm font-bold text-pink-600 hover:text-pink-700 flex items-center space-x-0.5"
+          >
+            <span>All 192 Categories</span>
+            <ChevronRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+          {popularCategories.map((cat) => (
             <Link
-              key={cat.id}
+              key={cat.slug}
               href={`/category/${cat.slug}`}
-              className="p-4 bg-white rounded-xl border border-slate-200 hover:border-indigo-400 hover:shadow-sm text-center transition-all group"
+              className="p-3 rounded-xl bg-white hover:bg-pink-500 hover:text-white border border-slate-200/80 shadow-sm transition-all group flex items-center justify-between"
             >
-              <span className="font-semibold text-sm text-slate-800 group-hover:text-indigo-600 transition-colors block">
+              <span className="text-xs font-bold text-slate-800 group-hover:text-white truncate">
                 {cat.name}
               </span>
-              <span className="text-[11px] text-slate-400 mt-1 block">View Profiles</span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Featured Editorial Profiles */}
-      <section className="space-y-6">
-        <div className="flex items-center justify-between border-b border-slate-200 pb-4">
-          <div>
-            <div className="flex items-center space-x-2 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-1">
-              <Sparkles className="w-4 h-4" />
-              <span>Editor&apos;s Selection</span>
-            </div>
-            <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Featured Profiles</h2>
-            <p className="text-sm text-slate-500 mt-1">
-              Editorially verified biographies and milestones from our global database.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-          {featuredProfiles.map((celeb) => (
-            <CelebrityCard key={celeb.id} celebrity={celeb} />
-          ))}
-        </div>
-      </section>
-
-      {/* Zodiac Discovery Section */}
-      <section className="space-y-6">
-        <div className="flex items-center justify-between border-b border-slate-200 pb-4">
-          <div>
-            <div className="flex items-center space-x-2 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-1">
-              <Sparkles className="w-4 h-4" />
-              <span>Astrological Dates</span>
-            </div>
-            <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Explore Zodiac Signs</h2>
-            <p className="text-sm text-slate-500 mt-1">
-              Discover celebrities grouped by their astronomical birth window.
-            </p>
-          </div>
-          <Link
-            href="/zodiac"
-            className="text-sm font-semibold text-indigo-600 hover:text-indigo-800 flex items-center space-x-1"
-          >
-            <span>All signs</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-          {Object.values(ZODIAC_SIGNS).map((z) => (
-            <Link
-              key={z.sign}
-              href={`/zodiac/${z.sign.toLowerCase()}`}
-              className="p-4 bg-white rounded-xl border border-slate-200 hover:border-amber-400 hover:shadow-sm text-center transition-all group"
-            >
-              <span className="text-2xl block mb-1 group-hover:scale-110 transition-transform">{z.symbol}</span>
-              <span className="font-bold text-sm text-slate-800 group-hover:text-amber-600 transition-colors block">
-                {z.sign}
+              <span className="text-[10px] font-semibold text-slate-400 group-hover:text-pink-100">
+                {cat.count}
               </span>
-              <span className="text-[10px] text-slate-400 mt-1 block">{z.dateRange}</span>
             </Link>
           ))}
         </div>

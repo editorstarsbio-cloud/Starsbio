@@ -28,12 +28,19 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
   }
 
+  // Strict SEO Constraint: Title 55-58 characters, Meta Description <= 140 characters
+  const rawTitle = post.seoTitle || post.title;
+  const title = rawTitle.length > 58 ? rawTitle.slice(0, 58).trim() : rawTitle;
+
+  const rawDesc = post.metaDescription || post.summary;
+  const description = rawDesc.length > 140 ? rawDesc.slice(0, 137).trim() + '...' : rawDesc;
+
   return {
-    title: `${post.title} | ${SITE_CONFIG.brandName}`,
-    description: post.summary,
+    title,
+    description,
     openGraph: {
-      title: post.title,
-      description: post.summary,
+      title,
+      description,
       type: 'article',
       publishedTime: post.publishedAt,
       authors: [post.author.name],

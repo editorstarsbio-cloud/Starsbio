@@ -19,6 +19,8 @@ export interface BlogPost {
     avatar: string;
   };
   summary: string;
+  seoTitle?: string;
+  metaDescription?: string;
   quickFacts: {
     born: string;
     age: number;

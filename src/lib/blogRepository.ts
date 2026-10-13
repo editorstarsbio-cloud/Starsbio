@@ -16,7 +16,9 @@ export const BLOG_POSTS: BlogPost[] = [
       role: 'Senior Entertainment Biographer',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
     },
-    summary: 'Discover the complete life story of Shah Rukh Khan (SRK), the legendary Indian megastar. Explore his early Delhi life, romantic marriage with Gauri Khan, children Aryan, Suhana, and AbRam, his estimated $870M+ net worth, and historic box-office comebacks.',
+    summary: 'Discover Shah Rukh Khan\'s complete biography, real net worth, marriage to Gauri Khan, kids, family, and awards timeline on StarsBio.',
+    seoTitle: 'Shah Rukh Khan: Net Worth, Age, Wife, Kids & Bio (2026)',
+    metaDescription: 'Discover Shah Rukh Khan\'s complete biography, real net worth, marriage to Gauri Khan, kids, family, and awards timeline on StarsBio.',
     quickFacts: {
       born: 'November 2, 1965',
       age: 60,

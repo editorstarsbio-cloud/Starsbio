@@ -28,7 +28,7 @@ export default function AboutPage() {
             We adhere strictly to privacy and content licensing standards. We do not publish speculative rumors regarding living people, and our editorial workflows prioritize reputable sources including public records, encyclopedias, and primary industry citations.
           </p>
           <div className="mt-8 p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-500">
-            <strong>Contact & Operator:</strong> Operated by [Insert Website Owner / Organization Name]. Inquiries can be submitted via our <a href="/contact" className="text-indigo-600 underline">contact page</a>.
+            <strong>Contact & Operator:</strong> Operated by {SITE_CONFIG.legalEntity} ({SITE_CONFIG.registeredAddress}, {SITE_CONFIG.cityPostalCountry}). Inquiries can be submitted via our <a href="/contact" className="text-indigo-600 underline">contact page</a> or directly at <a href={`mailto:${SITE_CONFIG.contactEmail}`} className="text-indigo-600 underline">{SITE_CONFIG.contactEmail}</a>.
           </div>
         </div>
       </div>

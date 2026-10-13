@@ -55,11 +55,12 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="p-6 border border-slate-200 rounded-2xl bg-slate-50 text-xs text-slate-500 space-y-2">
-          <h4 className="font-bold text-slate-700">Editorial Office & Physical Inquiries</h4>
-          <p>[Website Owner / Legal Entity Name]</p>
-          <p>[Street Address, Suite / Floor]</p>
-          <p>[City, Postal Code, Country]</p>
+        <div className="p-6 border border-slate-200 rounded-2xl bg-slate-50 text-xs text-slate-500 space-y-1.5">
+          <h4 className="font-bold text-slate-700 text-sm">Editorial Office & Physical Inquiries</h4>
+          <p className="font-semibold text-slate-800">{SITE_CONFIG.legalEntity}</p>
+          <p>{SITE_CONFIG.registeredAddress}</p>
+          <p>{SITE_CONFIG.cityPostalCountry}</p>
+          <p className="pt-1 text-slate-400">Jurisdiction: {SITE_CONFIG.governingLaw}</p>
         </div>
       </div>
     </div>

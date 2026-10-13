@@ -32,7 +32,7 @@ export default function PrivacyPolicyPage() {
             Public figures or their legal representatives who wish to inquire regarding biographical entries can contact our data team at <a href={`mailto:${SITE_CONFIG.contactEmail}`} className="text-indigo-600 underline">{SITE_CONFIG.contactEmail}</a>.
           </p>
           <div className="mt-8 p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-500">
-            <strong>Jurisdiction Notice:</strong> Governed by applicable privacy regulations. Site Operator: [Insert Operating Legal Entity, Registered Address, City, Country].
+            <strong>Jurisdiction Notice:</strong> Governed by the {SITE_CONFIG.governingLaw}. Site Operator: {SITE_CONFIG.legalEntity}, {SITE_CONFIG.registeredAddress}, {SITE_CONFIG.cityPostalCountry}. Official privacy & compliance queries: <a href={`mailto:${SITE_CONFIG.contactEmail}`} className="text-indigo-600 underline">{SITE_CONFIG.contactEmail}</a>.
           </div>
         </div>
       </div>

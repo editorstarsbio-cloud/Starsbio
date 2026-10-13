@@ -67,6 +67,9 @@ export function Header() {
             <Link href="/zodiac" className="hover:text-indigo-600 transition-colors">
               Zodiac Signs
             </Link>
+            <Link href="/blog" className="hover:text-pink-600 text-pink-600 font-bold transition-colors">
+              Blog & Stories
+            </Link>
             <Link href="/in-memoriam" className="hover:text-rose-600 transition-colors font-semibold text-rose-500/90">
               In Memoriam
             </Link>
@@ -126,6 +129,13 @@ export function Header() {
                 className="px-3 py-2 rounded-md hover:bg-slate-50"
               >
                 Zodiac Directory
+              </Link>
+              <Link
+                href="/blog"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-md hover:bg-pink-50 text-pink-600 font-bold"
+              >
+                Blog & Stories
               </Link>
               <Link
                 href="/in-memoriam"

@@ -206,6 +206,31 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
 
             {/* Comprehensive 5-Section Editorial Facts (About, Before Fame, Trivia, Family Life, Associated With) */}
             <CelebrityFactsViewer celebrity={celebrity} associatedPeer={associatedPeer} />
+
+            {/* In-depth Editorial Deep Dive Story Link (if available) */}
+            {celebrity.slug === 'shah-rukh-khan' && (
+              <div className="mt-6 p-4 rounded-2xl bg-gradient-to-r from-pink-50 via-rose-50 to-indigo-50 border border-pink-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 rounded-xl bg-pink-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                    <Sparkles className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-900">
+                      In-Depth Biography: Who is Shah Rukh Khan?
+                    </h4>
+                    <p className="text-xs text-slate-600">
+                      Read full breakdown of SRK&apos;s family background, children, spouse, net worth, and historic awards.
+                    </p>
+                  </div>
+                </div>
+                <Link
+                  href="/blog/who-is-shah-rukh-khan-biography-net-worth-family-awards"
+                  className="px-4 py-2 rounded-xl bg-pink-600 hover:bg-pink-500 text-white text-xs font-bold shrink-0 transition-all shadow-sm"
+                >
+                  Read Full Story &rarr;
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

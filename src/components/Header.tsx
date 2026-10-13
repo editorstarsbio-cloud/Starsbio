@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Search, Calendar, Sparkles, Menu, X } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/utils';
+import { Logo } from '@/components/Logo';
 
 export function Header() {
   const router = useRouter();
@@ -27,13 +28,8 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 gap-4">
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center space-x-2 shrink-0 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-indigo-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
-              <Sparkles className="w-5 h-5" />
-            </div>
-            <span className="text-xl font-bold tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors">
-              {SITE_CONFIG.brandName}
-            </span>
+          <Link href="/" className="shrink-0 group hover:opacity-95 transition-opacity">
+            <Logo size="md" />
           </Link>
 
           {/* Desktop Search Bar */}

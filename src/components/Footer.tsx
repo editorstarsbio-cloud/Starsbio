@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { SITE_CONFIG, ZODIAC_SIGNS } from '@/lib/utils';
+import { Logo } from '@/components/Logo';
 import { Sparkles, Heart } from 'lucide-react';
 
 export function Footer() {
@@ -44,11 +45,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Info */}
           <div className="space-y-4 md:col-span-1">
-            <Link href="/" className="flex items-center space-x-2 text-white">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-pink-500 to-indigo-600 flex items-center justify-center">
-                <Sparkles className="w-4 h-4 text-white" />
-              </div>
-              <span className="text-lg font-bold">{SITE_CONFIG.brandName}</span>
+            <Link href="/" className="inline-block group hover:opacity-95 transition-opacity">
+              <Logo size="md" />
             </Link>
             <p className="text-xs text-slate-400 leading-relaxed">
               An independent, editorial discovery platform for verified celebrity birthdays, dynamic age calculations, zodiac profiles, and biographies.

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { getBlogPostBySlug, getAllBlogPosts } from '@/lib/blogRepository';
 import { getCelebrityBySlug } from '@/lib/repository';
 import { SITE_CONFIG } from '@/lib/utils';
+import { FormattedText } from '@/components/FormattedText';
 import { Calendar, Clock, User, ArrowLeft, ExternalLink, Sparkles, Award, DollarSign, Heart, Users, MapPin, Briefcase } from 'lucide-react';
 
 interface BlogPostPageProps {
@@ -201,9 +202,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <h2 className="text-2xl font-black text-slate-900 tracking-tight border-b border-slate-200 pb-2">
               {section.title}
             </h2>
-            <div className="text-base sm:text-lg leading-relaxed text-slate-700 whitespace-pre-line font-normal">
-              {section.content}
-            </div>
+            <FormattedText
+              content={section.content}
+              className="text-base sm:text-lg leading-relaxed text-slate-700 font-normal"
+            />
           </section>
         ))}
       </div>

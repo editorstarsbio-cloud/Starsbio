@@ -6,7 +6,7 @@ import { getCelebrityBySlug, getRelatedCelebrities, getCelebritiesBornOn } from 
 import { calculateAge, generateSlug, getMonthName, SITE_CONFIG } from '@/lib/utils';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { CelebrityCard } from '@/components/CelebrityCard';
-import { BiographyViewer } from '@/components/BiographyViewer';
+import { CelebrityFactsViewer } from '@/components/CelebrityFactsViewer';
 import { Calendar, Sparkles, ShieldCheck, ExternalLink, Bookmark, TrendingUp, Award, Users } from 'lucide-react';
 
 interface ProfilePageProps {
@@ -210,10 +210,8 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
               )}
             </div>
 
-            {/* Editorial Biography Viewer with Sections */}
-            {celebrity.biography && (
-              <BiographyViewer bio={celebrity.biography} celebrityName={celebrity.name} />
-            )}
+            {/* Comprehensive 5-Section Editorial Facts (About, Before Fame, Trivia, Family Life, Associated With) */}
+            <CelebrityFactsViewer celebrity={celebrity} />
           </div>
         </div>
       </div>

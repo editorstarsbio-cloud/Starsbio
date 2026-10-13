@@ -9,8 +9,8 @@ export const BLOG_POSTS: BlogPost[] = [
     celebrityName: 'Shah Rukh Khan',
     publishedAt: '2026-10-13',
     readTime: '6 min read',
-    coverImage: 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Shah_Rukh_Khan_graces_the_launch_of_the_new_Santro.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled',
-    coverImageAlt: 'Shah Rukh Khan portrait in Mumbai',
+    coverImage: 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Sharukhan.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original',
+    coverImageAlt: 'Shah Rukh Khan high-resolution portrait',
     author: {
       name: 'Editorial Team',
       role: 'Senior Entertainment Biographer',

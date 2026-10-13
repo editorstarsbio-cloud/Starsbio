@@ -4,9 +4,10 @@ interface LogoProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg';
   showText?: boolean;
+  variant?: 'light' | 'dark';
 }
 
-export function Logo({ className = '', size = 'md', showText = true }: LogoProps) {
+export function Logo({ className = '', size = 'md', showText = true, variant = 'light' }: LogoProps) {
   const iconDimensions = {
     sm: 'w-7 h-7',
     md: 'w-9 h-9',
@@ -53,11 +54,11 @@ export function Logo({ className = '', size = 'md', showText = true }: LogoProps
       {/* Typography */}
       {showText && (
         <span className={`font-black tracking-tight leading-none ${textDimensions}`}>
-          <span className="text-slate-900">Stars</span>
-          <span className="bg-gradient-to-r from-pink-600 to-indigo-600 bg-clip-text text-transparent">
+          <span className={variant === 'dark' ? 'text-white' : 'text-slate-900'}>Stars</span>
+          <span className="bg-gradient-to-r from-pink-500 to-indigo-400 bg-clip-text text-transparent">
             Bio
           </span>
-          <span className="text-pink-500 text-xs font-bold ml-0.5 tracking-normal">.co.uk</span>
+          <span className="text-pink-400 text-xs font-bold ml-0.5 tracking-normal">.co.uk</span>
         </span>
       )}
     </div>

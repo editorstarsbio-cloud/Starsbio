@@ -46,7 +46,7 @@ export function Footer() {
           {/* Brand Info */}
           <div className="space-y-4 md:col-span-1">
             <Link href="/" className="inline-block group hover:opacity-95 transition-opacity">
-              <Logo size="md" />
+              <Logo size="md" variant="dark" />
             </Link>
             <p className="text-xs text-slate-400 leading-relaxed">
               An independent, editorial discovery platform for verified celebrity birthdays, dynamic age calculations, zodiac profiles, and biographies.

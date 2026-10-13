@@ -6,6 +6,7 @@ import { getCelebrityBySlug, getRelatedCelebrities, getCelebritiesBornOn } from 
 import { calculateAge, generateSlug, getMonthName, SITE_CONFIG } from '@/lib/utils';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { CelebrityCard } from '@/components/CelebrityCard';
+import { CelebrityAvatar } from '@/components/CelebrityAvatar';
 import { CelebrityFactsViewer } from '@/components/CelebrityFactsViewer';
 import { Calendar, Sparkles, ShieldCheck, ExternalLink, Bookmark, TrendingUp, Award, Users } from 'lucide-react';
 
@@ -120,22 +121,14 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
       <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-10">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           {/* Avatar / Portrait */}
-          <div className="w-full md:w-64 sm:w-52 aspect-square rounded-2xl bg-gradient-to-tr from-indigo-700 via-indigo-600 to-amber-600 flex flex-col items-center justify-center text-white shrink-0 overflow-hidden shadow-md">
-            {celebrity.image_url ? (
-              /* eslint-disable-next-line @next/next/no-img-element */
-              <img
-                src={celebrity.image_url}
-                alt={celebrity.image_alt || celebrity.name}
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <>
-                <span className="text-5xl font-black tracking-wider">{initials}</span>
-                <span className="text-xs font-semibold uppercase tracking-wider opacity-90 mt-2">
-                  {celebrity.primary_profession || 'Verified Profile'}
-                </span>
-              </>
-            )}
+          <div className="w-full md:w-64 sm:w-52 aspect-square rounded-2xl shrink-0 overflow-hidden shadow-md">
+            <CelebrityAvatar
+              name={celebrity.name}
+              profession={celebrity.primary_profession}
+              imageUrl={celebrity.image_url}
+              imageAlt={celebrity.image_alt || celebrity.name}
+              size="xl"
+            />
           </div>
 
           {/* Core Info */}

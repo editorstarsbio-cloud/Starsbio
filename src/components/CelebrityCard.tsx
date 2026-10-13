@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Celebrity } from '@/types/database';
 import { calculateAge, generateSlug } from '@/lib/utils';
+import { CelebrityAvatar } from '@/components/CelebrityAvatar';
 import { Sparkles, Calendar, MapPin } from 'lucide-react';
 
 interface CelebrityCardProps {
@@ -33,20 +34,13 @@ export function CelebrityCard({ celebrity }: CelebrityCardProps) {
   return (
     <div className="group bg-white rounded-2xl border border-slate-200/80 hover:border-indigo-300 shadow-sm hover:shadow-md transition-all flex flex-col overflow-hidden">
       <Link href={`/people/${celebrity.slug}`} className="block relative aspect-square bg-slate-100 overflow-hidden">
-        {celebrity.image_url ? (
-          /* eslint-disable-next-line @next/next/no-img-element */
-          <img
-            src={celebrity.image_url}
-            alt={celebrity.image_alt || `${celebrity.name} portrait`}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            loading="lazy"
-          />
-        ) : (
-          <div className={`w-full h-full bg-gradient-to-tr ${bgGradient} flex flex-col items-center justify-center text-white p-4`}>
-            <span className="text-3xl font-extrabold tracking-wider drop-shadow-sm">{initials}</span>
-            <span className="text-[11px] font-medium opacity-80 mt-1 uppercase tracking-wider">{celebrity.primary_profession || 'Profile'}</span>
-          </div>
-        )}
+        <CelebrityAvatar
+          name={celebrity.name}
+          profession={celebrity.primary_profession}
+          imageUrl={celebrity.image_url}
+          imageAlt={celebrity.image_alt || `${celebrity.name} portrait`}
+          size="lg"
+        />
 
         {/* Dynamic age badge */}
         {ageInfo && (

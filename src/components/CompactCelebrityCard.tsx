@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Celebrity } from '@/types/database';
 import { calculateAge } from '@/lib/utils';
+import { CelebrityAvatar } from '@/components/CelebrityAvatar';
 
 interface CompactCelebrityCardProps {
   celebrity: Celebrity;
@@ -34,19 +35,13 @@ export function CompactCelebrityCard({ celebrity }: CompactCelebrityCardProps) {
     >
       {/* Square Rounded Photo Card */}
       <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-slate-100 shadow-sm border border-slate-200/70 group-hover:shadow-md group-hover:border-pink-300 transition-all duration-200">
-        {celebrity.image_url ? (
-          /* eslint-disable-next-line @next/next/no-img-element */
-          <img
-            src={celebrity.image_url}
-            alt={celebrity.image_alt || celebrity.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            loading="lazy"
-          />
-        ) : (
-          <div className={`w-full h-full bg-gradient-to-tr ${bgGradient} flex items-center justify-center text-white`}>
-            <span className="text-2xl font-black tracking-tight">{initials}</span>
-          </div>
-        )}
+        <CelebrityAvatar
+          name={celebrity.name}
+          profession={celebrity.primary_profession}
+          imageUrl={celebrity.image_url}
+          imageAlt={celebrity.image_alt || celebrity.name}
+          size="md"
+        />
       </div>
 
       {/* Name, Age & Profession */}

@@ -1,8 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { ChevronRight, TrendingUp, Sparkles, Flame } from 'lucide-react';
+import { ChevronRight, TrendingUp, Sparkles, Flame, BookOpen, Clock } from 'lucide-react';
 import { getCelebritiesBornOn, getFeaturedCelebrities } from '@/lib/repository';
+import { getAllBlogPosts } from '@/lib/blogRepository';
 import { CompactCelebrityCard } from '@/components/CompactCelebrityCard';
+import { BirthdayTwinFinder } from '@/components/BirthdayTwinFinder';
 import { Metadata } from 'next';
 import { getMonthName, SITE_CONFIG } from '@/lib/utils';
 
@@ -30,6 +32,7 @@ export default async function HomePage() {
   const bornTodayList = await getCelebritiesBornOn(currentMonth, currentDay, 7);
   const bornTomorrowList = await getCelebritiesBornOn(tomorrowMonth, tomorrowDay, 3);
   const trendingList = await getFeaturedCelebrities(8);
+  const blogPosts = await getAllBlogPosts();
 
   const popularCategories = [
     { name: 'Pop Singer', slug: 'pop-singer', count: '1.2k+' },
@@ -48,6 +51,9 @@ export default async function HomePage() {
       <div className="sr-only">
         <h1>StarsBio — Celebrity Birthdays, Ages, Biographies & Milestones Directory</h1>
       </div>
+
+      {/* INTERACTIVE BIRTHDAY TWIN FINDER TOOL */}
+      <BirthdayTwinFinder />
 
       {/* 1. TODAY'S BIRTHDAYS */}
       <section>
@@ -95,7 +101,66 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 2. TOMORROW'S BIRTHDAYS */}
+      {/* 2. TRENDING IN-DEPTH STORIES & BIOGRAPHIES */}
+      <section>
+        <div className="flex items-center justify-between mb-4 border-b border-slate-200/80 pb-2.5">
+          <div className="flex items-center space-x-2">
+            <BookOpen className="w-4 h-4 text-pink-600" />
+            <h2 className="text-base sm:text-lg font-black tracking-wide text-slate-900 uppercase">
+              Trending Stories & Deep Dives
+            </h2>
+          </div>
+          <Link
+            href="/blog"
+            className="text-xs sm:text-sm font-bold text-pink-600 hover:text-pink-700 flex items-center space-x-0.5"
+          >
+            <span>View All Stories</span>
+            <ChevronRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
+          {blogPosts.slice(0, 3).map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="group bg-white rounded-2xl border border-slate-200/90 hover:border-pink-300 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col justify-between"
+            >
+              <div>
+                <div className="relative aspect-video bg-slate-100 overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={post.coverImage}
+                    alt={post.coverImageAlt}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  <div className="absolute bottom-2 left-2 px-2.5 py-0.5 rounded-full bg-slate-950/85 text-[10px] font-bold text-white backdrop-blur-sm">
+                    {post.celebrityName}
+                  </div>
+                </div>
+                <div className="p-3.5 space-y-1">
+                  <h3 className="text-sm font-bold text-slate-900 group-hover:text-pink-600 transition-colors line-clamp-2 leading-snug">
+                    {post.title}
+                  </h3>
+                  <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">
+                    {post.summary}
+                  </p>
+                </div>
+              </div>
+
+              <div className="px-3.5 pb-2.5 pt-1 flex items-center justify-between text-[10px] font-semibold text-slate-400 border-t border-slate-50">
+                <span>{post.readTime}</span>
+                <span className="text-pink-600 group-hover:translate-x-0.5 transition-transform font-bold">
+                  Read &rarr;
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* 3. TOMORROW'S BIRTHDAYS */}
       <section>
         <div className="flex items-center justify-between mb-4 border-b border-slate-200/80 pb-2.5">
           <h2 className="text-base sm:text-lg font-black tracking-wide text-slate-900 uppercase">

@@ -27,8 +27,11 @@ export interface BlogPost {
     birthplace: string;
     profession: string;
     netWorth: string;
-    spouse: string;
-    children: string;
+    spouse?: string;
+    partner?: string;
+    children?: string;
+    signatureAlbums?: string;
+    notableRoles?: string;
     famousFor: string;
   };
   sections: BlogPostSection[];

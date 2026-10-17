@@ -173,15 +173,33 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <span className="font-bold text-emerald-400 text-sm">{post.quickFacts.netWorth}</span>
           </div>
           <div>
-            <span className="text-slate-400 block font-medium">Spouse</span>
-            <span className="font-bold text-white text-sm">{post.quickFacts.spouse}</span>
+            <span className="text-slate-400 block font-medium">
+              {post.quickFacts.spouse ? 'Spouse' : post.quickFacts.partner ? 'Partner' : 'Relationship'}
+            </span>
+            <span className="font-bold text-white text-sm">
+              {post.quickFacts.spouse || post.quickFacts.partner || 'Private / Unmarried'}
+            </span>
           </div>
+          {post.quickFacts.children && (
+            <div className="sm:col-span-2">
+              <span className="text-slate-400 block font-medium">Children</span>
+              <span className="font-bold text-white text-sm">{post.quickFacts.children}</span>
+            </div>
+          )}
+          {post.quickFacts.signatureAlbums && (
+            <div className="sm:col-span-2">
+              <span className="text-slate-400 block font-medium">Signature Albums</span>
+              <span className="font-bold text-white text-sm">{post.quickFacts.signatureAlbums}</span>
+            </div>
+          )}
+          {post.quickFacts.notableRoles && (
+            <div className="sm:col-span-2">
+              <span className="text-slate-400 block font-medium">Notable Roles</span>
+              <span className="font-bold text-white text-sm">{post.quickFacts.notableRoles}</span>
+            </div>
+          )}
           <div className="sm:col-span-2">
-            <span className="text-slate-400 block font-medium">Children</span>
-            <span className="font-bold text-white text-sm">{post.quickFacts.children}</span>
-          </div>
-          <div className="sm:col-span-2">
-            <span className="text-slate-400 block font-medium">Key Works</span>
+            <span className="text-slate-400 block font-medium">Famous For</span>
             <span className="font-bold text-white text-sm">{post.quickFacts.famousFor}</span>
           </div>
         </div>

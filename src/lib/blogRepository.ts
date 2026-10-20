@@ -103,7 +103,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         title: 'High-Profile Relationships & Travis Kelce',
-        content: `Swift\'s romantic journey has frequently inspired heartfelt lyrical masterworks. Following high-profile romances with figures such as Joe Alwyn and Calvin Harris, in summer 2023 Swift began a relationship with Kansas City Chiefs NFL superstar tight end **Travis Kelce**.\n\nTheir cross-industry relationship captivated millions worldwide, merging NFL football culture with pop music fandom and inspiring global media attention throughout Super Bowl championships and stadium tours.`,
+        content: `Swift\'s romantic journey has frequently inspired heartfelt lyrical masterworks. Following high-profile romances with figures such as Joe Alwyn and Calvin Harris, in summer 2023 Swift began a relationship with Kansas City Chiefs NFL superstar tight end [**Travis Kelce**](/people/travis-kelce).\n\nTheir cross-industry relationship captivated millions worldwide, merging NFL football culture with pop music fandom and inspiring global media attention throughout Super Bowl championships and stadium tours.`,
       },
       {
         title: 'Historic Grammy Record & Songwriting Legacy',

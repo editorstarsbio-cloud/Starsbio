@@ -7,10 +7,8 @@ interface FormattedTextProps {
 }
 
 export function FormattedText({ content, className = '' }: FormattedTextProps) {
-  // Split content by paragraphs (\n\n)
   const paragraphs = content.split('\n\n');
 
-  // Helper to parse bold (**text**), italics (*text*), markdown links [label](url), and lists (* bullet)
   const renderFormattedParagraph = (para: string, pIdx: number) => {
     const trimmed = para.trim();
 
@@ -57,42 +55,59 @@ export function FormattedText({ content, className = '' }: FormattedTextProps) {
     );
   };
 
+  const renderInlineLink = (label: string, href: string, key: string | number) => {
+    const isInternal = href.startsWith('/');
+    if (isInternal) {
+      return (
+        <Link
+          key={key}
+          href={href}
+          className="text-pink-600 hover:text-pink-700 font-bold underline underline-offset-2 transition-colors decoration-pink-300 hover:decoration-pink-500"
+        >
+          {label}
+        </Link>
+      );
+    }
+    return (
+      <a
+        key={key}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-pink-600 hover:text-pink-700 font-bold underline underline-offset-2 transition-colors"
+      >
+        {label}
+      </a>
+    );
+  };
+
   const parseInlineFormatting = (text: string) => {
-    // Regex matches markdown links: [label](url), bold: **bold**, italics: *italics*
-    const tokenRegex = /(\[[^\]]+\]\([^\)]+\)|\*\*[^*]+\*\*|\*[^*]+\*)/g;
+    // Regex splits by:
+    // 1. Bold link: **[label](url)**
+    // 2. Regular link: [label](url)
+    // 3. Bold text: **text**
+    // 4. Italic text: *text*
+    const tokenRegex = /(\*\*\[[^\]]+\]\([^\)]+\)\*\*|\[[^\]]+\]\([^\)]+\)|\*\*[^*]+\*\*|\*[^*]+\*)/g;
     const parts = text.split(tokenRegex);
 
     return parts.map((part, idx) => {
-      // Check for Markdown Link [label](url)
-      const linkMatch = part.match(/^\[([^\]]+)\]\(([^\)]+)\)$/);
-      if (linkMatch) {
-        const [, label, href] = linkMatch;
-        const isInternal = href.startsWith('/');
-        if (isInternal) {
-          return (
-            <Link
-              key={idx}
-              href={href}
-              className="text-pink-600 hover:text-pink-700 font-semibold underline underline-offset-2 transition-colors decoration-pink-300 hover:decoration-pink-500"
-            >
-              {label}
-            </Link>
-          );
-        }
+      // Bold Link: **[label](url)**
+      const boldLinkMatch = part.match(/^\*\*\[([^\]]+)\]\(([^\)]+)\)\*\*$/);
+      if (boldLinkMatch) {
         return (
-          <a
-            key={idx}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-pink-600 hover:text-pink-700 font-semibold underline underline-offset-2 transition-colors"
-          >
-            {label}
-          </a>
+          <strong key={idx} className="font-bold text-slate-900">
+            {renderInlineLink(boldLinkMatch[1], boldLinkMatch[2], `bl-${idx}`)}
+          </strong>
         );
       }
 
-      // Check for Bold (**text**)
+      // Regular Link: [label](url)
+      const linkMatch = part.match(/^\[([^\]]+)\]\(([^\)]+)\)$/);
+      if (linkMatch) {
+        return renderInlineLink(linkMatch[1], linkMatch[2], idx);
+      }
+
+      // Bold text: **text**
       if (part.startsWith('**') && part.endsWith('**')) {
         return (
           <strong key={idx} className="font-bold text-slate-900">
@@ -101,7 +116,7 @@ export function FormattedText({ content, className = '' }: FormattedTextProps) {
         );
       }
 
-      // Check for Italics (*text*)
+      // Italics: *text*
       if (part.startsWith('*') && part.endsWith('*')) {
         return (
           <em key={idx} className="italic text-slate-800">

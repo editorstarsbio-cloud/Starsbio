@@ -1534,5 +1534,53 @@
     "description": "Famous and celebrated figures working as Zoologist.",
     "created_at": "2026-10-13T06:36:17.895Z",
     "updated_at": "2026-10-13T06:36:17.895Z"
+  },
+  {
+    "id": "cat-cricket-player",
+    "name": "Cricket Player",
+    "slug": "cricket-player",
+    "description": "Famous and celebrated figures working as Cricket Player.",
+    "created_at": "2026-10-20T11:09:08.595Z",
+    "updated_at": "2026-10-20T11:09:08.595Z"
+  },
+  {
+    "id": "cat-president",
+    "name": "President",
+    "slug": "president",
+    "description": "Famous and celebrated figures working as President.",
+    "created_at": "2026-10-20T11:09:08.595Z",
+    "updated_at": "2026-10-20T11:09:08.595Z"
+  },
+  {
+    "id": "cat-prime-minister",
+    "name": "Prime Minister",
+    "slug": "prime-minister",
+    "description": "Famous and celebrated figures working as Prime Minister.",
+    "created_at": "2026-10-20T11:09:08.595Z",
+    "updated_at": "2026-10-20T11:09:08.595Z"
+  },
+  {
+    "id": "cat-royalty",
+    "name": "Royalty",
+    "slug": "royalty",
+    "description": "Famous and celebrated figures working as Royalty.",
+    "created_at": "2026-10-20T11:09:08.595Z",
+    "updated_at": "2026-10-20T11:09:08.595Z"
+  },
+  {
+    "id": "cat-web-video-star",
+    "name": "Web Video Star",
+    "slug": "web-video-star",
+    "description": "Famous and celebrated figures working as Web Video Star.",
+    "created_at": "2026-10-20T11:09:08.595Z",
+    "updated_at": "2026-10-20T11:09:08.595Z"
+  },
+  {
+    "id": "cat-author",
+    "name": "Author",
+    "slug": "author",
+    "description": "Famous and celebrated figures working as Author.",
+    "created_at": "2026-10-20T11:09:08.595Z",
+    "updated_at": "2026-10-20T11:09:08.595Z"
   }
 ]

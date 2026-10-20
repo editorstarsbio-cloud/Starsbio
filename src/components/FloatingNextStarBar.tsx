@@ -41,12 +41,18 @@ export function FloatingNextStarBar({ candidates }: FloatingNextStarBarProps) {
       >
         <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-pink-600 flex-shrink-0 border border-white/20">
           {targetStar.image_url ? (
-            /* eslint-disable-next-line @next/next/no-img-element */
-            <img
-              src={targetStar.image_url}
-              alt={targetStar.name}
-              className="w-full h-full object-cover object-top"
-            />
+            <>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={targetStar.image_url}
+                alt={targetStar.name}
+                className="w-full h-full object-cover object-top"
+              />
+              <div className="absolute bottom-0.5 right-0.5 pointer-events-none z-10 flex items-center bg-slate-950/70 px-0.5 rounded shadow">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/starsbio-watermark.png" alt="StarsBio" className="h-1.5 w-auto object-contain brightness-110" />
+              </div>
+            </>
           ) : (
             <div className="w-full h-full flex items-center justify-center font-bold text-white text-xs">
               {targetStar.name[0]}

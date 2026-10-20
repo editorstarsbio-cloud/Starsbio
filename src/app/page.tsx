@@ -138,6 +138,15 @@ export default async function HomePage() {
                   <div className="absolute bottom-2 left-2 px-2.5 py-0.5 rounded-full bg-slate-950/85 text-[10px] font-bold text-white backdrop-blur-sm">
                     {post.celebrityName}
                   </div>
+                  {/* Brand Watermark Badge */}
+                  <div className="absolute bottom-2 right-2 pointer-events-none z-10 flex items-center bg-slate-950/80 backdrop-blur-sm px-1.5 py-0.5 rounded shadow border border-white/20">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/starsbio-watermark.png"
+                      alt="StarsBio"
+                      className="h-2.5 w-auto object-contain brightness-110 drop-shadow"
+                    />
+                  </div>
                 </div>
                 <div className="p-3.5 space-y-1">
                   <h3 className="text-sm font-bold text-slate-900 group-hover:text-pink-600 transition-colors line-clamp-2 leading-snug">
@@ -233,13 +242,19 @@ export default async function HomePage() {
                 <div className="flex items-center space-x-3 min-w-0">
                   <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-slate-100 flex-shrink-0 border border-slate-200">
                     {celeb.image_url ? (
-                      /* eslint-disable-next-line @next/next/no-img-element */
-                      <img
-                        src={celeb.image_url}
-                        alt={celeb.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                        loading="lazy"
-                      />
+                      <>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={celeb.image_url}
+                          alt={celeb.name}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                          loading="lazy"
+                        />
+                        <div className="absolute bottom-0.5 right-0.5 pointer-events-none z-10 flex items-center bg-slate-950/70 px-1 py-0.5 rounded shadow">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src="/starsbio-watermark.png" alt="StarsBio" className="h-1.5 w-auto object-contain brightness-110" />
+                        </div>
+                      </>
                     ) : (
                       <div className="w-full h-full bg-slate-700 flex items-center justify-center text-white text-xs font-bold">
                         {celeb.name.charAt(0)}

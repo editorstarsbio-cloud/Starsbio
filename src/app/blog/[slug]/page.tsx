@@ -150,6 +150,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           className="w-full h-full object-cover object-[center_20%] filter contrast-[1.02]"
           fetchPriority="high"
         />
+        {/* Brand Watermark Badge Wrapper */}
+        <div className="absolute bottom-3 right-3 pointer-events-none z-10 flex items-center bg-slate-950/85 backdrop-blur-md px-3 py-1.5 rounded-lg shadow-lg border border-white/25">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/starsbio-watermark.png"
+            alt="StarsBio"
+            className="h-4 sm:h-5 w-auto object-contain brightness-110 drop-shadow"
+          />
+        </div>
       </div>
 
       {/* Quick Facts Card (FamousBirthdays Style) */}
@@ -240,9 +249,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       {celebrity && (
         <div className="bg-pink-50/60 rounded-3xl border border-pink-200/80 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center space-x-4">
-            <div className="w-16 h-16 rounded-2xl overflow-hidden shrink-0 border border-pink-300 bg-white">
+            <div className="relative w-16 h-16 rounded-2xl overflow-hidden shrink-0 border border-pink-300 bg-white">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={celebrity.image_url || post.coverImage} alt={celebrity.name} className="w-full h-full object-cover" />
+              <div className="absolute bottom-0.5 right-0.5 pointer-events-none z-10 flex items-center bg-slate-950/80 px-1 py-0.5 rounded shadow">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/starsbio-watermark.png" alt="StarsBio" className="h-2 w-auto object-contain brightness-110" />
+              </div>
             </div>
             <div>
               <h3 className="text-lg font-black text-slate-900">{celebrity.name} Official Profile</h3>

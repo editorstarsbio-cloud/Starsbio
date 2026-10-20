@@ -50,6 +50,15 @@ export default async function BlogIndexPage() {
                 <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-xs font-bold">
                   {post.celebrityName}
                 </div>
+                {/* Brand Watermark Badge */}
+                <div className="absolute bottom-2 right-2 pointer-events-none z-10 flex items-center bg-slate-950/80 backdrop-blur-sm px-2 py-1 rounded-md shadow border border-white/20">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/starsbio-watermark.png"
+                    alt="StarsBio"
+                    className="h-3.5 sm:h-4 w-auto object-contain brightness-110 drop-shadow"
+                  />
+                </div>
               </Link>
 
               {/* Body */}

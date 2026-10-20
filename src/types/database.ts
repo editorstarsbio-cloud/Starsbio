@@ -14,6 +14,7 @@ export interface Celebrity {
   primary_profession?: string | null;
   zodiac_sign?: string | null;
   image_url?: string | null;
+  original_image_url?: string | null;
   image_alt?: string | null;
   status: CelebrityStatus;
   content_rights_status: string;

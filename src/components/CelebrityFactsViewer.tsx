@@ -22,17 +22,20 @@ export function CelebrityFactsViewer({ celebrity, associatedPeer }: CelebrityFac
     ? `/category/${generateSlug(celebrity.primary_profession)}`
     : '/category';
 
-  // 1. About section with substantive biographical narrative
-  const professionText = celebrity.primary_profession || 'celebrity and cultural personality';
+  const professionText = celebrity.primary_profession || 'cultural personality';
+  const isAthlete = /player|footballer|boxer|driver|runner|fighter|athlete|cricketer/i.test(professionText);
+  const domainTerm = isAthlete ? 'athletic excellence and sporting achievements' : 'distinguished talent and dedication';
+  const audienceTerm = isAthlete ? 'sports fans and international spectators' : 'global audiences and peers';
+
   const bioExcerpt = sentences.slice(0, 2).join('').trim();
   const aboutText = (
     <span>
       {bioExcerpt ? `${bioExcerpt} ` : ''}
-      As a prominent{' '}
+      As a world-renowned{' '}
       <Link href={professionLink} className="text-pink-600 hover:underline font-semibold">
         {professionText}
       </Link>
-      , {celebrity.name} has garnered widespread acclaim for their dedication, artistic distinctions, and consistent contribution to modern media. Their body of work continues to resonate across international audiences and inspiring industry newcomers.
+      , {celebrity.name} has earned widespread acclaim for {domainTerm}. Their achievements continue to inspire {audienceTerm} worldwide.
     </span>
   );
 
@@ -41,13 +44,13 @@ export function CelebrityFactsViewer({ celebrity, associatedPeer }: CelebrityFac
   const beforeFameText = (
     <span>
       {beforeFameExcerpt ? `${beforeFameExcerpt} ` : ''}
-      Before rising to mainstream prominence as a recognized{' '}
+      Before achieving global recognition as an elite{' '}
       <Link href={professionLink} className="text-pink-600 hover:underline font-semibold">
         {professionText}
       </Link>
-      , {celebrity.name} spent formative years developing practical mastery and establishing personal resilience
+      , {celebrity.name} spent formative early years mastering their discipline
       {celebrity.birthplace ? ` in ${celebrity.birthplace}` : ''}.
-      Early experiences, foundational mentors, and grassroots determination paved the way for breakthrough industry opportunities.
+      Relentless training, early competitive experiences, and perseverance laid the groundwork for their breakthrough success.
     </span>
   );
 
@@ -67,14 +70,14 @@ export function CelebrityFactsViewer({ celebrity, associatedPeer }: CelebrityFac
       <Link href={zodiacLink} className="text-pink-600 hover:underline font-semibold">
         {celebrity.zodiac_sign || 'Aries'}
       </Link>
-      . Astrological lore often attributes traits such as driven focus, expressive creativity, and natural dynamism to those born on this date. In addition to career accolades, they share this calendar anniversary with distinguished historical figures and international pioneers.
+      . Astrological profiles highlight focus, natural dynamism, and competitive excellence among those born under this sign.
     </span>
   );
 
   // 4. Family Life
   const familyLifeText = celebrity.birthplace
-    ? `${celebrity.name} was born and raised in ${celebrity.birthplace}. Throughout their career, they have credited their upbringing, regional heritage, and familial support system as steadying influences amidst public attention, maintaining a deep appreciation for their origins while navigating demanding professional commitments.`
-    : `${celebrity.name} maintains a grounded personal life surrounded by longtime friends and family. While prioritizing privacy around personal matters, their journey reflects enduring loyalty to early supporters and a commitment to balancing career momentum with family time.`;
+    ? `${celebrity.name} was born in ${celebrity.birthplace}. Throughout their career, they have credited their family roots and early upbringing as fundamental pillars supporting their professional milestones.`
+    : `${celebrity.name} maintains a grounded personal life surrounded by family and close confidants while balancing an elite international career.`;
 
   // 5. Associated With (Real Celebrity-to-Celebrity Direct Internal Link)
   const associatedWithText = associatedPeer ? (
@@ -83,92 +86,94 @@ export function CelebrityFactsViewer({ celebrity, associatedPeer }: CelebrityFac
       <Link href={professionLink} className="text-pink-600 hover:underline font-semibold">
         {celebrity.primary_profession || 'star'}
       </Link>{' '}
-      <Link href={`/people/${associatedPeer.slug}`} className="text-pink-600 hover:underline font-bold">
-        {associatedPeer.name}
+      <Link
+        href={`/people/${associatedPeer.slug}`}
+        className="text-pink-600 hover:underline font-bold inline-flex items-center"
+      >
+        <span>{associatedPeer.name}</span>
       </Link>
-      , {celebrity.name} has shaped modern popular culture and shares creative acclaim among peers born under{' '}
-      <Link href={zodiacLink} className="text-pink-600 hover:underline font-semibold">
-        {celebrity.zodiac_sign || 'the zodiac'}
-      </Link>{' '}
-      and stars celebrating birthdays on{' '}
-      <Link href={birthdayLink} className="text-pink-600 hover:underline font-semibold">
-        {monthName} {bDay}
-      </Link>
-      . Both figures exemplify the lasting impact of creative discipline within contemporary entertainment.
+      , {celebrity.name} has built a legacy celebrated across modern culture and international followers.
     </span>
   ) : (
     <span>
-      As a prominent{' '}
+      {celebrity.name} collaborates and connects with leading pioneers and high-profile peers across the global{' '}
       <Link href={professionLink} className="text-pink-600 hover:underline font-semibold">
-        {celebrity.primary_profession || 'personality'}
-      </Link>
-      , {celebrity.name} shares artistic and creative acclaim alongside other renowned peers born on{' '}
-      <Link href={birthdayLink} className="text-pink-600 hover:underline font-semibold">
-        {monthName} {bDay}
+        {celebrity.primary_profession || 'industry'}
       </Link>{' '}
-      and fellow{' '}
-      <Link href={zodiacLink} className="text-pink-600 hover:underline font-semibold">
-        {celebrity.zodiac_sign || 'zodiac'}
-      </Link>{' '}
-      icons in modern entertainment, contributing to a vibrant legacy of public achievement.
+      community.
     </span>
   );
 
+  const sections = [
+    {
+      title: 'About',
+      icon: Sparkles,
+      content: aboutText,
+      accent: 'text-amber-500',
+    },
+    {
+      title: 'Before Fame',
+      icon: History,
+      content: beforeFameText,
+      accent: 'text-blue-500',
+    },
+    {
+      title: 'Trivia & Astrological Facts',
+      icon: HelpCircle,
+      content: triviaText,
+      accent: 'text-purple-500',
+    },
+    {
+      title: 'Family Life',
+      icon: Heart,
+      content: familyLifeText,
+      accent: 'text-rose-500',
+    },
+    {
+      title: 'Associated With',
+      icon: Users,
+      content: associatedWithText,
+      accent: 'text-indigo-500',
+    },
+  ];
+
   return (
-    <div className="space-y-6 pt-4 border-t border-slate-100">
-      {/* 1. About */}
-      <div className="space-y-1.5">
-        <div className="flex items-center space-x-2 text-slate-900">
-          <Sparkles className="w-4 h-4 text-pink-600" />
-          <h3 className="text-base font-bold tracking-tight">About</h3>
-        </div>
-        <p className="text-slate-700 leading-relaxed text-sm sm:text-base font-normal pl-6">
-          {aboutText}
-        </p>
+    <div className="space-y-6">
+      <div className="flex items-center space-x-2 border-b border-slate-200 pb-3">
+        <Sparkles className="w-5 h-5 text-pink-600" />
+        <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+          Facts, Biography & Life Timeline
+        </h2>
       </div>
 
-      {/* 2. Before Fame */}
-      <div className="space-y-1.5">
-        <div className="flex items-center space-x-2 text-slate-900">
-          <History className="w-4 h-4 text-amber-500" />
-          <h3 className="text-base font-bold tracking-tight">Before Fame</h3>
-        </div>
-        <p className="text-slate-700 leading-relaxed text-sm sm:text-base font-normal pl-6">
-          {beforeFameText}
-        </p>
-      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+        {sections.map((section, idx) => {
+          const Icon = section.icon;
+          const isFullWidth = idx === 0 || idx === sections.length - 1;
 
-      {/* 3. Trivia */}
-      <div className="space-y-1.5">
-        <div className="flex items-center space-x-2 text-slate-900">
-          <HelpCircle className="w-4 h-4 text-emerald-500" />
-          <h3 className="text-base font-bold tracking-tight">Trivia</h3>
-        </div>
-        <p className="text-slate-700 leading-relaxed text-sm sm:text-base font-normal pl-6">
-          {triviaText}
-        </p>
-      </div>
-
-      {/* 4. Family Life */}
-      <div className="space-y-1.5">
-        <div className="flex items-center space-x-2 text-slate-900">
-          <Heart className="w-4 h-4 text-rose-500" />
-          <h3 className="text-base font-bold tracking-tight">Family Life</h3>
-        </div>
-        <p className="text-slate-700 leading-relaxed text-sm sm:text-base font-normal pl-6">
-          {familyLifeText}
-        </p>
-      </div>
-
-      {/* 5. Associated With */}
-      <div className="space-y-1.5">
-        <div className="flex items-center space-x-2 text-slate-900">
-          <Users className="w-4 h-4 text-purple-600" />
-          <h3 className="text-base font-bold tracking-tight">Associated With</h3>
-        </div>
-        <p className="text-slate-700 leading-relaxed text-sm sm:text-base font-normal pl-6">
-          {associatedWithText}
-        </p>
+          return (
+            <div
+              key={section.title}
+              className={`bg-white rounded-2xl sm:rounded-3xl border border-slate-200 p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col justify-between space-y-3 ${
+                isFullWidth ? 'md:col-span-2' : ''
+              }`}
+            >
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2">
+                  <div className={`p-1.5 rounded-lg bg-slate-50 border border-slate-100 ${section.accent}`}>
+                    <Icon className="w-4 h-4" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
+                    {section.title}
+                  </h3>
+                </div>
+                <div className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  {section.content}
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

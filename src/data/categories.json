@@ -1168,12 +1168,12 @@
     "updated_at": "2026-10-13T06:36:17.887Z"
   },
   {
-    "id": "cat-soccer-player",
-    "name": "Soccer Player",
-    "slug": "soccer-player",
-    "description": "Famous and celebrated figures working as Soccer Player.",
+    "id": "cat-footballer",
+    "name": "Footballer",
+    "slug": "footballer",
+    "description": "Famous and celebrated footballers and international soccer legends.",
     "created_at": "2026-10-13T06:36:17.781Z",
-    "updated_at": "2026-10-13T06:36:17.781Z"
+    "updated_at": "2026-10-20T11:17:01.021Z"
   },
   {
     "id": "cat-softball-player",

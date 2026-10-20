@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'thumb.wikimedia.org' },
       { protocol: 'https', hostname: '**.wikimedia.org' },
       { protocol: 'https', hostname: '**.wikipedia.org' },
+      { protocol: 'https', hostname: 'www.famousbirthdays.com' },
+      { protocol: 'https', hostname: 'famousbirthdays.com' },
     ],
   },
   turbopack: {

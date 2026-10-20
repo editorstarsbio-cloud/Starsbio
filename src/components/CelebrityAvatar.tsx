@@ -33,6 +33,15 @@ export function CelebrityAvatar({
           loading={priority ? 'eager' : 'lazy'}
           fetchPriority={priority ? 'high' : 'auto'}
         />
+        {/* Brand Watermark Badge Wrapper */}
+        <div className="absolute bottom-1 right-1 pointer-events-none z-10 flex items-center bg-slate-950/75 backdrop-blur-sm px-1.5 py-0.5 rounded shadow-sm border border-white/20">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/starsbio-watermark.png"
+            alt="StarsBio"
+            className="h-2.5 sm:h-3 w-auto object-contain brightness-110 drop-shadow"
+          />
+        </div>
       </div>
     );
   }

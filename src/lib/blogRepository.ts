@@ -40,11 +40,11 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         title: 'Love Story & Marriage with Gauri Khan',
-        content: `One of the most admired chapters of Shah Rukh Khan\'s life is his enduring love story with **Gauri Chhibber** (now Gauri Khan). The two met in 1984 at a teenage party in Delhi when Shah Rukh was only 18 and Gauri was 14.\n\nDespite religious differences and initial reservations from Gauri\'s family, their bond remained unbroken during his struggling theatre days. They officially tied the knot on **October 25, 1991**, in a traditional Hindu wedding ceremony just months before his breakthrough Bollywood debut. Today, Gauri is a premier luxury interior designer and co-founder of their joint production house, **Red Chillies Entertainment**.`,
+        content: `One of the most admired chapters of Shah Rukh Khan\'s life is his enduring love story with [**Gauri Khan**](/people/gauri-khan) (née Chhibber). The two met in 1984 at a teenage party in Delhi when Shah Rukh was only 18 and Gauri was 14.\n\nDespite religious differences and initial reservations from Gauri\'s family, their bond remained unbroken during his struggling theatre days. They officially tied the knot on **October 25, 1991**, in a traditional Hindu wedding ceremony just months before his breakthrough Bollywood debut. Today, Gauri is a premier luxury interior designer and co-founder of their joint production house, **Red Chillies Entertainment**.`,
       },
       {
         title: 'Children: Aryan, Suhana, and AbRam',
-        content: `Shah Rukh and Gauri have three children who have grown into prominent public figures:\n\n* **Aryan Khan (born 1997):** Educated at the University of Southern California (USC), Aryan chose a creative path behind the camera rather than traditional acting, launching his luxury streetwear label *D\'YAVOL X* and writing/directing original streaming series.\n* **Suhana Khan (born 2000):** A talented actress trained at NYU Tisch School of the Arts, Suhana made her high-profile acting debut in Zoya Akhtar\'s Netflix adaptation *The Archies* and has become an influential beauty ambassador.\n* **AbRam Khan (born 2013):** Born via surrogacy, AbRam is the youngest child who frequently accompanies his father at the iconic balcony of Mannat and during Kolkata Knight Riders IPL matches.`,
+        content: `Shah Rukh and Gauri have three children who have grown into prominent public figures:\n\n* [**Aryan Khan (born 1997)**](/people/aryan-khan): Educated at the University of Southern California (USC), Aryan chose a creative path behind the camera rather than traditional acting, launching his luxury streetwear label *D\'YAVOL X* and writing/directing original streaming series.\n* [**Suhana Khan (born 2000)**](/people/suhana-khan): A talented actress trained at NYU Tisch School of the Arts, Suhana made her high-profile acting debut in Zoya Akhtar\'s Netflix adaptation *The Archies* and has become an influential beauty ambassador.\n* [**AbRam Khan (born 2013)**](/people/abram-khan): Born via surrogacy, AbRam is the youngest child who frequently accompanies his father at the iconic balcony of Mannat and during Kolkata Knight Riders IPL matches.`,
       },
       {
         title: 'Career Milestones & All-Time Box Office Triumphs',
@@ -154,7 +154,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         title: 'Family Life with Georgina Rodríguez & Children',
-        content: `Behind the global headlines, Ronaldo is a devoted father to five children. He met Spanish model and businesswoman **Georgina Rodríguez** in 2016 while she was working at a Gucci luxury boutique in Madrid.\n\nTheir long-term relationship, documented in the hit Netflix series *I Am Georgina*, showcases their shared home life raising Cristiano Jr., twins Eva and Mateo, and daughters Alana Martina and Bella Esmeralda.`,
+        content: `Behind the global headlines, Ronaldo is a devoted father to five children. He met Spanish model and businesswoman [**Georgina Rodríguez**](/people/georgina-rodriguez) in 2016 while she was working at a Gucci luxury boutique in Madrid.\n\nTheir long-term relationship, documented in the hit Netflix series *I Am Georgina*, showcases their shared home life raising Cristiano Jr., twins Eva and Mateo, and daughters Alana Martina and Bella Esmeralda.`,
       },
       {
         title: 'Social Media Dominance & Billion-Dollar CR7 Empire',
@@ -209,7 +209,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         title: 'Romance with Tom Holland & Cultural Impact',
-        content: `Zendaya\'s relationship with British actor **Tom Holland** began on the set of *Spider-Man* in 2016 and evolved into one of Hollywood\'s most beloved, genuinely supportive partnerships. Despite intense media scrutiny, both actors have deliberately kept their private life grounded and dignified.\n\nAs a global brand ambassador for luxury houses including Bulgari, Louis Vuitton, and Lancôme, Zendaya continues to use her platform to champion inclusive storytelling and empower young creatives across the globe.`,
+        content: `Zendaya\'s relationship with British actor [**Tom Holland**](/people/tom-holland) began on the set of *Spider-Man* in 2016 and evolved into one of Hollywood\'s most beloved, genuinely supportive partnerships. Despite intense media scrutiny, both actors have deliberately kept their private life grounded and dignified.\n\nAs a global brand ambassador for luxury houses including Bulgari, Louis Vuitton, and Lancôme, Zendaya continues to use her platform to champion inclusive storytelling and empower young creatives across the globe.`,
       },
     ],
   },

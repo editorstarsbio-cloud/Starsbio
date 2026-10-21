@@ -32,11 +32,16 @@ export default async function CompareHubPage() {
     id: c.id,
     name: c.name,
     slug: c.slug,
-    profession: c.profession,
-    image: c.image,
-    birthDate: c.birthDate,
-    birthYear: c.birthYear,
-  } as unknown as typeof allCelebrities[0]));
+    primary_profession: c.primary_profession,
+    image_url: c.image_url,
+    birth_date: c.birth_date,
+    status: c.status,
+    normalized_name: c.normalized_name,
+    content_rights_status: c.content_rights_status,
+    fact_check_status: c.fact_check_status,
+    created_at: c.created_at,
+    updated_at: c.updated_at,
+  }));
 
   return (
     <div className="max-w-5xl mx-auto space-y-10 pt-2 pb-16">

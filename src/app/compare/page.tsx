@@ -8,6 +8,8 @@ import { getAllCelebrities } from '@/lib/repository';
 import { CelebrityComparisonPicker } from '@/components/CelebrityComparisonPicker';
 import atozDataRaw from '@/data/atozComparisons.json';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Celebrity Head-to-Head Comparisons A-Z — Age Difference Directory | StarsBio',
   description:

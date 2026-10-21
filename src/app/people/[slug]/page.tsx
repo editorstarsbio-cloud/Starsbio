@@ -13,7 +13,6 @@ import { CelebrityBattleWidget } from '@/components/CelebrityBattleWidget';
 import { CelebrityFAQSection, FAQItem } from '@/components/CelebrityFAQSection';
 import { CelebrityShareBar } from '@/components/CelebrityShareBar';
 import { BirthdayCountdownWidget } from '@/components/BirthdayCountdownWidget';
-import { AdSlotBanner } from '@/components/AdSlotBanner';
 import { FloatingNextStarBar } from '@/components/FloatingNextStarBar';
 import { Calendar, Sparkles, ShieldCheck, ExternalLink, Bookmark, TrendingUp, Award, Users } from 'lucide-react';
 
@@ -178,9 +177,6 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
 
       <Breadcrumbs items={breadcrumbs} />
 
-      {/* CLS-Free Top Ad Placement */}
-      <AdSlotBanner slot="top-leaderboard" />
-
       {/* Main Profile Header & Overview */}
       <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-10">
         <div className="flex flex-col md:flex-row gap-8 items-start">
@@ -291,9 +287,6 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
               celebrityName={celebrity.name}
               isDeceased={Boolean(ageInfo?.isDeceased)}
             />
-
-            {/* In-Content Ad Placement */}
-            <AdSlotBanner slot="in-content" />
 
             {/* Comprehensive 5-Section Editorial Facts (About, Before Fame, Trivia, Family Life, Associated With) */}
             <CelebrityFactsViewer celebrity={celebrity} associatedPeer={associatedPeer} />

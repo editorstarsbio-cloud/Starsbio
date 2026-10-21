@@ -40,7 +40,7 @@ export default async function HomePage() {
     { name: 'TV Actress', slug: 'tv-actress', count: '1.8k+' },
     { name: 'Rapper', slug: 'rapper', count: '900+' },
     { name: 'YouTuber', slug: 'youtuber', count: '750+' },
-    { name: 'Soccer Player', slug: 'soccer-player', count: '1.1k+' },
+    { name: 'Footballer', slug: 'footballer', count: '1.1k+' },
     { name: 'Basketball Player', slug: 'basketball-player', count: '600+' },
     { name: 'TikTok Star', slug: 'tiktok-star', count: '500+' },
   ];

@@ -11,6 +11,9 @@ import { CelebrityFactsViewer } from '@/components/CelebrityFactsViewer';
 import { CelebrityBoostButton } from '@/components/CelebrityBoostButton';
 import { CelebrityBattleWidget } from '@/components/CelebrityBattleWidget';
 import { CelebrityFAQSection, FAQItem } from '@/components/CelebrityFAQSection';
+import { CelebrityShareBar } from '@/components/CelebrityShareBar';
+import { BirthdayCountdownWidget } from '@/components/BirthdayCountdownWidget';
+import { AdSlotBanner } from '@/components/AdSlotBanner';
 import { FloatingNextStarBar } from '@/components/FloatingNextStarBar';
 import { Calendar, Sparkles, ShieldCheck, ExternalLink, Bookmark, TrendingUp, Award, Users } from 'lucide-react';
 
@@ -175,6 +178,9 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
 
       <Breadcrumbs items={breadcrumbs} />
 
+      {/* CLS-Free Top Ad Placement */}
+      <AdSlotBanner slot="top-leaderboard" />
+
       {/* Main Profile Header & Overview */}
       <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-10">
         <div className="flex flex-col md:flex-row gap-8 items-start">
@@ -270,6 +276,24 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
                 </div>
               )}
             </div>
+
+            {/* Viral Social Share & Birthday Wish Engagement Bar */}
+            <CelebrityShareBar
+              celebrityName={celebrity.name}
+              birthDate={celebrity.birth_date}
+              profession={celebrity.primary_profession}
+              slug={celebrity.slug}
+            />
+
+            {/* Live Real-Time Age & Countdown Timer Widget */}
+            <BirthdayCountdownWidget
+              birthDate={celebrity.birth_date}
+              celebrityName={celebrity.name}
+              isDeceased={Boolean(ageInfo?.isDeceased)}
+            />
+
+            {/* In-Content Ad Placement */}
+            <AdSlotBanner slot="in-content" />
 
             {/* Comprehensive 5-Section Editorial Facts (About, Before Fame, Trivia, Family Life, Associated With) */}
             <CelebrityFactsViewer celebrity={celebrity} associatedPeer={associatedPeer} />

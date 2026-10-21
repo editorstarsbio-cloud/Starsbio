@@ -4,6 +4,8 @@ import type { Metadata } from 'next';
 import { ArrowLeftRight, Flame, Sparkles } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/utils';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { getAllCelebrities } from '@/lib/repository';
+import { CelebrityComparisonPicker } from '@/components/CelebrityComparisonPicker';
 
 export const metadata: Metadata = {
   title: 'Celebrity Head-to-Head Comparisons — Age Gap & Birthday Comparison | StarsBio',
@@ -81,8 +83,9 @@ const POPULAR_COMPARISONS = [
   },
 ];
 
-export default function CompareHubPage() {
+export default async function CompareHubPage() {
   const breadcrumbs = [{ label: 'Compare Hub' }];
+  const allCelebrities = await getAllCelebrities();
 
   return (
     <div className="max-w-4xl mx-auto space-y-8 pt-2 pb-12">
@@ -101,6 +104,9 @@ export default function CompareHubPage() {
           Discover verified age gaps, birthdays, heights, zodiac astrology, and career milestones for the world&apos;s biggest stars.
         </p>
       </div>
+
+      {/* Interactive A-to-Z Custom Picker Tool */}
+      <CelebrityComparisonPicker celebrities={allCelebrities} />
 
       {/* Popular Comparison Grid */}
       <section className="space-y-4">

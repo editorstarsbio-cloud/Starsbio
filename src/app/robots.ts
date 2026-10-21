@@ -6,8 +6,13 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
-        disallow: ['/search?', '/api/'],
+        allow: ['/', '/api/celebrity-image/'],
+        disallow: ['/search?', '/api/cron/'],
+      },
+      {
+        userAgent: 'Googlebot-Image',
+        allow: ['/api/celebrity-image/', '/public/', '/starsbio-watermark.png'],
+        disallow: [],
       },
     ],
     sitemap: `${SITE_CONFIG.siteUrl}/sitemap.xml`,

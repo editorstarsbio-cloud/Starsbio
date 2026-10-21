@@ -10,6 +10,7 @@ import { CelebrityAvatar } from '@/components/CelebrityAvatar';
 import { CelebrityFactsViewer } from '@/components/CelebrityFactsViewer';
 import { CelebrityBoostButton } from '@/components/CelebrityBoostButton';
 import { CelebrityBattleWidget } from '@/components/CelebrityBattleWidget';
+import { CelebrityFAQSection, FAQItem } from '@/components/CelebrityFAQSection';
 import { FloatingNextStarBar } from '@/components/FloatingNextStarBar';
 import { Calendar, Sparkles, ShieldCheck, ExternalLink, Bookmark, TrendingUp, Award, Users } from 'lucide-react';
 
@@ -114,11 +115,62 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
     .join('')
     .toUpperCase();
 
+  // Generate Dynamic FAQs for User Query & Search Engine Rich Snippets
+  const formattedBirthDate = `${monthName} ${bDay}, ${bYear}`;
+  const faqs: FAQItem[] = [
+    {
+      question: `How old is ${celebrity.name}?`,
+      answer: ageInfo
+        ? ageInfo.isDeceased
+          ? `${celebrity.name} passed away at the age of ${ageInfo.age}. They were born on ${formattedBirthDate}.`
+          : `${celebrity.name} is currently ${ageInfo.age} years old (born on ${formattedBirthDate}).`
+        : `${celebrity.name} was born on ${formattedBirthDate}.`,
+    },
+    {
+      question: `What is ${celebrity.name}'s profession and what are they famous for?`,
+      answer: `${celebrity.name} is renowned as a prominent ${celebrity.primary_profession || 'personality'}. ${
+        celebrity.biography
+          ? celebrity.biography.slice(0, 220).trim() + (celebrity.biography.length > 220 ? '...' : '')
+          : `Known worldwide for their public career and dedicated contributions.`
+      }`,
+    },
+    {
+      question: `Where was ${celebrity.name} born?`,
+      answer: celebrity.birthplace
+        ? `${celebrity.name} was born in ${celebrity.birthplace}.`
+        : `Official records document ${celebrity.name}'s birth on ${formattedBirthDate}.`,
+    },
+    {
+      question: `What is ${celebrity.name}'s zodiac sign?`,
+      answer: celebrity.zodiac_sign
+        ? `${celebrity.name}'s astrological sun sign is ${celebrity.zodiac_sign}, which aligns with individuals born between late ${monthName} and adjacent calendar periods.`
+        : `Based on their verified birth date (${formattedBirthDate}), their astrological sign is verified on StarsBio.`,
+    },
+  ];
+
+  // FAQPage Schema for Google Rich Snippets
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.answer,
+      },
+    })),
+  };
+
   return (
     <article className="space-y-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
       <Breadcrumbs items={breadcrumbs} />
@@ -330,6 +382,9 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
           </div>
         </section>
       )}
+
+      {/* Frequently Asked Questions with Accordion & Schema Rich Snippets */}
+      <CelebrityFAQSection celebrityName={celebrity.name} faqs={faqs} />
 
       {/* Internal Linking and Contextual Hubs */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-slate-200">

@@ -27,6 +27,16 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 export default async function CompareHubPage() {
   const breadcrumbs = [{ label: 'Compare Hub' }];
   const allCelebrities = await getAllCelebrities();
+  // Pass a lightweight top-500 slice to the client picker so page HTML is super-fast (~50KB instead of 23MB)
+  const pickerCelebrities = allCelebrities.slice(0, 500).map((c) => ({
+    id: c.id,
+    name: c.name,
+    slug: c.slug,
+    profession: c.profession,
+    image: c.image,
+    birthDate: c.birthDate,
+    birthYear: c.birthYear,
+  } as unknown as typeof allCelebrities[0]));
 
   return (
     <div className="max-w-5xl mx-auto space-y-10 pt-2 pb-16">
@@ -60,7 +70,7 @@ export default async function CompareHubPage() {
       </div>
 
       {/* Interactive Picker Tool for Any Custom 2 Stars */}
-      <CelebrityComparisonPicker celebrities={allCelebrities} />
+      <CelebrityComparisonPicker celebrities={pickerCelebrities} />
 
       {/* Full A to Z Categorized Comparison Sections */}
       <div className="space-y-12">

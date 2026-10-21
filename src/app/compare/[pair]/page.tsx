@@ -68,12 +68,12 @@ export default async function CompareDetailPage({ params }: ComparePageProps) {
   const youngerCeleb = date1 < date2 ? celeb2 : celeb1;
 
   const breadcrumbs = [
-    { label: 'Compare', href: '/search' },
+    { label: 'Compare Hub', href: '/compare' },
     { label: `${celeb1.name} vs ${celeb2.name}` },
   ];
 
   return (
-    <div className="max-w-4xl mx-auto space-y-10 pt-2 pb-12">
+    <div className="max-w-4xl mx-auto space-y-8 pt-2 pb-12">
       <Breadcrumbs items={breadcrumbs} />
 
       {/* Hero Header */}
@@ -108,7 +108,7 @@ export default async function CompareDetailPage({ params }: ComparePageProps) {
         {/* Celebrity 1 Card */}
         <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6 flex flex-col justify-between">
           <div className="space-y-4">
-            <div className="w-28 h-28 mx-auto rounded-2xl overflow-hidden shadow-md">
+            <div className="w-32 h-32 mx-auto rounded-2xl overflow-hidden shadow-md">
               <CelebrityAvatar
                 name={celeb1.name}
                 profession={celeb1.primary_profession}
@@ -154,7 +154,7 @@ export default async function CompareDetailPage({ params }: ComparePageProps) {
         {/* Celebrity 2 Card */}
         <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6 flex flex-col justify-between">
           <div className="space-y-4">
-            <div className="w-28 h-28 mx-auto rounded-2xl overflow-hidden shadow-md">
+            <div className="w-32 h-32 mx-auto rounded-2xl overflow-hidden shadow-md">
               <CelebrityAvatar
                 name={celeb2.name}
                 profession={celeb2.primary_profession}

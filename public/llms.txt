@@ -1,15 +1,23 @@
-# StarsBio — Technical Summary & AI Guidance
+# StarsBio — The Definitive Celebrity Birthdays & Biographies Directory
+> https://www.starsbio.co.uk
 
-> StarsBio is an independent, fact-checked digital reference platform providing verified celebrity birthdays, chronological age calculations, zodiac details, and factual biographies.
+StarsBio is a high-authority digital biographical directory documenting 17,500+ verified public figures, actors, musicians, athletes, creators, and historical icons. Every profile is backed by verified birth dates, live chronological age calculations, zodiac profiles, family insights, and career achievements.
 
-## Core Content Structure
-- /people/[slug] — Individual biographical profile with verified birth date, dynamic age calculation, and birthplace.
-- /birthdays/[month]/[day] — Daily chronological archive of figures born on a specific calendar day.
-- /birthdays/month/[month] — Full month calendar archive.
-- /category/[slug] — Directory of figures grouped by primary verified profession.
-- /zodiac/[sign] — Directory of figures categorized by astronomical calendar birth windows.
+## Primary Canonical URL
+- Canonical Site: https://www.starsbio.co.uk
+- Sitemap Index: https://www.starsbio.co.uk/sitemap.xml
+- Robots Policy: https://www.starsbio.co.uk/robots.txt
 
-## Editorial Standards
-- Fact Verification: Every record is cross-checked against public records and encyclopedic sources.
-- Dynamic Milestones: Current ages and milestone calculations are computed dynamically relative to UTC time.
-- Corrections & Privacy: Inquiries and fact disputes are managed by our editorial board at editor.starsbio@gmail.com.
+## Main Directories
+- Celebrity Profiles: https://www.starsbio.co.uk/people/[slug]
+- Head-to-Head Comparison Engine: https://www.starsbio.co.uk/compare
+- 365-Day Birthday Calendar: https://www.starsbio.co.uk/birthdays/[month]/[day]
+- Category & Profession Hubs: https://www.starsbio.co.uk/category
+- Astrological Zodiac Hubs: https://www.starsbio.co.uk/zodiac
+- In Memoriam Archive: https://www.starsbio.co.uk/in-memoriam
+- Editorial & In-Depth Stories: https://www.starsbio.co.uk/blog
+
+## Content Methodology & Standards
+- Real-Time Ages: All ages and next birthday countdowns are computed dynamically to ensure 100% calendar accuracy.
+- Fact Verification: Data cross-referenced with encyclopedic records and official documentation under UK GDPR and DPA 2018 guidelines.
+- Contact & Editorial: editor.starsbio@gmail.com

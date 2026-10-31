@@ -1,11 +1,9 @@
 import { ZodiacSignInfo } from '@/types/database';
 
-// Resolve site URL dynamically: custom domain env > Vercel deployment URL > fallback to live Vercel URL
+// Resolve site URL: custom domain https://www.starsbio.co.uk default
 const resolvedSiteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : '') ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : '') ||
-  'https://starsbio-delta.vercel.app'
+  'https://www.starsbio.co.uk'
 ).replace(/\/$/, '');
 
 export const SITE_CONFIG = {

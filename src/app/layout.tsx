@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/Header';
@@ -16,6 +17,12 @@ export const metadata: Metadata = {
   description: SITE_CONFIG.defaultMetaDescription,
   alternates: {
     canonical: SITE_CONFIG.siteUrl,
+  },
+  verification: {
+    google: 'qmFTJ0dRKRMYAX9Q4haRPTVjG8MmGswejuaY25Mmo7w',
+    other: {
+      'msvalidate.01': '25038A8801D42437BBC34723A41AC6C4',
+    },
   },
   openGraph: {
     type: 'website',
@@ -74,6 +81,19 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full bg-slate-50 antialiased">
       <head>
+        {/* Google Analytics Tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-1YSK90BHGF"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1YSK90BHGF');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}

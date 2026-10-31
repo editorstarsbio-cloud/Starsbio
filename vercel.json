@@ -2,8 +2,16 @@
   "framework": "nextjs",
   "crons": [
     {
-      "path": "/api/cron/facebook-daily-post",
+      "path": "/api/cron/facebook-daily-post?type=birthday",
       "schedule": "0 6 * * *"
+    },
+    {
+      "path": "/api/cron/facebook-daily-post?type=comparison",
+      "schedule": "0 12 * * *"
+    },
+    {
+      "path": "/api/cron/facebook-daily-post?type=spotlight",
+      "schedule": "0 18 * * *"
     }
   ]
 }

@@ -8,6 +8,9 @@ import { BirthdayTwinFinder } from '@/components/BirthdayTwinFinder';
 import { Metadata } from 'next';
 import { getMonthName, SITE_CONFIG } from '@/lib/utils';
 
+// Ensure homepage updates daily with today's real birthdays (revalidate every 1 hour)
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'StarsBio - Celebrity Birthdays, Biographies & Facts',
   description:

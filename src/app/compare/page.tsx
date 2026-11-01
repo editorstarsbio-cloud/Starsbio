@@ -11,11 +11,19 @@ import atozDataRaw from '@/data/atozComparisons.json';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Celebrity Head-to-Head Comparisons A-Z — Age Difference Directory | StarsBio',
+  title: 'Celebrity Head-to-Head Comparisons A-Z Directory',
   description:
-    'Compare celebrities from A to Z side-by-side. Discover exact age differences, birthdays, heights, zodiac astrology, and career milestones for all letters A-Z.',
+    'Compare celebrities side-by-side. Discover exact age differences, birthdays, heights, and zodiac signs across all letters A-Z on StarsBio.',
   alternates: {
     canonical: `${SITE_CONFIG.siteUrl}/compare`,
+  },
+  openGraph: {
+    title: 'Celebrity Head-to-Head Comparisons A-Z Directory',
+    description:
+      'Compare celebrities side-by-side. Discover exact age differences, birthdays, heights, and zodiac signs across all letters A-Z on StarsBio.',
+    type: 'website',
+    url: `${SITE_CONFIG.siteUrl}/compare`,
+    images: [{ url: `${SITE_CONFIG.siteUrl}/og-image.png`, width: 1200, height: 630, alt: 'Compare Hub' }],
   },
 };
 

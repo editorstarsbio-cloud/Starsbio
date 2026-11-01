@@ -25,8 +25,9 @@ export async function generateMetadata({ params }: ComparePageProps): Promise<Me
     return { title: 'Celebrities Not Found', robots: { index: false } };
   }
 
-  const title = `${celeb1.name} vs ${celeb2.name} — Age Difference, Height & Birthday Comparison`;
-  const description = `Compare ${celeb1.name} and ${celeb2.name}. Discover their exact age difference, birthdays, zodiac signs, careers, birthplace, and achievements on StarsBio.`;
+  const title = `${celeb1.name} vs ${celeb2.name} — Age Difference & Comparison`;
+  const desc = `Compare ${celeb1.name} and ${celeb2.name}. Discover their exact age difference, birthdays, zodiac signs, careers, birthplace, and facts on StarsBio.`;
+  const description = desc.length > 140 ? desc.slice(0, 137).trim() + '...' : desc;
 
   return {
     title,

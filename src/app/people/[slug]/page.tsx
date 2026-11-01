@@ -31,28 +31,51 @@ export async function generateMetadata({ params }: ProfilePageProps): Promise<Me
     };
   }
 
-  const ageInfo = calculateAge(celebrity.birth_date, celebrity.death_date);
-  const ageDescription = ageInfo ? (ageInfo.isDeceased ? `passed away at age ${ageInfo.age}` : `currently ${ageInfo.age} years old`) : '';
-
-  const professionStr = celebrity.primary_profession ? ` (${celebrity.primary_profession})` : '';
-  const ageStr = ageInfo ? (ageInfo.isDeceased ? ` (19xx-${ageInfo.age})` : ` - Age ${ageInfo.age}`) : '';
+  const profession = celebrity.primary_profession || 'Celebrity';
   
-  const title = `${celebrity.name}${professionStr} Birthday, Real Age${ageStr} & Biography`;
-  const description =
-    `Who is ${celebrity.name}? Born on ${celebrity.birth_date}, ${ageDescription}. Discover real height, relationships, net worth insights, family life, zodiac secrets, and career trivia on StarsBio.`;
+  // Strict SEO: Title <= 58 chars (fits within search results and site title template)
+  let rawTitle = `${celebrity.name} (${profession}) — Birthday & Bio`;
+  if (rawTitle.length > 47) {
+    rawTitle = `${celebrity.name} — Birthday & Bio`;
+  }
+  if (rawTitle.length > 47) {
+    rawTitle = `${celebrity.name.slice(0, 44)}...`;
+  }
+
+  // Strict SEO: Meta Description 120-140 characters
+  const desc = `Discover ${celebrity.name} (${profession}) verified birthday, age, zodiac sign, height, net worth facts, and full biography on StarsBio.`;
+  const description = desc.length > 140 ? desc.slice(0, 137).trim() + '...' : desc;
+
+  const profileImageUrl = celebrity.image_url
+    ? (celebrity.image_url.startsWith('http') ? celebrity.image_url : `${SITE_CONFIG.siteUrl}${celebrity.image_url}`)
+    : `${SITE_CONFIG.siteUrl}/og-image.png`;
 
   return {
-    title,
+    title: rawTitle,
     description,
     alternates: {
       canonical: `${SITE_CONFIG.siteUrl}/people/${celebrity.slug}`,
     },
     openGraph: {
-      title,
+      title: rawTitle,
       description,
       type: 'profile',
       url: `${SITE_CONFIG.siteUrl}/people/${celebrity.slug}`,
-      images: celebrity.image_url ? [{ url: celebrity.image_url, alt: celebrity.name }] : [],
+      siteName: SITE_CONFIG.brandName,
+      images: [
+        {
+          url: profileImageUrl,
+          alt: `${celebrity.name} portrait`,
+          width: 600,
+          height: 600,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: rawTitle,
+      description,
+      images: [profileImageUrl],
     },
   };
 }

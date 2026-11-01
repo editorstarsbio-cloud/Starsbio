@@ -6,9 +6,20 @@ import { SITE_CONFIG } from '@/lib/utils';
 import { BookOpen, Calendar, Clock, ChevronRight, User, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Celebrity Biographies & Editorial Blog",
+  title: 'Celebrity Biographies & Editorial Blog',
   description:
     'In-depth celebrity life stories, career histories, net worth breakdowns, spouses, children, and lesser-known trivia written by the StarsBio editorial team.',
+  alternates: {
+    canonical: `${SITE_CONFIG.siteUrl}/blog`,
+  },
+  openGraph: {
+    title: 'Celebrity Biographies & Editorial Blog',
+    description:
+      'In-depth celebrity life stories, career histories, net worth breakdowns, spouses, children, and lesser-known trivia written by the StarsBio editorial team.',
+    type: 'website',
+    url: `${SITE_CONFIG.siteUrl}/blog`,
+    images: [{ url: `${SITE_CONFIG.siteUrl}/og-image.png`, width: 1200, height: 630, alt: 'StarsBio Blog' }],
+  },
 };
 
 export default async function BlogIndexPage() {

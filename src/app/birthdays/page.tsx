@@ -6,11 +6,19 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Calendar, ChevronRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Celebrity Birthdays Calendar",
+  title: 'Celebrity Birthdays Calendar Directory',
   description:
-    'Browse our complete calendar year of celebrity birthdays. Select any month or date to explore verified profiles and biographies.',
+    'Browse our complete calendar year of celebrity birthdays. Select any month or date to explore verified profiles and biographies on StarsBio.',
   alternates: {
     canonical: `${SITE_CONFIG.siteUrl}/birthdays`,
+  },
+  openGraph: {
+    title: 'Celebrity Birthdays Calendar Directory',
+    description:
+      'Browse our complete calendar year of celebrity birthdays. Select any month or date to explore verified profiles and biographies on StarsBio.',
+    type: 'website',
+    url: `${SITE_CONFIG.siteUrl}/birthdays`,
+    images: [{ url: `${SITE_CONFIG.siteUrl}/og-image.png`, width: 1200, height: 630, alt: 'Birthdays Calendar' }],
   },
 };
 

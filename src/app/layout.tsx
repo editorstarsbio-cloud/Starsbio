@@ -15,9 +15,6 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_CONFIG.brandName}`,
   },
   description: SITE_CONFIG.defaultMetaDescription,
-  alternates: {
-    canonical: SITE_CONFIG.siteUrl,
-  },
   verification: {
     google: 'qmFTJ0dRKRMYAX9Q4haRPTVjG8MmGswejuaY25Mmo7w',
     other: {

@@ -7,11 +7,19 @@ import { SITE_CONFIG } from '@/lib/utils';
 import { Heart, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "In Memoriam - Remembering Famous Figures",
+  title: 'In Memoriam — Remembering Famous Public Figures',
   description:
-    'Honor and discover iconic public figures, historic leaders, pioneering artists, and celebrities who have passed away. Explore life milestones, birth dates, and ages.',
+    'Honor and discover iconic public figures, historic leaders, and celebrities who have passed away. Explore life milestones on StarsBio.',
   alternates: {
     canonical: `${SITE_CONFIG.siteUrl}/in-memoriam`,
+  },
+  openGraph: {
+    title: 'In Memoriam — Remembering Famous Public Figures',
+    description:
+      'Honor and discover iconic public figures, historic leaders, and celebrities who have passed away. Explore life milestones on StarsBio.',
+    type: 'website',
+    url: `${SITE_CONFIG.siteUrl}/in-memoriam`,
+    images: [{ url: `${SITE_CONFIG.siteUrl}/og-image.png`, width: 1200, height: 630, alt: 'In Memoriam' }],
   },
 };
 

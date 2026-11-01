@@ -6,10 +6,19 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Sparkles, ChevronRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Celebrity Zodiac Signs",
-  description: 'Explore famous public figures, actors, and creators grouped by their 12 astrological sun signs.',
+  title: 'Celebrity Zodiac Signs & Astrological Directory',
+  description:
+    'Explore famous public figures, actors, and creators grouped by their 12 astrological sun signs. Discover verified birth dates on StarsBio.',
   alternates: {
     canonical: `${SITE_CONFIG.siteUrl}/zodiac`,
+  },
+  openGraph: {
+    title: 'Celebrity Zodiac Signs & Astrological Directory',
+    description:
+      'Explore famous public figures, actors, and creators grouped by their 12 astrological sun signs. Discover verified birth dates on StarsBio.',
+    type: 'website',
+    url: `${SITE_CONFIG.siteUrl}/zodiac`,
+    images: [{ url: `${SITE_CONFIG.siteUrl}/og-image.png`, width: 1200, height: 630, alt: 'Zodiac Directory' }],
   },
 };
 

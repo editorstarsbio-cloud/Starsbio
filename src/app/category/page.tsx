@@ -7,10 +7,19 @@ import { SITE_CONFIG } from '@/lib/utils';
 import { Bookmark, ChevronRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Browse Celebrities by Category",
-  description: 'Browse celebrities by their primary category, occupation, and artistic field.',
+  title: 'Browse Celebrities by Category & Profession',
+  description:
+    'Browse celebrities by their primary category, occupation, and artistic field. Discover verified profiles and biographies on StarsBio.',
   alternates: {
     canonical: `${SITE_CONFIG.siteUrl}/category`,
+  },
+  openGraph: {
+    title: 'Browse Celebrities by Category & Profession',
+    description:
+      'Browse celebrities by their primary category, occupation, and artistic field. Discover verified profiles and biographies on StarsBio.',
+    type: 'website',
+    url: `${SITE_CONFIG.siteUrl}/category`,
+    images: [{ url: `${SITE_CONFIG.siteUrl}/og-image.png`, width: 1200, height: 630, alt: 'Categories' }],
   },
 };
 

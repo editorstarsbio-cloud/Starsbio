@@ -38,10 +38,14 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   return {
     title,
     description,
+    alternates: {
+      canonical: `${SITE_CONFIG.siteUrl}/blog/${post.slug}`,
+    },
     openGraph: {
       title,
       description,
       type: 'article',
+      url: `${SITE_CONFIG.siteUrl}/blog/${post.slug}`,
       publishedTime: post.publishedAt,
       authors: [post.author.name],
       images: [{ url: post.coverImage, alt: post.coverImageAlt }],

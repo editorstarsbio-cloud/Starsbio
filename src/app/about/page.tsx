@@ -4,9 +4,16 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { SITE_CONFIG } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: 'About Us — Editorial Mission & Standards',
   description: `Learn about ${SITE_CONFIG.brandName}'s mission to provide verified celebrity birthdays, factual biographies, and age calculations.`,
   alternates: { canonical: `${SITE_CONFIG.siteUrl}/about` },
+  openGraph: {
+    title: 'About Us — Editorial Mission & Standards',
+    description: `Learn about ${SITE_CONFIG.brandName}'s mission to provide verified celebrity birthdays, factual biographies, and age calculations.`,
+    type: 'website',
+    url: `${SITE_CONFIG.siteUrl}/about`,
+    images: [{ url: `${SITE_CONFIG.siteUrl}/og-image.png`, width: 1200, height: 630, alt: 'About StarsBio' }],
+  },
 };
 
 export default function AboutPage() {

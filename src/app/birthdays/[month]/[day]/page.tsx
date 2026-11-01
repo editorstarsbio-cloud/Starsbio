@@ -31,6 +31,13 @@ export async function generateMetadata({ params }: DailyArchiveProps): Promise<M
     alternates: {
       canonical: `${SITE_CONFIG.siteUrl}/birthdays/${month}/${day}`,
     },
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      url: `${SITE_CONFIG.siteUrl}/birthdays/${month}/${day}`,
+      images: [{ url: `${SITE_CONFIG.siteUrl}/og-image.png`, width: 1200, height: 630, alt: `${monthName} ${day} Birthdays` }],
+    },
   };
 }
 

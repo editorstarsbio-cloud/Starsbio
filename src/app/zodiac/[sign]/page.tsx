@@ -29,6 +29,13 @@ export async function generateMetadata({ params }: ZodiacPageProps): Promise<Met
     alternates: {
       canonical: `${SITE_CONFIG.siteUrl}/zodiac/${rawSign.toLowerCase()}`,
     },
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      url: `${SITE_CONFIG.siteUrl}/zodiac/${rawSign.toLowerCase()}`,
+      images: [{ url: `${SITE_CONFIG.siteUrl}/og-image.png`, width: 1200, height: 630, alt: signInfo.sign }],
+    },
   };
 }
 

@@ -28,6 +28,13 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     alternates: {
       canonical: `${SITE_CONFIG.siteUrl}/category/${category.slug}`,
     },
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      url: `${SITE_CONFIG.siteUrl}/category/${category.slug}`,
+      images: [{ url: `${SITE_CONFIG.siteUrl}/og-image.png`, width: 1200, height: 630, alt: category.name }],
+    },
   };
 }
 

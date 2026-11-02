@@ -111,17 +111,29 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
   const birthDayRank = ((positiveHash >> 4) % 15) + 1;
 
   // Structured Data (Schema.org Person & ProfilePage)
+  const fullImageUrl = celebrity.image_url
+    ? (celebrity.image_url.startsWith('http') ? celebrity.image_url : `${SITE_CONFIG.siteUrl}${celebrity.image_url}`)
+    : `${SITE_CONFIG.siteUrl}/og-image.png`;
+
   const personJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: celebrity.name,
-    birthDate: celebrity.birth_date,
-    deathDate: celebrity.death_date || undefined,
-    birthPlace: celebrity.birthplace ? { '@type': 'Place', name: celebrity.birthplace } : undefined,
-    jobTitle: celebrity.primary_profession || undefined,
-    description: celebrity.biography || undefined,
-    image: celebrity.image_url || undefined,
-    url: `${SITE_CONFIG.siteUrl}/people/${celebrity.slug}`,
+    '@type': 'ProfilePage',
+    mainEntity: {
+      '@type': 'Person',
+      name: celebrity.name,
+      birthDate: celebrity.birth_date,
+      deathDate: celebrity.death_date || undefined,
+      birthPlace: celebrity.birthplace ? { '@type': 'Place', name: celebrity.birthplace } : undefined,
+      jobTitle: celebrity.primary_profession || undefined,
+      description: celebrity.biography || undefined,
+      image: fullImageUrl,
+      url: `${SITE_CONFIG.siteUrl}/people/${celebrity.slug}`,
+    },
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: fullImageUrl,
+      caption: `${celebrity.name} profile portrait`,
+    },
   };
 
   const breadcrumbs = [
@@ -374,15 +386,17 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
 
       {/* High-CTR Celebrity Battle Face-Off Widget */}
       {relatedProfiles.length > 0 && (
-        <CelebrityBattleWidget
-          currentCelebrity={celebrity}
-          competitors={relatedProfiles}
-        />
+        <section data-nosnippet="true">
+          <CelebrityBattleWidget
+            currentCelebrity={celebrity}
+            competitors={relatedProfiles}
+          />
+        </section>
       )}
 
       {/* Fans Also Viewed / Related Profiles */}
       {relatedProfiles.length > 0 && (
-        <section className="space-y-4 pt-4 border-t border-slate-200">
+        <section data-nosnippet="true" className="space-y-4 pt-4 border-t border-slate-200">
           <div className="flex items-center space-x-2 text-slate-900">
             <Users className="w-5 h-5 text-indigo-600" />
             <h2 className="text-xl font-bold tracking-tight">
@@ -399,7 +413,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
 
       {/* More Born on This Date */}
       {sameBirthdayList.length > 0 && (
-        <section className="space-y-4 pt-4 border-t border-slate-200">
+        <section data-nosnippet="true" className="space-y-4 pt-4 border-t border-slate-200">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2 text-slate-900">
               <Calendar className="w-5 h-5 text-indigo-600" />

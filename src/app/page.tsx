@@ -8,8 +8,8 @@ import { BirthdayTwinFinder } from '@/components/BirthdayTwinFinder';
 import { Metadata } from 'next';
 import { getMonthName, SITE_CONFIG } from '@/lib/utils';
 
-// Ensure homepage updates daily with today's real birthdays (revalidate every 1 hour)
-export const revalidate = 3600;
+// Revalidate every 5 minutes so birthdays refresh at midnight without stale cache
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: 'StarsBio - Celebrity Birthdays, Biographies & Facts',
@@ -22,6 +22,7 @@ export const metadata: Metadata = {
 
 export default async function HomePage() {
   const now = new Date();
+  // Use UTC date for consistent worldwide birthday display
   const currentMonth = now.getUTCMonth() + 1;
   const currentDay = now.getUTCDate();
 

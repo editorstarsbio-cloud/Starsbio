@@ -33,18 +33,28 @@ export async function generateMetadata({ params }: ProfilePageProps): Promise<Me
 
   const profession = celebrity.primary_profession || 'Celebrity';
   
-  // Strict SEO: Title <= 58 chars (fits within search results and site title template)
-  let rawTitle = `${celebrity.name} (${profession}) — Birthday & Bio`;
-  if (rawTitle.length > 47) {
-    rawTitle = `${celebrity.name} — Birthday & Bio`;
+  // High-CTR FamousBirthdays-Style SEO Title: "[Name] - Age, Bio, Birthday, Family"
+  // Fits comfortably within Google's 55-60 character desktop & mobile SERP limit
+  let rawTitle = `${celebrity.name} - Age, Bio, Birthday, Family`;
+  if (rawTitle.length > 55) {
+    rawTitle = `${celebrity.name} - Age, Bio, Birthday`;
   }
-  if (rawTitle.length > 47) {
-    rawTitle = `${celebrity.name.slice(0, 44)}...`;
+  if (rawTitle.length > 55) {
+    rawTitle = `${celebrity.name} - Age, Bio & Facts`;
   }
 
-  // Strict SEO: Meta Description 120-140 characters
-  const desc = `Discover ${celebrity.name} (${profession}) verified birthday, age, zodiac sign, height, net worth facts, and full biography on StarsBio.`;
-  const description = desc.length > 140 ? desc.slice(0, 137).trim() + '...' : desc;
+  // FamousBirthdays-Style Meta Snippet: Direct engaging biography hook + verified age & facts
+  let description = '';
+  if (celebrity.biography && celebrity.biography.trim().length > 20) {
+    const cleanBio = celebrity.biography.replace(/\s+/g, ' ').trim();
+    if (cleanBio.length > 155) {
+      description = `${cleanBio.slice(0, 152).trim()}...`;
+    } else {
+      description = cleanBio;
+    }
+  } else {
+    description = `Discover ${celebrity.name} (${profession}) verified birthday, age, family life, zodiac sign, career trivia, and full biography on StarsBio.`;
+  }
 
   const profileImageUrl = celebrity.image_url
     ? (celebrity.image_url.startsWith('http') ? celebrity.image_url : `${SITE_CONFIG.siteUrl}${celebrity.image_url}`)

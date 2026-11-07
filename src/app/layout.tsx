@@ -65,14 +65,38 @@ export default function RootLayout({
 }>) {
   const websiteJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: SITE_CONFIG.brandName,
-    url: SITE_CONFIG.siteUrl,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${SITE_CONFIG.siteUrl}/search?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${SITE_CONFIG.siteUrl}/#website`,
+        name: SITE_CONFIG.brandName,
+        url: SITE_CONFIG.siteUrl,
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: `${SITE_CONFIG.siteUrl}/search?q={search_term_string}`,
+          'query-input': 'required name=search_term_string',
+        },
+      },
+      {
+        '@type': 'SiteNavigationElement',
+        name: [
+          'Today\'s Birthdays',
+          'Most Popular Celebrities',
+          'Birthdays by Month',
+          'Celebrities by Age',
+          'Zodiac Signs',
+          'Trending Biographies',
+        ],
+        url: [
+          `${SITE_CONFIG.siteUrl}/birthdays`,
+          `${SITE_CONFIG.siteUrl}/category`,
+          `${SITE_CONFIG.siteUrl}/birthdays`,
+          `${SITE_CONFIG.siteUrl}/category`,
+          `${SITE_CONFIG.siteUrl}/zodiac`,
+          `${SITE_CONFIG.siteUrl}/blog`,
+        ],
+      },
+    ],
   };
 
   return (

@@ -11,14 +11,50 @@ import { getMonthName, SITE_CONFIG } from '@/lib/utils';
 // Revalidate every 5 minutes so birthdays refresh at midnight without stale cache
 export const revalidate = 300;
 
-export const metadata: Metadata = {
-  title: 'StarsBio - Celebrity Birthdays, Biographies & Facts',
-  description:
-    'Discover verified birthdays, real ages, and biographies of celebrities, movie actors, musicians, and influencers on StarsBio.',
-  alternates: {
-    canonical: SITE_CONFIG.siteUrl,
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const now = new Date();
+  const currentMonth = now.getUTCMonth() + 1;
+  const currentDay = now.getUTCDate();
+  const todayStars = await getCelebritiesBornOn(currentMonth, currentDay, 4);
+
+  // Exact FamousBirthdays Homepage Snippet formula:
+  // "Today's Birthdays ; Hudson Stone, 15. Guitarist ; Melanie Moreno, 25. Reality Star ; ..."
+  let dynamicDesc = '';
+  if (todayStars.length > 0) {
+    const listPart = todayStars
+      .map((c) => {
+        const age = now.getUTCFullYear() - parseInt(c.birth_date.slice(0, 4));
+        return `${c.name}, ${age}. ${c.primary_profession || 'Public Figure'}`;
+      })
+      .join(' ; ');
+    dynamicDesc = `Today's Birthdays ; ${listPart}. Discover real ages, biographies, and trending profiles on StarsBio.`;
+  } else {
+    dynamicDesc =
+      'StarsBio: Today\'s Celebrity Birthdays, real ages, and biographies of movie actors, musicians, athletes, and influencers.';
+  }
+
+  return {
+    title: "StarsBio: Today's Celebrity Birthdays, Ages & Biographies",
+    description: dynamicDesc,
+    alternates: {
+      canonical: SITE_CONFIG.siteUrl,
+    },
+    openGraph: {
+      title: "StarsBio: Today's Celebrity Birthdays, Ages & Biographies",
+      description: dynamicDesc,
+      type: 'website',
+      url: SITE_CONFIG.siteUrl,
+      images: [
+        {
+          url: `${SITE_CONFIG.siteUrl}/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: "StarsBio: Today's Celebrity Birthdays",
+        },
+      ],
+    },
+  };
+}
 
 export default async function HomePage() {
   const now = new Date();

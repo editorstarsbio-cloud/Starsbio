@@ -26,6 +26,9 @@ export async function GET(
       '',
       '/birthdays',
       '/category',
+      '/trending',
+      '/trivia',
+      '/birthplace',
       '/zodiac',
       '/compare',
       '/in-memoriam',
@@ -64,6 +67,13 @@ export async function GET(
     const categories = await getAllCategories();
     for (const cat of categories) {
       xml += `  <url>\n    <loc>${BASE_URL}/category/${cat.slug}</loc>\n    <lastmod>${now}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+    }
+
+    // Birthplaces / Countries (FamousBirthdays parity)
+    const { getAllBirthplaces } = await import('@/lib/repository');
+    const birthplaces = await getAllBirthplaces(2);
+    for (const place of birthplaces) {
+      xml += `  <url>\n    <loc>${BASE_URL}/birthplace/${place.slug}</loc>\n    <lastmod>${now}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
     }
 
     // Zodiac Signs

@@ -128,3 +128,97 @@ export async function getCelebritiesByBirthYear(year: number, limit = 8): Promis
   return list.slice(0, limit);
 }
 
+// -------------------------------------------------------------
+// Birthplace / Country Indexing (FamousBirthdays parity)
+// -------------------------------------------------------------
+export interface BirthplaceInfo {
+  name: string;
+  slug: string;
+  count: number;
+}
+
+export async function getAllBirthplaces(minCount = 3): Promise<BirthplaceInfo[]> {
+  const map = new Map<string, { name: string; slug: string; count: number }>();
+
+  for (const c of allCelebrities) {
+    if (c.birthplace) {
+      const parts = c.birthplace.split(',').map((s) => s.trim());
+      const country = parts[parts.length - 1];
+      if (country && country.length > 1) {
+        const slug = country.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        if (!map.has(slug)) {
+          map.set(slug, { name: country, slug, count: 0 });
+        }
+        map.get(slug)!.count++;
+      }
+    }
+  }
+
+  return Array.from(map.values())
+    .filter((b) => b.count >= minCount)
+    .sort((a, b) => b.count - a.count);
+}
+
+export async function getCelebritiesByBirthplace(
+  slug: string,
+  limit = 100
+): Promise<{ birthplace: BirthplaceInfo | null; celebrities: Celebrity[] }> {
+  const all = await getAllBirthplaces(1);
+  const target = all.find((b) => b.slug === slug) || null;
+  if (!target) {
+    return { birthplace: null, celebrities: [] };
+  }
+
+  const list = allCelebrities.filter((c) => {
+    if (!c.birthplace) return false;
+    const parts = c.birthplace.split(',').map((s) => s.trim());
+    const country = parts[parts.length - 1];
+    const s = country.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    return s === slug;
+  });
+
+  // Sort with images first
+  list.sort((a, b) => {
+    if (a.image_url && !b.image_url) return -1;
+    if (!a.image_url && b.image_url) return 1;
+    return 0;
+  });
+
+  return {
+    birthplace: target,
+    celebrities: list.slice(0, limit),
+  };
+}
+
+// -------------------------------------------------------------
+// Trending / Top Popular Celebrities (FamousBirthdays parity)
+// -------------------------------------------------------------
+export async function getTrendingCelebrities(limit = 100): Promise<Celebrity[]> {
+  // Deterministic top list prioritized by confirmed images, detailed biographies and presence
+  const sorted = [...allCelebrities]
+    .filter((c) => c.image_url && c.biography && c.biography.length > 80)
+    .sort((a, b) => (b.biography?.length || 0) - (a.biography?.length || 0));
+
+  return sorted.slice(0, limit);
+}
+
+// -------------------------------------------------------------
+// Trivia & Fun Facts (FamousBirthdays parity)
+// -------------------------------------------------------------
+export async function getCelebrityTriviaList(limit = 60): Promise<Array<{ celebrity: Celebrity; triviaSnippet: string }>> {
+  const candidates = allCelebrities.filter((c) => Boolean(c.image_url && c.biography && c.biography.length > 120));
+  
+  // Pick interesting biography facts
+  return candidates.slice(0, limit).map((c) => {
+    const bioText = c.biography || '';
+    const sentences = bioText.match(/[^.!?]+[.!?]+/g) || [bioText];
+    // Often 2nd or 3rd sentence has the craziest trivia/early life facts
+    const triviaSnippet = (sentences.length > 1 ? sentences.slice(1, 3).join(' ') : sentences[0] || '').trim();
+    return {
+      celebrity: c,
+      triviaSnippet,
+    };
+  });
+}
+
+

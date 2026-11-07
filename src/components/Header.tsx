@@ -57,6 +57,15 @@ export function Header() {
             <Link href="/birthdays" className="hover:text-indigo-600 transition-colors">
               Calendar
             </Link>
+            <Link href="/trending" className="hover:text-pink-600 font-bold text-pink-600 transition-colors flex items-center space-x-1">
+              <span>Trending</span>
+            </Link>
+            <Link href="/birthplace" className="hover:text-emerald-600 font-medium transition-colors">
+              Birthplaces
+            </Link>
+            <Link href="/trivia" className="hover:text-purple-600 font-medium transition-colors">
+              Trivia
+            </Link>
             <Link href="/category" className="hover:text-indigo-600 transition-colors">
               Categories
             </Link>

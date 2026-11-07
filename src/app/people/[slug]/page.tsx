@@ -14,7 +14,7 @@ import { CelebrityFAQSection, FAQItem } from '@/components/CelebrityFAQSection';
 import { CelebrityShareBar } from '@/components/CelebrityShareBar';
 import { BirthdayCountdownWidget } from '@/components/BirthdayCountdownWidget';
 import { FloatingNextStarBar } from '@/components/FloatingNextStarBar';
-import { Calendar, Sparkles, ShieldCheck, ExternalLink, Bookmark, TrendingUp, Award, Users } from 'lucide-react';
+import { Calendar, Sparkles, ShieldCheck, ExternalLink, Bookmark, TrendingUp, Award, Users, MapPin } from 'lucide-react';
 
 interface ProfilePageProps {
   params: Promise<{ slug: string }>;
@@ -450,64 +450,87 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
       {/* Frequently Asked Questions with Accordion & Schema Rich Snippets */}
       <CelebrityFAQSection celebrityName={celebrity.name} faqs={faqs} />
 
-      {/* Internal Linking and Contextual Hubs */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-slate-200">
-        <div className="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+      {/* Internal Linking and Contextual Hubs (FamousBirthdays Style Deep-Linking) */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-slate-200">
+        <div className="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
           <div>
             <div className="flex items-center space-x-2 text-indigo-600 mb-2">
-              <Calendar className="w-5 h-5" />
-              <h3 className="font-bold text-slate-900">Born on {monthName} {bDay}</h3>
+              <Calendar className="w-4 h-4" />
+              <h3 className="font-bold text-slate-900 text-sm">Born on {monthName} {bDay}</h3>
             </div>
             <p className="text-xs text-slate-500 leading-relaxed">
-              Explore other famous historical and modern public figures who celebrate their birthday on {monthName} {bDay}.
+              Explore famous stars and icons who share a birthday on {monthName} {bDay}.
             </p>
           </div>
           <Link
             href={`/birthdays/${bMonth}/${bDay}`}
-            className="mt-4 inline-flex items-center text-xs font-semibold text-indigo-600 hover:text-indigo-800"
+            className="mt-3 inline-flex items-center text-xs font-bold text-indigo-600 hover:text-indigo-800"
           >
-            <span>View all {monthName} {bDay} birthdays</span>
+            <span>View all birthdays</span>
             <ExternalLink className="w-3.5 h-3.5 ml-1" />
           </Link>
         </div>
 
-        {celebrity.zodiac_sign && (
-          <div className="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+        {celebrity.primary_profession && (
+          <div className="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="flex items-center space-x-2 text-amber-600 mb-2">
-                <Sparkles className="w-5 h-5" />
-                <h3 className="font-bold text-slate-900">{celebrity.zodiac_sign} Profiles</h3>
+              <div className="flex items-center space-x-2 text-pink-600 mb-2">
+                <Bookmark className="w-4 h-4" />
+                <h3 className="font-bold text-slate-900 text-sm">{celebrity.primary_profession}s</h3>
               </div>
               <p className="text-xs text-slate-500 leading-relaxed">
-                Discover celebrities, musicians, and innovators born under the sign of {celebrity.zodiac_sign}.
+                Browse our complete directory of top {celebrity.primary_profession} personalities.
               </p>
             </div>
             <Link
-              href={`/zodiac/${celebrity.zodiac_sign.toLowerCase()}`}
-              className="mt-4 inline-flex items-center text-xs font-semibold text-amber-600 hover:text-amber-800"
+              href={`/category/${generateSlug(celebrity.primary_profession)}`}
+              className="mt-3 inline-flex items-center text-xs font-bold text-pink-600 hover:text-pink-800"
             >
-              <span>Explore {celebrity.zodiac_sign} celebrities</span>
+              <span>Explore category</span>
               <ExternalLink className="w-3.5 h-3.5 ml-1" />
             </Link>
           </div>
         )}
 
-        {celebrity.primary_profession && (
-          <div className="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+        {celebrity.birthplace && (
+          <div className="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center space-x-2 text-emerald-600 mb-2">
-                <Bookmark className="w-5 h-5" />
-                <h3 className="font-bold text-slate-900">{celebrity.primary_profession} Directory</h3>
+                <MapPin className="w-4 h-4" />
+                <h3 className="font-bold text-slate-900 text-sm">
+                  Born in {celebrity.birthplace.split(',').pop()?.trim() || 'Origin'}
+                </h3>
               </div>
               <p className="text-xs text-slate-500 leading-relaxed">
-                Browse our curated directory of top creators and leaders working in the {celebrity.primary_profession} industry.
+                Discover celebrities, athletes, and artists born in {celebrity.birthplace.split(',').pop()?.trim()}.
               </p>
             </div>
             <Link
-              href={`/category/${generateSlug(celebrity.primary_profession)}`}
-              className="mt-4 inline-flex items-center text-xs font-semibold text-emerald-600 hover:text-emerald-800"
+              href={`/birthplace/${(celebrity.birthplace.split(',').pop()?.trim() || '').toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+              className="mt-3 inline-flex items-center text-xs font-bold text-emerald-600 hover:text-emerald-800"
             >
-              <span>Explore {celebrity.primary_profession} category</span>
+              <span>Explore country</span>
+              <ExternalLink className="w-3.5 h-3.5 ml-1" />
+            </Link>
+          </div>
+        )}
+
+        {celebrity.zodiac_sign && (
+          <div className="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div className="flex items-center space-x-2 text-amber-600 mb-2">
+                <Sparkles className="w-4 h-4" />
+                <h3 className="font-bold text-slate-900 text-sm">{celebrity.zodiac_sign} Sign</h3>
+              </div>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Discover horoscope traits and stars born under {celebrity.zodiac_sign}.
+              </p>
+            </div>
+            <Link
+              href={`/zodiac/${celebrity.zodiac_sign.toLowerCase()}`}
+              className="mt-3 inline-flex items-center text-xs font-bold text-amber-600 hover:text-amber-800"
+            >
+              <span>Explore zodiac</span>
               <ExternalLink className="w-3.5 h-3.5 ml-1" />
             </Link>
           </div>

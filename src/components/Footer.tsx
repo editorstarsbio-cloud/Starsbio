@@ -63,6 +63,21 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/trending" className="hover:text-pink-400 font-semibold text-pink-300 transition-colors">
+                  🔥 Trending Top 100 Stars
+                </Link>
+              </li>
+              <li>
+                <Link href="/birthplace" className="hover:text-emerald-400 font-semibold text-emerald-300 transition-colors">
+                  🌍 Stars by Birthplace & Country
+                </Link>
+              </li>
+              <li>
+                <Link href="/trivia" className="hover:text-purple-400 font-semibold text-purple-300 transition-colors">
+                  💡 Celebrity Trivia & Secrets
+                </Link>
+              </li>
+              <li>
                 <Link href="/category" className="hover:text-white transition-colors">
                   Browse All 192 Professions
                 </Link>

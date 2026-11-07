@@ -92,9 +92,6 @@ export default async function HomePage() {
         <h1>StarsBio — Celebrity Birthdays, Ages, Biographies & Milestones Directory</h1>
       </div>
 
-      {/* INTERACTIVE BIRTHDAY TWIN FINDER TOOL */}
-      <BirthdayTwinFinder />
-
       {/* 1. TODAY'S BIRTHDAYS */}
       <section>
         <div className="flex items-center justify-between mb-4 border-b border-slate-200/80 pb-2.5">
@@ -359,6 +356,11 @@ export default async function HomePage() {
             </Link>
           ))}
         </div>
+      </section>
+
+      {/* 5. INTERACTIVE BIRTHDAY TWIN FINDER (Clean Bottom Placement above Footer) */}
+      <section className="pt-4 border-t border-slate-200/80">
+        <BirthdayTwinFinder />
       </section>
     </div>
   );

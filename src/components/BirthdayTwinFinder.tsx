@@ -76,7 +76,7 @@ export function BirthdayTwinFinder({ initialCelebrities = [] }: BirthdayTwinFind
         </div>
 
         <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
-          Find Your Celebrity Birthday Twin 🎂
+          Find Your Celebrity Birthday Twin
         </h2>
 
         <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">

@@ -1,10 +1,10 @@
 import React from 'react';
+import Link from 'next/link';
 import { Metadata } from 'next';
-import { getTrendingCelebrities } from '@/lib/repository';
-import { CelebrityCard } from '@/components/CelebrityCard';
+import { getFeaturedCelebrities } from '@/lib/repository';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { SITE_CONFIG } from '@/lib/utils';
-import { TrendingUp, Flame, Sparkles } from 'lucide-react';
+import { Flame, ChevronRight } from 'lucide-react';
 
 export const revalidate = 3600; // Hourly refresh
 
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 export default async function TrendingPage() {
-  const trendingStars = await getTrendingCelebrities(100);
+  const trendingStars = await getFeaturedCelebrities(50);
 
   const breadcrumbs = [
     { label: 'Home', href: '/' },
@@ -26,41 +26,78 @@ export default async function TrendingPage() {
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="max-w-4xl mx-auto space-y-8 pb-12">
       <Breadcrumbs items={breadcrumbs} />
 
-      <div className="bg-gradient-to-tr from-pink-500 via-rose-500 to-indigo-600 rounded-3xl text-white p-6 sm:p-10 shadow-lg relative overflow-hidden">
-        <div className="relative z-10 max-w-2xl">
-          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-xs font-bold bg-white/20 backdrop-blur-md text-white uppercase tracking-wider mb-4 border border-white/20">
-            <Flame className="w-4 h-4 text-amber-300 animate-pulse" />
-            <span>Live Popularity Leaderboard</span>
-          </div>
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
-            Top Trending Celebrities
+      {/* Header */}
+      <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div className="flex items-center space-x-2">
+          <Flame className="w-5 h-5 text-orange-500 fill-orange-500" />
+          <h1 className="text-xl sm:text-2xl font-black tracking-wide text-slate-900 uppercase">
+            Trending Celebrities
           </h1>
-          <p className="mt-3 text-sm sm:text-base text-pink-100 font-medium">
-            Explore the most searched and highly viewed celebrities across film, television, music, sports, and creator culture right now.
-          </p>
         </div>
+        <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+          Live Daily Rank
+        </span>
       </div>
 
-      <section className="space-y-4">
-        <div className="flex items-center space-x-2 text-slate-900 border-b border-slate-200 pb-3">
-          <TrendingUp className="w-5 h-5 text-pink-600" />
-          <h2 className="text-xl font-bold tracking-tight">Top 100 Most Popular Stars</h2>
-        </div>
+      {/* Identical 2-Column Ranking List Format (Matching Homepage & Screenshot) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {trendingStars.map((celeb, idx) => {
+          const fakeBoost = ((idx * 179 + 423) % 4000) + 120;
+          return (
+            <Link
+              key={celeb.id}
+              href={`/people/${celeb.slug}`}
+              className="group flex items-center justify-between p-3 rounded-2xl bg-white hover:bg-pink-50/50 border border-slate-200/80 hover:border-pink-300 transition-all shadow-sm hover:shadow"
+            >
+              <div className="flex items-center space-x-3.5 min-w-0">
+                <div className="relative w-14 h-14 rounded-2xl overflow-hidden bg-slate-100 flex-shrink-0 border border-slate-200/80 shadow-xs">
+                  {celeb.image_url ? (
+                    <>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={celeb.image_url}
+                        alt={celeb.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                        loading="lazy"
+                      />
+                      <div className="absolute bottom-0.5 right-0.5 pointer-events-none z-10 flex items-center bg-slate-950/70 px-1 py-0.5 rounded shadow">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src="/starsbio-watermark.png" alt="StarsBio" className="h-1.5 w-auto object-contain brightness-110" />
+                      </div>
+                    </>
+                  ) : (
+                    <div className="w-full h-full bg-slate-700 flex items-center justify-center text-white text-sm font-bold">
+                      {celeb.name.charAt(0)}
+                    </div>
+                  )}
+                </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {trendingStars.map((celeb, idx) => (
-            <div key={celeb.id} className="relative group">
-              <div className="absolute top-2 left-2 z-20 bg-slate-950/80 backdrop-blur-md text-amber-400 font-black text-xs px-2.5 py-1 rounded-lg border border-amber-400/30 shadow-md">
-                #{idx + 1}
+                <div className="min-w-0">
+                  <p className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-pink-600 transition-colors truncate">
+                    {celeb.name}
+                  </p>
+                  <p className="text-xs text-slate-500 truncate">
+                    {celeb.primary_profession || 'Public Figure'}
+                  </p>
+                </div>
               </div>
-              <CelebrityCard celebrity={celeb} />
-            </div>
-          ))}
-        </div>
-      </section>
+
+              <div className="flex items-center space-x-2.5 flex-shrink-0 pl-2">
+                <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-black bg-emerald-50 text-emerald-600 border border-emerald-200/60">
+                  &uarr; {fakeBoost}
+                </span>
+                <span className="text-xs font-black text-slate-400">
+                  #{celeb.popularity_score || idx + 1}
+                </span>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }
+

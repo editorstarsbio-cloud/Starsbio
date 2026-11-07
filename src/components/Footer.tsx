@@ -63,18 +63,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/trending" className="hover:text-pink-400 font-semibold text-pink-300 transition-colors">
-                  🔥 Trending Top 100 Stars
+                <Link href="/trending" className="hover:text-white transition-colors">
+                  Trending Top 100 Stars
                 </Link>
               </li>
               <li>
-                <Link href="/birthplace" className="hover:text-emerald-400 font-semibold text-emerald-300 transition-colors">
-                  🌍 Stars by Birthplace & Country
+                <Link href="/birthplace" className="hover:text-white transition-colors">
+                  Stars by Birthplace & Country
                 </Link>
               </li>
               <li>
-                <Link href="/trivia" className="hover:text-purple-400 font-semibold text-purple-300 transition-colors">
-                  💡 Celebrity Trivia & Secrets
+                <Link href="/trivia" className="hover:text-white transition-colors">
+                  Celebrity Trivia & Secrets
                 </Link>
               </li>
               <li>
@@ -93,7 +93,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/in-memoriam" className="hover:text-rose-400 transition-colors">
+                <Link href="/in-memoriam" className="hover:text-white transition-colors">
                   In Memoriam Tribute
                 </Link>
               </li>

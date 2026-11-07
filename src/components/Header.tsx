@@ -45,41 +45,29 @@ export function Header() {
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3 pointer-events-none" />
           </form>
 
-          {/* Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-700">
+          {/* FamousBirthdays-Style Clean & Focused Navigation */}
+          <nav className="hidden lg:flex items-center space-x-5 text-sm font-semibold text-slate-700">
             <Link
               href={`/birthdays/${currentMonth}/${currentDay}`}
-              className="flex items-center space-x-1.5 hover:text-indigo-600 transition-colors"
+              className="flex items-center space-x-1.5 text-pink-600 hover:text-pink-700 transition-colors"
             >
-              <Calendar className="w-4 h-4 text-indigo-500" />
+              <Calendar className="w-4 h-4 text-pink-500" />
               <span>Born Today</span>
             </Link>
-            <Link href="/birthdays" className="hover:text-indigo-600 transition-colors">
-              Calendar
-            </Link>
-            <Link href="/trending" className="hover:text-pink-600 font-bold text-pink-600 transition-colors flex items-center space-x-1">
+            <Link href="/trending" className="hover:text-pink-600 transition-colors flex items-center space-x-1">
               <span>Trending</span>
             </Link>
-            <Link href="/birthplace" className="hover:text-emerald-600 font-medium transition-colors">
+            <Link href="/birthplace" className="hover:text-pink-600 transition-colors">
               Birthplaces
             </Link>
-            <Link href="/trivia" className="hover:text-purple-600 font-medium transition-colors">
+            <Link href="/trivia" className="hover:text-pink-600 transition-colors">
               Trivia
             </Link>
-            <Link href="/category" className="hover:text-indigo-600 transition-colors">
+            <Link href="/birthdays" className="hover:text-pink-600 transition-colors">
+              Calendar
+            </Link>
+            <Link href="/category" className="hover:text-pink-600 transition-colors">
               Categories
-            </Link>
-            <Link href="/zodiac" className="hover:text-indigo-600 transition-colors">
-              Zodiac Signs
-            </Link>
-            <Link href="/blog" className="hover:text-pink-600 text-pink-600 font-bold transition-colors">
-              Blog & Stories
-            </Link>
-            <Link href="/compare" className="hover:text-indigo-600 font-semibold transition-colors">
-              Compare
-            </Link>
-            <Link href="/in-memoriam" className="hover:text-rose-600 transition-colors font-semibold text-rose-500/90">
-              In Memoriam
             </Link>
           </nav>
 
@@ -108,56 +96,49 @@ export function Header() {
               />
               <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3 pointer-events-none" />
             </form>
-            <div className="flex flex-col space-y-2 text-sm font-medium text-slate-700">
+            <div className="flex flex-col space-y-1.5 text-sm font-semibold text-slate-700">
               <Link
                 href={`/birthdays/${currentMonth}/${currentDay}`}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-md hover:bg-slate-50 flex items-center space-x-2"
+                className="px-3 py-2 rounded-lg bg-pink-50 text-pink-600 flex items-center space-x-2"
               >
-                <Calendar className="w-4 h-4 text-indigo-500" />
+                <Calendar className="w-4 h-4 text-pink-500" />
                 <span>Born Today</span>
+              </Link>
+              <Link
+                href="/trending"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-800"
+              >
+                Trending Celebrities
+              </Link>
+              <Link
+                href="/birthplace"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-800"
+              >
+                Birthplaces & Countries
+              </Link>
+              <Link
+                href="/trivia"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-800"
+              >
+                Celebrity Trivia
               </Link>
               <Link
                 href="/birthdays"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-md hover:bg-slate-50"
+                className="px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-800"
               >
                 Birthday Calendar
               </Link>
               <Link
                 href="/category"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-md hover:bg-slate-50"
+                className="px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-800"
               >
                 Browse Categories
-              </Link>
-              <Link
-                href="/zodiac"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-md hover:bg-slate-50"
-              >
-                Zodiac Directory
-              </Link>
-              <Link
-                href="/compare"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-md hover:bg-slate-50 font-semibold text-indigo-600"
-              >
-                Compare Celebrities
-              </Link>
-              <Link
-                href="/blog"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-md hover:bg-pink-50 text-pink-600 font-bold"
-              >
-                Blog & Stories
-              </Link>
-              <Link
-                href="/in-memoriam"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-md hover:bg-rose-50 text-rose-600 font-semibold"
-              >
-                In Memoriam
               </Link>
             </div>
           </div>

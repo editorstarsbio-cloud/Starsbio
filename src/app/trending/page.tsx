@@ -4,25 +4,25 @@ import { Metadata } from 'next';
 import { getFeaturedCelebrities } from '@/lib/repository';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { SITE_CONFIG } from '@/lib/utils';
-import { Flame, ChevronRight } from 'lucide-react';
+import { Flame } from 'lucide-react';
 
 export const revalidate = 3600; // Hourly refresh
 
 export const metadata: Metadata = {
-  title: 'Trending Celebrities Today - Most Popular Famous Birthdays & Stars',
+  title: 'Top 100 Trending Celebrities Today - Most Popular Famous Stars | StarsBio',
   description:
-    'Discover the most popular and trending celebrities today on StarsBio. Live rankings of actors, musicians, YouTubers, and public figures with verified biographies and ages.',
+    'Discover the top 100 most popular and trending celebrities today on StarsBio. Live rankings of actors, musicians, YouTubers, and public figures with verified biographies and ages.',
   alternates: {
     canonical: `${SITE_CONFIG.siteUrl}/trending`,
   },
 };
 
 export default async function TrendingPage() {
-  const trendingStars = await getFeaturedCelebrities(50);
+  const trendingStars = await getFeaturedCelebrities(100);
 
   const breadcrumbs = [
     { label: 'Home', href: '/' },
-    { label: 'Trending Celebrities' },
+    { label: 'Trending Top 100' },
   ];
 
   return (
@@ -34,7 +34,7 @@ export default async function TrendingPage() {
         <div className="flex items-center space-x-2">
           <Flame className="w-5 h-5 text-orange-500 fill-orange-500" />
           <h1 className="text-xl sm:text-2xl font-black tracking-wide text-slate-900 uppercase">
-            Trending Celebrities
+            Trending Top 100 Celebrities
           </h1>
         </div>
         <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
@@ -100,4 +100,3 @@ export default async function TrendingPage() {
     </div>
   );
 }
-

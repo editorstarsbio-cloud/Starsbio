@@ -313,7 +313,13 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
               {celebrity.birthplace && (
                 <div>
                   <span className="text-slate-400 block uppercase font-medium">Birthplace</span>
-                  <span className="font-bold text-slate-800 truncate block">{celebrity.birthplace}</span>
+                  <Link
+                    href={`/birthplace/${(celebrity.birthplace.split(',').pop()?.trim() || '').toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+                    className="font-bold text-indigo-600 hover:text-indigo-800 hover:underline transition-colors truncate block"
+                    title={`View celebrities born in ${celebrity.birthplace.split(',').pop()?.trim()}`}
+                  >
+                    {celebrity.birthplace}
+                  </Link>
                 </div>
               )}
             </div>

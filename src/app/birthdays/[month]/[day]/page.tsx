@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: DailyArchiveProps): Promise<M
   }
 
   const monthName = getMonthName(month);
-  const title = `Celebrities Born on ${monthName} ${day} - Famous Birthdays`;
+  const title = `Celebrities Born on ${monthName} ${day} | StarsBio`;
   const description = `Explore public figures, actors, musicians, and creators born on ${monthName} ${day}. Discover verified biographies, current ages, and zodiac details.`;
 
   return {

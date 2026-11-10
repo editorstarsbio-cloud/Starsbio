@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: BirthplacePageProps): Promise
     return { title: 'Birthplace Not Found', robots: { index: false } };
   }
 
-  const title = `Celebrities Born in ${birthplace.name} - Famous Birthdays & Biographies`;
+  const title = `Celebrities Born in ${birthplace.name} | StarsBio Biographies`;
   const description = `Discover famous actors, singers, athletes, and public figures born in ${birthplace.name}. Explore verified birthdays, real ages, and life milestones on StarsBio.`;
 
   return {

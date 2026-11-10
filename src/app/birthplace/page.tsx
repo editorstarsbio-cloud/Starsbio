@@ -9,7 +9,7 @@ import { MapPin, Globe, ChevronRight } from 'lucide-react';
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: 'Celebrities by Birthplace & Country - Famous Birthdays Directory',
+  title: 'Celebrities by Birthplace & Country | StarsBio Directory',
   description:
     'Explore celebrities, actors, singers, athletes, and creators organized by their birthplace country and state. Verified birthdays and biographies on StarsBio.',
   alternates: {

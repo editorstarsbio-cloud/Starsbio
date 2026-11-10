@@ -7,6 +7,8 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { SITE_CONFIG } from '@/lib/utils';
 import { Bookmark } from 'lucide-react';
 
+export const revalidate = 86400; // Cache 1 day to save bandwidth
+
 interface CategoryPageProps {
   params: Promise<{ slug: string }>;
 }

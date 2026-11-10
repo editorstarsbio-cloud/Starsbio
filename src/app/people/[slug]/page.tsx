@@ -16,6 +16,9 @@ import { BirthdayCountdownWidget } from '@/components/BirthdayCountdownWidget';
 import { FloatingNextStarBar } from '@/components/FloatingNextStarBar';
 import { Calendar, Sparkles, ShieldCheck, ExternalLink, Bookmark, TrendingUp, Award, Users, MapPin } from 'lucide-react';
 
+// Cache profile pages statically for 1 day - saves Vercel Fast Origin Transfer bandwidth
+export const revalidate = 86400;
+
 interface ProfilePageProps {
   params: Promise<{ slug: string }>;
 }

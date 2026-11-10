@@ -8,6 +8,8 @@ import { CelebrityCard } from '@/components/CelebrityCard';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Calendar, ChevronLeft, ChevronRight, Compass } from 'lucide-react';
 
+export const revalidate = 86400; // Daily cache to save bandwidth
+
 interface DailyArchiveProps {
   params: Promise<{ month: string; day: string }>;
 }

@@ -7,6 +7,8 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { ZODIAC_SIGNS, SITE_CONFIG } from '@/lib/utils';
 import { Sparkles } from 'lucide-react';
 
+export const revalidate = 86400; // Cache 1 day to save bandwidth
+
 interface ZodiacPageProps {
   params: Promise<{ sign: string }>;
 }

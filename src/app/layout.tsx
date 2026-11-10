@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     google: 'qmFTJ0dRKRMYAX9Q4haRPTVjG8MmGswejuaY25Mmo7w',
     other: {
       'msvalidate.01': '25038A8801D42437BBC34723A41AC6C4',
+      'google-adsense-account': 'ca-pub-4766868021895107',
     },
   },
   openGraph: {

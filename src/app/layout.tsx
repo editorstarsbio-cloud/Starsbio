@@ -103,6 +103,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full bg-slate-50 antialiased">
       <head>
+        {/* Google AdSense Script */}
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4766868021895107"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
         {/* Google Analytics Tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-1YSK90BHGF"

@@ -23,12 +23,12 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        // Dynamic HTML pages: short cache so daily birthdays roll over smoothly at midnight
+        // Dynamic HTML pages: Cache on CDN for 1 hour, browser for 5 minutes
         source: '/((?!api|_next/static|_next/image|favicon.ico).*)',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, s-maxage=300, stale-while-revalidate=60',
+            value: 'public, max-age=300, s-maxage=3600, stale-while-revalidate=86400',
           },
         ],
       },
@@ -38,7 +38,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=604800, s-maxage=2592000, immutable',
+            value: 'public, max-age=2592000, s-maxage=2592000, stale-while-revalidate=86400',
           },
         ],
       },

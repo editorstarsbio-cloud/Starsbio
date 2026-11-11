@@ -17,33 +17,13 @@ export async function GET(
     return new NextResponse('Image Not Found', { status: 404 });
   }
 
-  try {
-    const upstreamRes = await fetch(targetUrl, {
-      headers: {
-        'User-Agent':
-          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        Accept: 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
-      },
-      next: { revalidate: 60 * 60 * 24 * 7 }, // Cache for 7 days
-    });
-
-    if (!upstreamRes.ok) {
-      return new NextResponse('Upstream image error', { status: upstreamRes.status });
-    }
-
-    const contentType = upstreamRes.headers.get('content-type') || 'image/jpeg';
-    const buffer = await upstreamRes.arrayBuffer();
-
-    return new NextResponse(buffer, {
-      status: 200,
-      headers: {
-        'Content-Type': contentType,
-        // Aggressive caching for performance & CDN delivery
-        'Cache-Control': 'public, max-age=604800, stale-while-revalidate=86400, immutable',
-        'Access-Control-Allow-Origin': '*',
-      },
-    });
-  } catch {
-    return new NextResponse('Error proxying image', { status: 500 });
-  }
+  // Instant 307 Temporary Redirect with 1-month CDN cache:
+  // Browser & Cloudflare cache this redirect. The client downloads directly
+  // from Wikimedia/Wikipedia, consuming 0 MB Vercel bandwidth!
+  return NextResponse.redirect(targetUrl, {
+    status: 307,
+    headers: {
+      'Cache-Control': 'public, max-age=2592000, s-maxage=2592000, stale-while-revalidate=86400',
+    },
+  });
 }

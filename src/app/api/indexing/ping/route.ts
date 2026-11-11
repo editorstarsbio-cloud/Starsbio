@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { SITE_CONFIG } from '@/lib/utils';
 import { getAllCelebrities } from '@/lib/repository';
 
-export const runtime = 'nodejs';
+export const runtime = 'edge';
 
 // POST /api/indexing/ping
 // Pings IndexNow (Bing, Yandex, Yahoo) with top trending URLs for instant crawl

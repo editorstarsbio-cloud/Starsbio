@@ -1,3 +1,4 @@
+export const runtime = 'edge';
 import React from 'react';
 import type { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/Breadcrumbs';

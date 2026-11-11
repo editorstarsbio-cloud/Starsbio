@@ -1,4 +1,3 @@
-export const runtime = 'edge';
 import { NextRequest, NextResponse } from 'next/server';
 import { getAllCelebrities, getAllCategories } from '@/lib/repository';
 import { ZODIAC_SIGNS } from '@/lib/utils';

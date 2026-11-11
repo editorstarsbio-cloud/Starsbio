@@ -1,4 +1,3 @@
-export const runtime = 'edge';
 import { NextResponse } from 'next/server';
 import { SITE_CONFIG } from '@/lib/utils';
 import { getAllCelebrities } from '@/lib/repository';

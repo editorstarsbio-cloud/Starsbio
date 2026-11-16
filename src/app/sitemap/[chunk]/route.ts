@@ -63,19 +63,15 @@ export async function GET(
       }
     }
 
-    // Categories (Audit v2: only index categories with >= 4 profiles to avoid thin hubs)
-    const { getCelebritiesByCategory } = await import('@/lib/repository');
+    // Categories (All categories in sitemap with rich hub intros)
     const categories = await getAllCategories();
     for (const cat of categories) {
-      const { celebrities } = await getCelebritiesByCategory(cat.slug, 5);
-      if (celebrities.length >= 4) {
-        xml += `  <url>\n    <loc>${BASE_URL}/category/${cat.slug}</loc>\n    <lastmod>${now}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
-      }
+      xml += `  <url>\n    <loc>${BASE_URL}/category/${cat.slug}</loc>\n    <lastmod>${now}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
     }
 
-    // Birthplaces / Countries (Audit v2: only index birthplaces with >= 4 profiles)
+    // Birthplaces / Countries
     const { getAllBirthplaces } = await import('@/lib/repository');
-    const birthplaces = await getAllBirthplaces(4);
+    const birthplaces = await getAllBirthplaces(1);
     for (const place of birthplaces) {
       xml += `  <url>\n    <loc>${BASE_URL}/birthplace/${place.slug}</loc>\n    <lastmod>${now}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
     }

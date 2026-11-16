@@ -15,14 +15,11 @@ interface CategoryPageProps {
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const { category, celebrities } = await getCelebritiesByCategory(slug, 10);
+  const { category } = await getCelebritiesByCategory(slug, 10);
 
   if (!category) {
     return { title: 'Category Not Found', robots: { index: false } };
   }
-
-  // Audit v2 Fix: Noindex thin category hubs (< 4 profiles) to protect crawl budget
-  const isThinHub = celebrities.length < 4;
 
   const title = `${category.name} Celebrities & Biographies`;
   const description = `Explore famous ${category.name} personalities, actors, creators, and public figures. Discover birthdays, career milestones, and ages on StarsBio.`;
@@ -30,7 +27,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   return {
     title,
     description,
-    robots: isThinHub ? { index: false, follow: true } : { index: true, follow: true },
+    robots: { index: true, follow: true },
     alternates: {
       canonical: `${SITE_CONFIG.siteUrl}/category/${category.slug}`,
     },
@@ -69,9 +66,14 @@ export default async function CategoryDetailPage({ params }: CategoryPageProps) 
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
           Famous {category.name} Personalities
         </h1>
-        <p className="text-sm text-slate-500 max-w-2xl leading-relaxed">
-          {category.description || `Verified profiles of renowned individuals whose primary profession is ${category.name}.`}
-        </p>
+        <div className="space-y-2 text-sm text-slate-600 max-w-3xl leading-relaxed">
+          <p>
+            {category.description || `Explore comprehensive profiles, verified birthdays, and career milestones of notable figures working as ${category.name}.`}
+          </p>
+          <p className="text-slate-500">
+            From breakthrough achievements to ongoing contributions, our editorial team continuously verifies birth dates, astrological sun signs, and factual career milestones across global {category.name.toLowerCase()} figures.
+          </p>
+        </div>
       </div>
 
       {celebrities.length > 0 ? (

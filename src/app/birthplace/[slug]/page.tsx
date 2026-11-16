@@ -22,16 +22,13 @@ export async function generateMetadata({ params }: BirthplacePageProps): Promise
     return { title: 'Birthplace Not Found', robots: { index: false } };
   }
 
-  // Audit v2 Fix: Noindex thin birthplace hubs (< 4 profiles) to prevent thin-content demotion
-  const isThinHub = (birthplace.count || 0) < 4;
-
   const title = `Celebrities Born in ${birthplace.name} | StarsBio`;
   const description = `Discover famous actors, singers, athletes, and public figures born in ${birthplace.name}. Explore verified birthdays, real ages, and life milestones on StarsBio.`;
 
   return {
     title,
     description,
-    robots: isThinHub ? { index: false, follow: true } : { index: true, follow: true },
+    robots: { index: true, follow: true },
     alternates: {
       canonical: `${SITE_CONFIG.siteUrl}/birthplace/${birthplace.slug}`,
     },
@@ -72,9 +69,14 @@ export default async function BirthplaceDetailPage({ params }: BirthplacePagePro
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Celebrities Born in {birthplace.name}
           </h1>
-          <p className="mt-2 text-sm sm:text-base text-slate-600 max-w-2xl">
-            Browse through famous creators, actors, singers, and influential figures born in {birthplace.name}. Discover their verified birthdays, ages, and life stories.
-          </p>
+          <div className="mt-2 text-sm sm:text-base text-slate-600 max-w-2xl space-y-2">
+            <p>
+              Browse through famous creators, actors, singers, and influential figures born in {birthplace.name}. Discover their verified birthdays, ages, and life stories.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-500">
+              Each profile includes verified birth data, chronological career milestones, family background, and dynamic zodiac calculations maintained by StarsBio editors.
+            </p>
+          </div>
         </div>
 
         <div className="bg-slate-50 border border-slate-200 px-5 py-3 rounded-2xl flex items-center space-x-3 shrink-0">

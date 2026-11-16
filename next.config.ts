@@ -37,28 +37,12 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        // Dynamic HTML pages: Cache on CDN for 1 hour, browser for 5 minutes + Security Headers
+        // Dynamic HTML pages: Cache on CDN for 1 hour, browser for 5 minutes
         source: '/((?!api|_next/static|_next/image|favicon.ico).*)',
         headers: [
           {
             key: 'Cache-Control',
             value: 'public, max-age=300, s-maxage=3600, stale-while-revalidate=86400',
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin',
-          },
-          {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()',
           },
         ],
       },

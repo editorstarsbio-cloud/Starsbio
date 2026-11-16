@@ -3,6 +3,7 @@ import { getAllCelebrities, getAllCategories } from '@/lib/repository';
 import { ZODIAC_SIGNS } from '@/lib/utils';
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 2592000; // 30 days CDN cache to save Vercel Origin Bandwidth
 
 const CHUNK_SIZE = 5000;
 const BASE_URL = 'https://www.starsbio.co.uk';
@@ -87,7 +88,7 @@ export async function GET(
       status: 200,
       headers: {
         'Content-Type': 'application/xml',
-        'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+        'Cache-Control': 'public, max-age=2592000, s-maxage=2592000, stale-while-revalidate=86400',
       },
     });
   }
@@ -124,7 +125,7 @@ export async function GET(
     status: 200,
     headers: {
       'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+      'Cache-Control': 'public, max-age=2592000, s-maxage=2592000, stale-while-revalidate=86400',
     },
   });
 }

@@ -8,8 +8,8 @@ import { BirthdayTwinFinder } from '@/components/BirthdayTwinFinder';
 import { Metadata } from 'next';
 import { getMonthName, SITE_CONFIG } from '@/lib/utils';
 
-// Revalidate every 5 minutes so birthdays refresh at midnight without stale cache
-export const revalidate = 300;
+// Revalidate every 1 hour (was 5 mins) to prevent Fast Origin Transfer consumption
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
   // P1-2 Fix: static description ≤155 chars that never changes daily

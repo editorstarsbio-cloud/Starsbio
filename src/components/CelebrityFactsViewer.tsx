@@ -27,15 +27,16 @@ export function CelebrityFactsViewer({ celebrity, associatedPeer }: CelebrityFac
   const domainTerm = isAthlete ? 'athletic excellence and sporting achievements' : 'distinguished talent and dedication';
   const audienceTerm = isAthlete ? 'sports fans and international spectators' : 'global audiences and peers';
 
+  // 1. About section - Unique and direct without templated filler
   const bioExcerpt = sentences.slice(0, 2).join('').trim();
   const aboutText = (
     <span>
       {bioExcerpt ? `${bioExcerpt} ` : ''}
-      As a world-renowned{' '}
+      Known as a prominent{' '}
       <Link href={professionLink} className="text-pink-600 hover:underline font-semibold">
         {professionText}
       </Link>
-      , {celebrity.name} has earned widespread acclaim for {domainTerm}. Their achievements continue to inspire {audienceTerm} worldwide.
+      , {celebrity.name} has built a distinguished career recognized for {domainTerm}.
     </span>
   );
 
@@ -44,13 +45,12 @@ export function CelebrityFactsViewer({ celebrity, associatedPeer }: CelebrityFac
   const beforeFameText = (
     <span>
       {beforeFameExcerpt ? `${beforeFameExcerpt} ` : ''}
-      Before achieving global recognition as an elite{' '}
+      Prior to establishing their career as a{' '}
       <Link href={professionLink} className="text-pink-600 hover:underline font-semibold">
         {professionText}
       </Link>
-      , {celebrity.name} spent formative early years mastering their discipline
+      , {celebrity.name} developed their craft and early pursuits
       {celebrity.birthplace ? ` in ${celebrity.birthplace}` : ''}.
-      Relentless training, early competitive experiences, and perseverance laid the groundwork for their breakthrough success.
     </span>
   );
 

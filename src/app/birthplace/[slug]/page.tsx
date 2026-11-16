@@ -22,12 +22,16 @@ export async function generateMetadata({ params }: BirthplacePageProps): Promise
     return { title: 'Birthplace Not Found', robots: { index: false } };
   }
 
-  const title = `Celebrities Born in ${birthplace.name} | StarsBio Biographies`;
+  // Audit v2 Fix: Noindex thin birthplace hubs (< 4 profiles) to prevent thin-content demotion
+  const isThinHub = (birthplace.count || 0) < 4;
+
+  const title = `Celebrities Born in ${birthplace.name} | StarsBio`;
   const description = `Discover famous actors, singers, athletes, and public figures born in ${birthplace.name}. Explore verified birthdays, real ages, and life milestones on StarsBio.`;
 
   return {
     title,
     description,
+    robots: isThinHub ? { index: false, follow: true } : { index: true, follow: true },
     alternates: {
       canonical: `${SITE_CONFIG.siteUrl}/birthplace/${birthplace.slug}`,
     },

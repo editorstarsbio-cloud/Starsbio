@@ -163,6 +163,8 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
     ? (celebrity.image_url.startsWith('http') ? celebrity.image_url : `${SITE_CONFIG.siteUrl}${celebrity.image_url}`)
     : `${SITE_CONFIG.siteUrl}/og-image.png`;
 
+  const personImage = celebrity.image_url ? fullImageUrl : undefined;
+
   const personJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ProfilePage',
@@ -174,18 +176,23 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
       birthPlace: celebrity.birthplace ? { '@type': 'Place', name: celebrity.birthplace } : undefined,
       jobTitle: celebrity.primary_profession || undefined,
       description: celebrity.biography || undefined,
-      image: fullImageUrl,
+      image: personImage,
       url: `${SITE_CONFIG.siteUrl}/people/${celebrity.slug}`,
+      sameAs: [
+        `https://en.wikipedia.org/wiki/${encodeURIComponent(celebrity.name.replace(/\s+/g, '_'))}`,
+      ],
     },
-    primaryImageOfPage: {
-      '@type': 'ImageObject',
-      url: fullImageUrl,
-      caption: `${celebrity.name} profile portrait`,
-    },
+    primaryImageOfPage: personImage
+      ? {
+          '@type': 'ImageObject',
+          url: personImage,
+          caption: `${celebrity.name} profile portrait`,
+        }
+      : undefined,
   };
 
   const breadcrumbs = [
-    { label: 'People', href: '/search' },
+    { label: 'People', href: '/people' },
     celebrity.primary_profession
       ? { label: celebrity.primary_profession, href: `/category/${generateSlug(celebrity.primary_profession)}` }
       : { label: 'Profiles', href: '/' },

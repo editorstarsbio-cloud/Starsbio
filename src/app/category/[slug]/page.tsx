@@ -15,18 +15,22 @@ interface CategoryPageProps {
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const { category } = await getCelebritiesByCategory(slug);
+  const { category, celebrities } = await getCelebritiesByCategory(slug, 10);
 
   if (!category) {
     return { title: 'Category Not Found', robots: { index: false } };
   }
 
+  // Audit v2 Fix: Noindex thin category hubs (< 4 profiles) to protect crawl budget
+  const isThinHub = celebrities.length < 4;
+
   const title = `${category.name} Celebrities & Biographies`;
-  const description = `Explore famous ${category.name} personalities, actors, creators, and public figures. Discover birthdays, career milestones, and ages.`;
+  const description = `Explore famous ${category.name} personalities, actors, creators, and public figures. Discover birthdays, career milestones, and ages on StarsBio.`;
 
   return {
     title,
     description,
+    robots: isThinHub ? { index: false, follow: true } : { index: true, follow: true },
     alternates: {
       canonical: `${SITE_CONFIG.siteUrl}/category/${category.slug}`,
     },

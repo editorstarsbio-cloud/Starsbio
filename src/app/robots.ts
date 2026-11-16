@@ -11,7 +11,7 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: 'Googlebot-Image',
-        allow: ['/api/celebrity-image/', '/public/', '/starsbio-watermark.png'],
+        allow: ['/', '/api/celebrity-image/', '/public/', '/starsbio-watermark.png'],
         disallow: [],
       },
     ],

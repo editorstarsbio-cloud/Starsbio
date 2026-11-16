@@ -46,17 +46,52 @@ export async function generateMetadata({ params }: ProfilePageProps): Promise<Me
     rawTitle = `${celebrity.name} - Age, Bio & Facts`;
   }
 
-  // FamousBirthdays-Style Meta Snippet: Direct engaging biography hook + verified age & facts
+  // P0-4 Fix: Meta description — complete sentence, 145-155 chars, no "..." truncation
+  // Template: "{Name}, {category}, born {date} in {place}. Age {n}, bio, birthday & family."
   let description = '';
-  if (celebrity.biography && celebrity.biography.trim().length > 20) {
+  const birthYear = celebrity.birth_date ? celebrity.birth_date.split('-')[0] : null;
+  const birthPlace = celebrity.birthplace || null;
+  const ageNow = celebrity.birth_date ? (() => {
+    const now = new Date();
+    const bYear = parseInt(celebrity.birth_date!.split('-')[0]);
+    const bMonth = parseInt(celebrity.birth_date!.split('-')[1]);
+    const bDay = parseInt(celebrity.birth_date!.split('-')[2]);
+    let age = now.getFullYear() - bYear;
+    if (now.getMonth() + 1 < bMonth || (now.getMonth() + 1 === bMonth && now.getDate() < bDay)) age--;
+    return age;
+  })() : null;
+
+  if (celebrity.biography && celebrity.biography.trim().length > 40) {
     const cleanBio = celebrity.biography.replace(/\s+/g, ' ').trim();
-    if (cleanBio.length > 155) {
-      description = `${cleanBio.slice(0, 152).trim()}...`;
-    } else {
+    // Find the last sentence boundary (. ! ?) that keeps us under 150 chars
+    if (cleanBio.length <= 150) {
       description = cleanBio;
+    } else {
+      // Slice at last complete sentence within 148 chars
+      const slice = cleanBio.slice(0, 148);
+      const lastPeriod = Math.max(slice.lastIndexOf('. '), slice.lastIndexOf('! '), slice.lastIndexOf('? '));
+      if (lastPeriod > 60) {
+        description = cleanBio.slice(0, lastPeriod + 1).trim();
+      } else {
+        // Fall back to structured template — always a complete sentence
+        const parts: string[] = [`${celebrity.name}, ${profession}`];
+        if (birthYear && birthPlace) parts.push(`born ${birthYear} in ${birthPlace}`);
+        else if (birthYear) parts.push(`born ${birthYear}`);
+        if (ageNow) parts.push(`age ${ageNow}`);
+        description = `${parts.join(', ')}. Biography, birthday, family & facts on StarsBio.`;
+      }
     }
   } else {
-    description = `Discover ${celebrity.name} (${profession}) verified birthday, age, family life, zodiac sign, career trivia, and full biography on StarsBio.`;
+    // Structured template — always complete, never truncated
+    const parts: string[] = [`${celebrity.name}, ${profession}`];
+    if (birthYear && birthPlace) parts.push(`born ${birthYear} in ${birthPlace}`);
+    else if (birthYear) parts.push(`born ${birthYear}`);
+    if (ageNow) parts.push(`age ${ageNow}`);
+    description = `${parts.join(', ')}. Biography, birthday, family & facts on StarsBio.`;
+  }
+  // Final safety: trim to 155 chars at a word boundary — but never add "..."
+  if (description.length > 155) {
+    description = description.slice(0, 155).replace(/\s+\S*$/, '').trim();
   }
 
   const profileImageUrl = celebrity.image_url

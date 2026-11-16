@@ -10,7 +10,20 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: '**.wikipedia.org' },
       { protocol: 'https', hostname: 'www.famousbirthdays.com' },
       { protocol: 'https', hostname: 'famousbirthdays.com' },
+      // Self-hosted R2 images
+      { protocol: 'https', hostname: 'images.starsbio.co.uk' },
     ],
+  },
+  async redirects() {
+    return [
+      // P0-2 Fix: Lil Boosie → Boosie Badazz (same person, duplicate URLs)
+      {
+        source: '/people/lil-boosie',
+        destination: '/people/boosie-badazz',
+        permanent: true,
+      },
+      // P0-2: Add other known duplicate stage-name/real-name pairs here as discovered
+    ];
   },
   turbopack: {
     rules: {

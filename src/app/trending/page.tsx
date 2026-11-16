@@ -9,11 +9,21 @@ import { Flame } from 'lucide-react';
 export const revalidate = 3600; // Hourly refresh
 
 export const metadata: Metadata = {
-  title: 'Top 100 Trending Celebrities Today - Most Popular Famous Stars | StarsBio',
+  // P1-1 Fix: single brand suffix, ≤60 chars
+  title: 'Top 100 Trending Celebrities Today',
   description:
-    'Discover the top 100 most popular and trending celebrities today on StarsBio. Live rankings of actors, musicians, YouTubers, and public figures with verified biographies and ages.',
+    'Discover the 100 most popular celebrities today on StarsBio — actors, musicians, YouTubers and public figures with verified biographies, ages and birthdays.',
   alternates: {
     canonical: `${SITE_CONFIG.siteUrl}/trending`,
+  },
+  openGraph: {
+    title: 'Top 100 Trending Celebrities Today',
+    description:
+      'Discover the 100 most popular celebrities today on StarsBio — actors, musicians, YouTubers and public figures with verified biographies, ages and birthdays.',
+    type: 'website',
+    // P2-2 Fix: og:url must match the page canonical, not homepage
+    url: `${SITE_CONFIG.siteUrl}/trending`,
+    images: [{ url: `${SITE_CONFIG.siteUrl}/og-image.png`, width: 1200, height: 630, alt: 'Trending Celebrities' }],
   },
 };
 

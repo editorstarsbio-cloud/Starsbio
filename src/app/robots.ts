@@ -6,8 +6,17 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: ['/', '/api/celebrity-image/'],
-        disallow: ['/search?', '/api/cron/'],
+        allow: [
+          '/',
+          '/api/celebrity-image/',
+          // P1-6 Fix: Allow /search so SearchAction (JSON-LD) is not contradicted.
+          // The search results page has a canonical + noindex so it won't pollute index.
+          '/search',
+        ],
+        disallow: [
+          '/search?',    // Block query-string search URLs from index (but allow the page itself)
+          '/api/cron/',
+        ],
       },
       {
         userAgent: 'Googlebot-Image',

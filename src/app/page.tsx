@@ -12,36 +12,20 @@ import { getMonthName, SITE_CONFIG } from '@/lib/utils';
 export const revalidate = 300;
 
 export async function generateMetadata(): Promise<Metadata> {
-  const now = new Date();
-  const currentMonth = now.getUTCMonth() + 1;
-  const currentDay = now.getUTCDate();
-  const todayStars = await getCelebritiesBornOn(currentMonth, currentDay, 4);
-
-  // Exact FamousBirthdays Homepage Snippet formula:
-  // "Today's Birthdays ; Hudson Stone, 15. Guitarist ; Melanie Moreno, 25. Reality Star ; ..."
-  let dynamicDesc = '';
-  if (todayStars.length > 0) {
-    const listPart = todayStars
-      .map((c) => {
-        const age = now.getUTCFullYear() - parseInt(c.birth_date.slice(0, 4));
-        return `${c.name}, ${age}. ${c.primary_profession || 'Public Figure'}`;
-      })
-      .join(' ; ');
-    dynamicDesc = `Today's Birthdays ; ${listPart}. Discover real ages, biographies, and trending profiles on StarsBio.`;
-  } else {
-    dynamicDesc =
-      'StarsBio: Today\'s Celebrity Birthdays, real ages, and biographies of movie actors, musicians, athletes, and influencers.';
-  }
+  // P1-2 Fix: static description ≤155 chars that never changes daily
+  // Keep dynamic birthday list in the page BODY, not meta description
+  const STATIC_DESC =
+    "Today's celebrity birthdays, ages & biographies. Find any star's age, birthday, zodiac & life story on StarsBio.";
 
   return {
     title: "StarsBio: Today's Celebrity Birthdays, Ages & Biographies",
-    description: dynamicDesc,
+    description: STATIC_DESC,
     alternates: {
       canonical: SITE_CONFIG.siteUrl,
     },
     openGraph: {
       title: "StarsBio: Today's Celebrity Birthdays, Ages & Biographies",
-      description: dynamicDesc,
+      description: STATIC_DESC,
       type: 'website',
       url: SITE_CONFIG.siteUrl,
       images: [
